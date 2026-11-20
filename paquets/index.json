@@ -1,0 +1,54 @@
+{
+  "depot": "Youdzyo/ydz-os",
+  "format": 1,
+  "versions": [
+    {
+      "version": "1.0.9",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.9.zip",
+      "taille": 381635,
+      "sha256": "38257c57dd8a451a94d701df7fcebe5cc6c9c7eeb1eb2816bc88105e36ece739",
+      "notes": "notes/1.0.9.md"
+    },
+    {
+      "version": "1.0.10",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.10.zip",
+      "taille": 397001,
+      "sha256": "e5fc4ad027d385cf3b04ba50b55a4161e94c535b80bc00acfb86867012c93618",
+      "notes": "notes/1.0.10.md"
+    },
+    {
+      "version": "1.0.11",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.11.zip",
+      "taille": 426953,
+      "sha256": "b6c7af1f6bf06cedc71ba8c03de827daebb29ad94bdbf8546ab9d395172e59cf",
+      "notes": "notes/1.0.11.md"
+    },
+    {
+      "version": "1.0.12",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.12.zip",
+      "taille": 461755,
+      "sha256": "0a580bb67c80f9ad89974c7f4924b504b8c1509441f8d0739344c419a039b9a4",
+      "notes": "notes/1.0.12.md"
+    },
+    {
+      "version": "1.0.13",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.13.zip",
+      "taille": 510559,
+      "sha256": "b9e8d6a5f73fb6e0d914f270507fde1cd023fa8eb0f7a4a990af1d8d8b1078f6",
+      "notes": "notes/1.0.13.md"
+    },
+    {
+      "version": "1.0.14",
+      "titre": "## Ajouté",
+      "fichier": "ydz-1.0.14.zip",
+      "taille": 525311,
+      "sha256": "92fa5c8fd0cd78371e71a1e6469c5f4c373f9e0300bdd8d2288fd111ea2511e6",
+      "notes": "notes/1.0.14.md"
+    }
+  ]
+}
