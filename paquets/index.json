@@ -49,6 +49,14 @@
       "taille": 525311,
       "sha256": "92fa5c8fd0cd78371e71a1e6469c5f4c373f9e0300bdd8d2288fd111ea2511e6",
       "notes": "notes/1.0.14.md"
+    },
+    {
+      "version": "1.0.15",
+      "titre": "YDZ OS 1.0.15 — Sécurité",
+      "fichier": "ydz-1.0.15.zip",
+      "taille": 568182,
+      "sha256": "ae5f153239595f538fdffdea5a3a68ff9e16d64b515c24d8e7731f3a82a92937",
+      "notes": "notes/1.0.15.md"
     }
   ]
 }

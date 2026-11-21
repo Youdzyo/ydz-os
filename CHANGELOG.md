@@ -1,8 +1,25 @@
 # Changelog
 
 Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la plus récente à la plus ancienne.
-Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) sont dans les
-[Releases](https://github.com/Youdzyo/ydz-os/releases).
+Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
+sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
+
+## [1.0.15] — 2026-11-22 — Sécurité
+
+### Ajouté
+- Écran de verrouillage sur le téléphone et l'ordinateur : rien ne s'affiche ni ne se charge sans le code.
+- Contrôle réseau léger toutes les heures (débit, latence, perte, Wi-Fi), avec alerte en cas de coupure ou de débit faible.
+- Mises à jour automatiques depuis le dépôt GitHub (`paquets/index.json`), vérifiées par empreinte SHA-256.
+
+### Corrigé / Sécurité
+- Les 20 failles de l'audit de sécurité sont corrigées (faux appareil réseau, contournement du code PIN, signatures entre Pi, « DNS rebinding », etc.).
+- Sauvegardes désormais chiffrées (AES-256) et envoyées en SMB3 chiffré.
+- Faille trouvée lors de l'attaque menée sur cette version : le flux temps réel (`/api/events`) laissait consulter la tour sans le code — corrigée avant publication.
+
+### À faire après l'installation
+- Installer la 1.0.15 à la main une dernière fois ; ensuite les versions arrivent toutes seules.
+- Passer le code PIN à 6 chiffres ou plus (une bannière mène au bon endroit).
+- Noter la phrase secrète de sauvegarde (Réglages → Sauvegarde) : elle est gardée sur la tour et sert à restaurer une archive chiffrée.
 
 ## [1.0.14] — 2026-11-20 — Mises à jour automatiques
 
