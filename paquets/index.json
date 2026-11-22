@@ -113,6 +113,14 @@
       "taille": 672687,
       "sha256": "73bb5acc235dd38d9254d710069cf3a718122069f340e2d2624821d367f4e97d",
       "notes": "notes/1.0.20.md"
+    },
+    {
+      "version": "1.0.20.1",
+      "titre": "YDZ OS 1.0.20.1 — Correctif Canal Claude",
+      "fichier": "ydz-1.0.20.1.zip",
+      "taille": 12557,
+      "sha256": "5b915f9e7a0cc9ab74b856b817cb7de3ff8b2caad19bd6f9f74ba03776f90cd8",
+      "notes": "notes/1.0.20.1.md"
     }
   ]
 }

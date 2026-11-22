@@ -4,6 +4,14 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.20.1] — 2026-11-22 — Correctif Canal Claude
+
+### Corrigé
+- **Canal Claude** : erreur « too many values to unpack » qui empêchait la lecture du flux ntfy (le code ne déballait que 2 valeurs sur les 3 renvoyées). Les agents signés de l'appli Claude peuvent de nouveau s'afficher sur l'écran de la tour.
+
+### Sécurité
+- Rétablit un comportement déjà audité (affichage seul, signature HMAC obligatoire). Contrôle offensif ciblé sur le chemin remis en service : flux malformé, signatures forgées et flot massif rejetés sans planter. Test de non-régression ajouté — 421 tests au vert.
+
 ## [1.0.20] — 2026-11-22 — iPhone Bluetooth
 
 ### Ajouté
