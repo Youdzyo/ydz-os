@@ -4,6 +4,17 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.21] — 2026-11-22 — Gestion du disque
+
+### Ajouté
+- **Répartition du disque système** dans l'onglet Stockage : ce qui occupe la place, poste par poste (apps/conteneurs Docker, sauvegardes de paquets, cache apt, journaux, cache Docker inutilisé, reste).
+- **Bouton « Libérer de l'espace »** (niveau action, PIN/écran local) avec aperçu de ce qui sera récupéré avant confirmation : purge Docker **inutilisé seulement** (jamais les apps actives), suppression des vieilles sauvegardes (garde les N récentes), apt clean, vacuum des journaux.
+- **Garde-fous** : alerte disque à deux niveaux (≥85 % / ≥95 %) et **réserve d'espace** (~1,5 Go) pour qu'une mise à jour OTA puisse toujours s'installer ; une installation d'app est refusée tôt si le disque est trop plein.
+
+### Sécurité
+- Tout tourne en root : actions destructrices réservées au niveau action, jamais au réseau anonyme, avec aperçu + confirmation. `sys.run` toujours en liste (pas de shell) ; prune Docker à sous-commandes fixes (jamais `-a`/`rm`/`down`) ; suppressions limitées aux sous-dossiers horodatés de `/var/lib/ydz/sauvegardes/` (pas de « .. », pas de symlink suivi).
+- **Attaque menée avant publication** (axée sur les suppressions) : aucune suppression hors zone, aucune injection, aucun accès anonyme, aucun plantage du démon — prouvé par PoC. Une faiblesse mineure (A-21-01) corrigée + deux durcissements. 453 tests au vert.
+
 ## [1.0.20.1] — 2026-11-22 — Correctif Canal Claude
 
 ### Corrigé

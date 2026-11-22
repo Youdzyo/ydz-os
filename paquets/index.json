@@ -121,6 +121,14 @@
       "taille": 12557,
       "sha256": "5b915f9e7a0cc9ab74b856b817cb7de3ff8b2caad19bd6f9f74ba03776f90cd8",
       "notes": "notes/1.0.20.1.md"
+    },
+    {
+      "version": "1.0.21",
+      "titre": "YDZ OS 1.0.21 — Gestion du disque",
+      "fichier": "ydz-1.0.21.zip",
+      "taille": 682775,
+      "sha256": "a764760130b06c64faac7860e5428fe1939978bbb25694c5b710e6ba33344fe4",
+      "notes": "notes/1.0.21.md"
     }
   ]
 }
