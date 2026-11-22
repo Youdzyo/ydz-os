@@ -25,7 +25,7 @@ sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour le
 
 **Mises à jour automatiques** : à partir de cette version, les nouvelles versions de YDZ OS arrivent toutes seules depuis ce dépôt.
 
-> Installer après la 1.0.13. **À installer à la main une dernière fois** (Réglages → Mises à jour, ou dépôt du `.zip`) : ensuite, les versions suivantes arrivent toutes seules.
+> Installer après la 1.0.13. ⚠️ Cette version lisait les *Releases* de GitHub (non utilisées), donc ses mises à jour automatiques ne trouvaient rien : c'est la **1.0.15** qui corrige la source (dossier `paquets/`) et devient la dernière à installer à la main.
 
 ### Ajouté
 - **Vérification automatique** des nouvelles versions sur GitHub (dépôt public `Youdzyo/ydz-os`) toutes les 6 heures, ou à la demande avec **« Rechercher des mises à jour »**. Une seule requête à l'API publique, sans compte (l'ETag évite de tout retélécharger ; limite de débit de GitHub respectée).
@@ -47,7 +47,7 @@ sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour le
 - Chaque version garde sa sauvegarde : « Annuler ce paquet » marche une version à la fois.
 
 ### À faire après l'installation
-- **Installer cette version à la main une fois** ; les suivantes arriveront toutes seules.
+- **Installer cette version à la main** (sa source de mises à jour ne lisait pas encore le dépôt — voir 1.0.15).
 - `apres.sh` crée `/var/lib/ydz/maj` (droits 700), installe `wlr-randr` / `wlopm` si besoin et teste l'accès à GitHub (jamais bloquant).
 - Facultatif : activer « Installer automatiquement la nuit » dans Réglages → Mises à jour.
 
