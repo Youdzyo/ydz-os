@@ -4,6 +4,21 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.17] — 2026-11-22 — Catalogue d'applications
+
+### Ajouté
+- Un vrai magasin d'applications : **plus de 130 applications** (Immich, Jellyfin, Plex, les *arr, Grafana, Paperless, Mealie, Forgejo, Ollama…) avec recherche, catégories, filtres et une fiche détaillée par app (à quoi ça sert, pour qui, difficulté, mémoire, ce que ça remplace).
+
+### Sécurité
+- Attaque menée avant publication : deux correctifs. Une faille grave d'installation (certaines apps pouvaient monter tout le disque du Pi via un chemin piégé) — le confinement sous `/srv/ydz` s'applique à tout réglage de dossier. Le catalogue, qui révélait les adresses internes des nœuds, passe derrière le code.
+- Les apps à droits étendus (socket Docker, réseau hôte, USB) sont signalées avant l'installation.
+- Inclut le correctif écran de la 1.0.16.1.
+
+## [1.0.16.1] — 2026-11-22 — Correctif urgent (écran)
+
+### Corrigé
+- **Écran du Pi noir** après le durcissement du 1.0.15 : labwc et Chromium ne pouvaient plus écrire leur dossier de travail. Dossier toujours inscriptible + dossier d'exécution autorisé. À installer à la main.
+
 ## [1.0.16] — 2026-11-22 — Espace visiteurs
 
 ### Ajouté

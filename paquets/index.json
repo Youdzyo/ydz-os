@@ -73,6 +73,14 @@
       "taille": 19350,
       "sha256": "261fadb57a10735f45455f67795789fa279ff89b08014d9212c6612617d7a849",
       "notes": "notes/1.0.16.1.md"
+    },
+    {
+      "version": "1.0.17",
+      "titre": "YDZ OS 1.0.17 — Catalogue d'applications",
+      "fichier": "ydz-1.0.17.zip",
+      "taille": 877817,
+      "sha256": "2e654bb8816ab225282641cd3b91d83ad2a7a17af8788d69bba80bce79c01890",
+      "notes": "notes/1.0.17.md"
     }
   ]
 }
