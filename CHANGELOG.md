@@ -4,6 +4,17 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.16] — 2026-11-22 — Espace visiteurs
+
+### Ajouté
+- Un **espace visiteurs** séparé pour les amis : adresse et état des serveurs de jeu, état de la tour, sans rien de l'administration. Bouton « Créer un serveur » présent mais désactivé (« Bientôt »).
+- Éteint par défaut. Dans Réglages → Espace visiteurs : activer, copier le lien secret à partager, générer un nouveau lien (l'ancien meurt aussitôt), tout couper.
+
+### Sécurité
+- Programme séparé et sans privilège (`ydz-visiteur`), isolé de la tour ; les données ne circulent que dans un sens (liste blanche). Jamais de noms, IP, MAC, Wi-Fi, versions ni journaux.
+- Lien public via Tailscale Funnel sur son propre port (8443) uniquement ; garde-fou contre toute exposition de l'interface, des nœuds, du terminal ou d'une application.
+- Attaque menée avant publication : sûr à exposer sur Internet ; trois durcissements ajoutés (nettoyage des textes publics, comparaison du lien en temps constant).
+
 ## [1.0.15] — 2026-11-22 — Sécurité
 
 ### Ajouté

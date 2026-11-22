@@ -57,6 +57,14 @@
       "taille": 568182,
       "sha256": "ae5f153239595f538fdffdea5a3a68ff9e16d64b515c24d8e7731f3a82a92937",
       "notes": "notes/1.0.15.md"
+    },
+    {
+      "version": "1.0.16",
+      "titre": "YDZ OS 1.0.16 — Espace visiteurs",
+      "fichier": "ydz-1.0.16.zip",
+      "taille": 591185,
+      "sha256": "6085e3147d4af9d2808b3568523d4db1028e7521707938af8c7041943f9c5010",
+      "notes": "notes/1.0.16.md"
     }
   ]
 }
