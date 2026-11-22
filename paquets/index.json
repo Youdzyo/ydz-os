@@ -97,6 +97,14 @@
       "taille": 9515,
       "sha256": "049e4ed0354c1865ed6d3af8973ead06b4c3238322299777d2a8dc87e6d6864d",
       "notes": "notes/1.0.18.1.md"
+    },
+    {
+      "version": "1.0.19",
+      "titre": "YDZ OS 1.0.19 — Agents",
+      "fichier": "ydz-1.0.19.zip",
+      "taille": 684636,
+      "sha256": "031b232b1373fc94578fc888209bd3cb391afab1a034abde0c13f22baa548a80",
+      "notes": "notes/1.0.19.md"
     }
   ]
 }

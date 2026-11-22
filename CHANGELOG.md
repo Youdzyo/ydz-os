@@ -4,6 +4,19 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.19] — 2026-11-22 — Agents
+
+### Ajouté
+- **Agents assistants** (menu « Agents ») : une petite équipe de « mini-Claude » à qui confier une tâche en français ; suivi de leur travail (en attente → travaille → terminé / besoin d'aide / erreur).
+- **Cerveau au choix** : en local via l'app **Ollama** (rien ne sort de la tour) ou une **API en ligne** (adresse + clé, rangée comme un secret).
+- **« Les Bureaux de Claude »** : 4ᵉ page pixel-art de l'écran de la tour, dessinée entièrement en code — mur des tâches, agents qui bossent, bulles d'état (… ? ! ✓), le directeur (Claude) qui vient aider un agent bloqué, pauses café, ambiance jour/nuit, thème de Noël en décembre. Personnalisation poussée (noms, couleurs, accessoires, personnalités).
+- **Canal Claude** (ntfy signé) : voir en direct, sur l'écran, les agents que Claude fait tourner pour toi dans l'appli.
+
+### Sécurité
+- Un modèle de langage **ne peut jamais prendre la main sur le Pi** : liste fermée de lecteurs seulement, tout outil inconnu ou dangereux est refusé, chaque tâche est bornée (délai, allers-retours, taille).
+- Le Canal Claude est un **simple affichage** : transport public traité comme hostile, signature HMAC obligatoire (fraîche et jamais vue), textes échappés/bornés/nettoyés, rien n'est exécuté.
+- **Attaque menée avant publication — A-19-01 corrigée avant publication** : une adresse d'API en ligne piégée (réseau local, loopback, métadonnée) aurait pu faire exfiltrer la clé « Bearer » vers un hôte interne. Corrigé : l'adresse doit viser Internet, vérifiée à l'enregistrement **et** juste avant chaque appel (anti re-pointage DNS). 391 tests au vert.
+
 ## [1.0.18.1] — 2026-11-22 — Correctif Internet (IPv4)
 
 ### Corrigé
