@@ -65,6 +65,14 @@
       "taille": 591185,
       "sha256": "6085e3147d4af9d2808b3568523d4db1028e7521707938af8c7041943f9c5010",
       "notes": "notes/1.0.16.md"
+    },
+    {
+      "version": "1.0.16.1",
+      "titre": "YDZ OS 1.0.16.1 — Correctif urgent (écran)",
+      "fichier": "ydz-1.0.16.1.zip",
+      "taille": 19350,
+      "sha256": "261fadb57a10735f45455f67795789fa279ff89b08014d9212c6612617d7a849",
+      "notes": "notes/1.0.16.1.md"
     }
   ]
 }
