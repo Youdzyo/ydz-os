@@ -4,6 +4,21 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.20] — 2026-11-22 — iPhone Bluetooth
+
+### Ajouté
+- **Notifications de l'iPhone sur l'écran de la tour** (affichage seul) par Bluetooth LE : ANCS pour les notifications iOS (app, titre, texte), AMS pour la musique (titre, artiste, lecture/pause).
+- **Télécommande musique** (précédent / lecture-pause / suivant) derrière le code PIN.
+- Section **iPhone** dans les Réglages et nouvelle page sur l'écran (affichée seulement si activée).
+
+### Sécurité
+- Tout ce qui vient de l'iPhone est traité comme **hostile** : nettoyage (contrôle/invisibles/bidi), bornes, troncature, file limitée à 20 ; rien n'est exécuté ni interprété comme HTML.
+- Notifications, musique et **adresse MAC** restent **privés** : jamais servis au réseau anonyme ; commandes musique réservées à l'accès « action ».
+- **Attaque menée avant publication — A-20-01 corrigée avant publication** : seule faiblesse trouvée (la validation d'adresse Bluetooth acceptait un saut de ligne final — sans impact réel, argument de liste jamais passé à un shell). Corrigée (validation stricte). Les 4 points sensibles vérifiés par preuves. 420 tests au vert.
+
+### Limites connues
+- Le lien BLE réel (ANCS/AMS) n'a pas pu être testé sur matériel ici : marqué **expérimental**. Répondre à une notification est impossible (restriction iOS).
+
 ## [1.0.19] — 2026-11-22 — Agents
 
 ### Ajouté

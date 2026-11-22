@@ -105,6 +105,14 @@
       "taille": 684636,
       "sha256": "031b232b1373fc94578fc888209bd3cb391afab1a034abde0c13f22baa548a80",
       "notes": "notes/1.0.19.md"
+    },
+    {
+      "version": "1.0.20",
+      "titre": "YDZ OS 1.0.20 — iPhone Bluetooth",
+      "fichier": "ydz-1.0.20.zip",
+      "taille": 672687,
+      "sha256": "73bb5acc235dd38d9254d710069cf3a718122069f340e2d2624821d367f4e97d",
+      "notes": "notes/1.0.20.md"
     }
   ]
 }
