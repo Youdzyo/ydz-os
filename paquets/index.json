@@ -81,6 +81,14 @@
       "taille": 877817,
       "sha256": "2e654bb8816ab225282641cd3b91d83ad2a7a17af8788d69bba80bce79c01890",
       "notes": "notes/1.0.17.md"
+    },
+    {
+      "version": "1.0.18",
+      "titre": "YDZ OS 1.0.18 — Perso",
+      "fichier": "ydz-1.0.18.zip",
+      "taille": 627990,
+      "sha256": "eaf3ab8f7c996ee40f7fae3f3b965d77b91cc0b54b1fb7700e4fd1081ea51954",
+      "notes": "notes/1.0.18.md"
     }
   ]
 }

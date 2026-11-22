@@ -4,6 +4,17 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.18] — 2026-11-22 — Perso
+
+### Ajouté
+- **Agenda du jour** sur l'écran (calendrier iCloud public, lecture seule), **rappels du jour**, et un **QR code Wi-Fi invités** à faire scanner pour se connecter sans taper le mot de passe.
+
+### Sécurité
+- Attaque menée avant publication : un lien d'agenda piégé pouvait faire interroger le réseau local du Pi (SSRF). Corrigé : l'agenda ne vise que des adresses publiques. Le mot de passe du Wi-Fi n'est jamais réaffiché ; le QR n'est visible que si tu l'actives.
+
+### Corrigé
+- Écran de verrouillage : le clavier du code était coupé en orientation paysage / petite fenêtre — il tient désormais en entier.
+
 ## [1.0.17] — 2026-11-22 — Catalogue d'applications
 
 ### Ajouté
