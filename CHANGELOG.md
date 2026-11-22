@@ -4,6 +4,11 @@ Toutes les évolutions notables de YDZ OS (Home Pi Lab) sont notées ici, de la 
 Le format suit [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les paquets (`ydz-1.0.X.zip`) et leurs notes
 sont dans le dossier [`paquets/`](paquets/) ; à partir de la 1.0.15, la tour les télécharge et les installe toute seule.
 
+## [1.0.18.1] — 2026-11-22 — Correctif Internet (IPv4)
+
+### Corrigé
+- « GitHub injoignable » alors qu'Internet marche : les box qui annoncent une IPv6 non fonctionnelle bloquaient les téléchargements. La tour utilise désormais l'IPv4 en priorité (mises à jour, agenda, météo, débit, Pi-hole).
+
 ## [1.0.18] — 2026-11-22 — Perso
 
 ### Ajouté

@@ -89,6 +89,14 @@
       "taille": 627990,
       "sha256": "eaf3ab8f7c996ee40f7fae3f3b965d77b91cc0b54b1fb7700e4fd1081ea51954",
       "notes": "notes/1.0.18.md"
+    },
+    {
+      "version": "1.0.18.1",
+      "titre": "YDZ OS 1.0.18.1 — Correctif Internet (IPv4)",
+      "fichier": "ydz-1.0.18.1.zip",
+      "taille": 9515,
+      "sha256": "049e4ed0354c1865ed6d3af8973ead06b4c3238322299777d2a8dc87e6d6864d",
+      "notes": "notes/1.0.18.1.md"
     }
   ]
 }
