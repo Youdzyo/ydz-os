@@ -1,0 +1,14 @@
+# YDZ OS : Homebox. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  homebox:
+    image: ghcr.io/sysadminsmedia/homebox:latest
+    restart: unless-stopped
+    ports:
+      - "7745:7745/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      HBOX_MODE: production
+      HBOX_WEB_MAX_FILE_UPLOAD: "20"
+      HBOX_OPTIONS_ALLOW_REGISTRATION: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/data

@@ -1,0 +1,41 @@
+{
+  "id": "piwigo",
+  "nom": "Piwigo",
+  "description": "Une galerie photo en ligne avec albums, étiquettes et partage.",
+  "categorie": "Photos",
+  "icone": "camera",
+  "image": "lscr.io/linuxserver/piwigo + mariadb",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8130,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8130,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "config",
+    "galleries"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Piwigo est une galerie photo très complète : albums, étiquettes, droits d'accès par personne, extensions. Elle existe depuis plus de 20 ans.",
+    "À la première ouverture, un assistant demande la base de données : serveur « db », utilisateur et base « piwigo », mot de passe = celui visible dans les réglages de l'app.",
+    "Dépose tes photos par l'interface ou dans le dossier galleries."
+  ]
+}

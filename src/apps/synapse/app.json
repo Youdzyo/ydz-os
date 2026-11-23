@@ -1,0 +1,39 @@
+{
+  "id": "synapse",
+  "nom": "Matrix Synapse",
+  "description": "Ton propre serveur de messagerie instantanée, compatible Matrix.",
+  "categorie": "Communication",
+  "icone": "message-circle",
+  "image": "matrixdotorg/synapse",
+  "noeud_conseille": "forge",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 8008,
+      "proto": "tcp",
+      "nom": "Serveur"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "NOM_SERVEUR",
+      "nom": "Nom du serveur Matrix",
+      "type": "texte",
+      "defaut": "matrix.maison",
+      "requis": true,
+      "motif": "^[a-z0-9]([a-z0-9.-]{0,60}[a-z0-9])?$",
+      "aide": "Définitif : il fait partie de tes identifiants (@toi:matrix.maison). Ne le change pas ensuite."
+    }
+  ],
+  "notes": [
+    "Synapse est le serveur de référence du réseau Matrix : une messagerie chiffrée et décentralisée. Hébergé chez toi, il te donne une messagerie type Discord ou WhatsApp que tu contrôles.",
+    "Les comptes ne s'ouvrent pas librement : crée-les en ligne de commande avec register_new_matrix_user (dans le conteneur, voir la documentation Synapse).",
+    "Installe aussi l'app Element (client web) ou utilise une appli Matrix sur ton téléphone avec l'adresse http://adresse-du-nœud:8008.",
+    "Sans nom de domaine public et HTTPS, ce serveur ne communique pas avec le reste du monde : c'est une messagerie privée à la maison.",
+    "Base SQLite : suffisant pour quelques personnes."
+  ]
+}

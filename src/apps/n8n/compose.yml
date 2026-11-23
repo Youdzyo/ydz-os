@@ -1,0 +1,20 @@
+# YDZ OS : n8n. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "5678:5678/tcp"
+    environment:
+      GENERIC_TIMEZONE: ${YDZ_TZ}
+      TZ: ${YDZ_TZ}
+      N8N_SECURE_COOKIE: "false"
+      N8N_ENCRYPTION_KEY: ${CLE_CHIFFREMENT}
+      N8N_HOST: ${YDZ_IP}
+      N8N_PORT: "5678"
+      N8N_PROTOCOL: http
+      WEBHOOK_URL: http://${YDZ_IP}:5678/
+      N8N_RUNNERS_ENABLED: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/home/node/.n8n

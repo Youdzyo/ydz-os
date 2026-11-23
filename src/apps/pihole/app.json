@@ -1,0 +1,69 @@
+{
+  "id": "pihole",
+  "nom": "Pi-hole",
+  "description": "Bloque les publicités et les traqueurs pour tout le réseau de la maison.",
+  "categorie": "Réseau",
+  "icone": "shield",
+  "image": "pihole/pihole",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 53,
+      "proto": "tcp",
+      "nom": "DNS"
+    },
+    {
+      "port": 53,
+      "proto": "udp",
+      "nom": "DNS"
+    },
+    {
+      "port": 8081,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8081,
+    "chemin": "/admin/",
+    "schema": "http"
+  },
+  "donnees": [
+    "etc-pihole"
+  ],
+  "reglages": [
+    {
+      "cle": "MOT_DE_PASSE",
+      "nom": "Mot de passe de l'interface",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "DNS_AMONT",
+      "nom": "Serveurs DNS utilisés",
+      "type": "choix",
+      "defaut": "9.9.9.9;149.112.112.112",
+      "choix": [
+        {
+          "valeur": "9.9.9.9;149.112.112.112",
+          "nom": "Quad9 (respect de la vie privée)"
+        },
+        {
+          "valeur": "1.1.1.1;1.0.0.1",
+          "nom": "Cloudflare"
+        },
+        {
+          "valeur": "80.67.169.12;80.67.169.40",
+          "nom": "FDN (association française)"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Pour que le blocage marche, indique l'adresse IP de ce nœud comme serveur DNS dans les réglages DHCP de ta box.",
+    "Donne une adresse IP fixe à ce nœud dans ta box (bail DHCP statique)."
+  ]
+}

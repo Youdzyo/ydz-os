@@ -1,0 +1,11 @@
+# YDZ OS : Beszel. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  beszel:
+    image: henrygd/beszel:latest
+    restart: unless-stopped
+    ports:
+      - "8117:8090/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/beszel_data

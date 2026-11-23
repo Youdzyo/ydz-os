@@ -1,0 +1,73 @@
+{
+  "id": "wyoming-whisper",
+  "nom": "Whisper (voix en texte)",
+  "description": "Comprend ce que tu dis : transforme la voix en texte pour Home Assistant.",
+  "categorie": "Maison",
+  "icone": "mic",
+  "image": "rhasspy/wyoming-whisper",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 10300,
+      "proto": "tcp",
+      "nom": "Wyoming"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MODELE",
+      "nom": "Modèle de reconnaissance",
+      "type": "choix",
+      "defaut": "base-int8",
+      "choix": [
+        {
+          "valeur": "tiny-int8",
+          "nom": "Tiny : très rapide, moins précis"
+        },
+        {
+          "valeur": "base-int8",
+          "nom": "Base : bon compromis"
+        },
+        {
+          "valeur": "small-int8",
+          "nom": "Small : plus précis, plus lent"
+        }
+      ],
+      "aide": "Sur Raspberry Pi 5, « Base » répond en 2 à 4 secondes."
+    },
+    {
+      "cle": "LANGUE",
+      "nom": "Langue",
+      "type": "choix",
+      "defaut": "fr",
+      "choix": [
+        {
+          "valeur": "fr",
+          "nom": "Français"
+        },
+        {
+          "valeur": "en",
+          "nom": "Anglais"
+        },
+        {
+          "valeur": "de",
+          "nom": "Allemand"
+        },
+        {
+          "valeur": "es",
+          "nom": "Espagnol"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Whisper écoute ce que tu dis et l'écrit sous forme de texte. Avec Home Assistant, c'est la « oreille » de ton assistant vocal local, sans envoyer ta voix sur Internet.",
+    "Pas d'interface. Dans Home Assistant : Paramètres > Appareils > Ajouter > Wyoming Protocol, adresse du nœud, port 10300.",
+    "Le modèle se télécharge au premier démarrage."
+  ]
+}

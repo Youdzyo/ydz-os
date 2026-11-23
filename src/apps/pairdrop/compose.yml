@@ -1,0 +1,11 @@
+# YDZ OS : PairDrop. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  pairdrop:
+    image: lscr.io/linuxserver/pairdrop:latest
+    restart: unless-stopped
+    ports:
+      - "3019:3000/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}

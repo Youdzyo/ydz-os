@@ -1,0 +1,15 @@
+# YDZ OS : Tailscale. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    restart: unless-stopped
+    hostname: ${NOM_APPAREIL}
+    environment:
+      TS_AUTHKEY: ${CLE_AUTH}
+      TS_HOSTNAME: ${NOM_APPAREIL}
+      TS_STATE_DIR: /var/lib/tailscale
+      TS_USERSPACE: "true"
+      TS_ROUTES: ${ROUTES}
+      TS_ACCEPT_DNS: "false"
+    volumes:
+      - ${YDZ_DATA}/state:/var/lib/tailscale

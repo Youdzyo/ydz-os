@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "CyberChef enchaîne des opérations sur des données : décoder du Base64, calculer une empreinte, déchiffrer un message, extraire des adresses. On glisse des « recettes » comme un jeu de blocs.",
+  "pour_qui": "Pour ceux qui aiment la cybersécurité, les énigmes et les CTF.",
+  "difficulte": "moyen",
+  "ram_mo": 128,
+  "alternative_a": "Sites de décodage en ligne",
+  "site": "https://github.com/gchq/CyberChef"
+}

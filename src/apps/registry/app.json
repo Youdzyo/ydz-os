@@ -1,0 +1,27 @@
+{
+  "id": "registry",
+  "nom": "Registre Docker",
+  "description": "Ton propre dépôt d'images Docker, pour tes créations.",
+  "categorie": "Développement",
+  "icone": "container",
+  "image": "registry",
+  "noeud_conseille": "forge",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 5100,
+      "proto": "tcp",
+      "nom": "Registre"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Le registre Docker stocke les images de conteneurs que tu construis toi-même, pour les réutiliser sur plusieurs de tes Raspberry Pi sans passer par Docker Hub.",
+    "Aucune identification : réserve-le à ton réseau local. Pour pousser une image : docker push adresse-du-nœud:5100/mon-image (il faut déclarer ce registre en « insecure-registries » dans Docker, car il est en HTTP).",
+    "Pas d'interface web : on s'en sert en ligne de commande."
+  ]
+}

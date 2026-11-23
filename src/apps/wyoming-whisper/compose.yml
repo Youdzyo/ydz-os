@@ -1,0 +1,12 @@
+# YDZ OS : Whisper (voix en texte). Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  whisper:
+    image: rhasspy/wyoming-whisper:latest
+    restart: unless-stopped
+    command: --model ${MODELE} --language ${LANGUE}
+    ports:
+      - "10300:10300/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/data

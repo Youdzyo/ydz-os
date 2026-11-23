@@ -1,0 +1,14 @@
+# YDZ OS : LibreTranslate. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "5011:5000/tcp"
+    environment:
+      LT_LOAD_ONLY: ${LANGUES}
+      LT_UPDATE_MODELS: "false"
+      LT_DISABLE_FILES_TRANSLATION: "false"
+    volumes:
+      - ${YDZ_DATA}/models:/root/.local

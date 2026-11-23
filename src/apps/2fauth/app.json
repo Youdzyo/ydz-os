@@ -1,0 +1,54 @@
+{
+  "id": "2fauth",
+  "nom": "2FAuth",
+  "description": "Garde tes codes de double authentification dans ton propre serveur.",
+  "categorie": "Sécurité",
+  "icone": "qr-code",
+  "image": "2fauth/2fauth",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8137,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8137,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "EMAIL_ADMIN",
+      "nom": "E-mail du propriétaire",
+      "type": "texte",
+      "defaut": "admin@exemple.fr",
+      "requis": true,
+      "motif": "^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    },
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé de chiffrement (1/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    },
+    {
+      "cle": "CLE_APP2",
+      "nom": "Clé de chiffrement (2/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    }
+  ],
+  "notes": [
+    "2FAuth stocke les codes à 6 chiffres de tes comptes (Google, Discord, banque…) comme une appli d'authentification, mais sur ton serveur. Tu peux les consulter depuis n'importe quel navigateur.",
+    "Crée ton compte à la première ouverture. Scanner un QR code avec la caméra demande une adresse HTTPS : en HTTP, importe le code à la main ou depuis un fichier.",
+    "Sauvegarde le dossier de données : sans lui, tu perds l'accès à tes codes."
+  ]
+}

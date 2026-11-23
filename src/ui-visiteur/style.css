@@ -1,0 +1,222 @@
+/* Espace visiteurs — thème sombre « invité », accent YDZ terracotta, mobile d'abord. */
+:root {
+  --fond: #15110f;
+  --fond-2: #1f1916;
+  --carte: #241c18;
+  --carte-2: #2c231e;
+  --trait: #3a2e27;
+  --texte: #f3ece6;
+  --texte-2: #c5b4a8;
+  --texte-3: #8f7e73;
+  --accent: #d9713f;
+  --accent-clair: #ec8f5f;
+  --accent-fond: rgba(217, 113, 63, 0.14);
+  --ok: #7fbf8e;
+  --warn: #e8a33d;
+  --crit: #e06b5a;
+  --rayon: 16px;
+  --titre: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  --corps: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(217, 113, 63, 0.12), transparent 60%),
+    var(--fond);
+  color: var(--texte);
+  font-family: var(--corps);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+}
+
+.enveloppe {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px calc(32px + env(safe-area-inset-bottom));
+}
+
+/* en-tête */
+.tete {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.logo {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, var(--accent), #b8552a);
+  color: #fff;
+  font-family: var(--titre);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(217, 113, 63, 0.35);
+}
+.tete-textes { flex: 1 1 auto; min-width: 0; }
+h1 {
+  font-family: var(--titre);
+  font-size: clamp(22px, 6vw, 30px);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+.sous { margin: 2px 0 0; color: var(--texte-3); font-size: 14px; }
+
+.etat-tour {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+  font-size: 13px;
+  color: var(--texte-2);
+  white-space: nowrap;
+}
+.point { width: 9px; height: 9px; border-radius: 50%; background: var(--texte-3); box-shadow: 0 0 0 3px rgba(0,0,0,.18); }
+.point.ok { background: var(--ok); }
+.point.warn { background: var(--warn); }
+.point.crit { background: var(--crit); }
+
+/* cartes de jeux */
+.jeux { display: grid; gap: 14px; }
+@media (min-width: 560px) { .jeux { grid-template-columns: 1fr 1fr; } }
+
+.carte-jeu {
+  background: linear-gradient(180deg, var(--carte-2), var(--carte));
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.jeu-tete { display: flex; align-items: center; gap: 10px; }
+.jeu-nom { font-family: var(--titre); font-size: 18px; font-weight: 700; margin: 0; }
+.jeu-type { color: var(--texte-3); font-size: 13px; margin: 1px 0 0; }
+.jeu-pastille {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+.jeu-pastille.en-ligne { color: var(--ok); background: rgba(127, 191, 142, 0.12); border-color: rgba(127, 191, 142, 0.25); }
+.jeu-pastille.hors { color: var(--texte-3); background: var(--fond-2); border-color: var(--trait); }
+.jeu-pastille .pt { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+.jeu-motd {
+  color: var(--texte-2);
+  font-size: 14px;
+  font-style: italic;
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--fond-2);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+}
+
+.jeu-lignes { display: grid; gap: 8px; }
+.jeu-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+.jeu-ligne .cle { color: var(--texte-3); }
+.jeu-ligne .val { color: var(--texte); font-weight: 600; text-align: right; word-break: break-word; }
+.adresse {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  background: var(--accent-fond);
+  color: var(--accent-clair);
+  padding: 3px 8px;
+  border-radius: 7px;
+  font-size: 13.5px;
+}
+
+.jauge-joueurs {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--fond-2);
+  overflow: hidden;
+}
+.jauge-joueurs > i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-clair)); border-radius: 999px; }
+
+.vide {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--texte-3);
+  padding: 36px 16px;
+  border: 1px dashed var(--trait);
+  border-radius: var(--rayon);
+  font-size: 15px;
+}
+
+/* créer un serveur (bloqué) */
+.creer {
+  margin-top: 20px;
+  background: var(--fond-2);
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.creer-textes { flex: 1 1 180px; }
+.creer-textes h2 { font-family: var(--titre); font-size: 17px; margin: 0; }
+.creer-textes p { margin: 3px 0 0; color: var(--texte-3); font-size: 13.5px; }
+.btn-creer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--trait);
+  background: var(--carte);
+  color: var(--texte-3);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+.btn-creer .badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+.note-bientot { margin: 8px 2px 0; color: var(--texte-3); font-size: 13px; text-align: center; }
+
+/* pied */
+.pied {
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--texte-3);
+  font-size: 12.5px;
+  border-top: 1px solid var(--trait);
+  padding-top: 14px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carte-jeu, .jauge-joueurs > i { transition: all .25s ease; }
+}

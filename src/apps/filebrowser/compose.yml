@@ -1,0 +1,14 @@
+# YDZ OS : File Browser. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    restart: unless-stopped
+    ports:
+      - "8082:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      FB_DATABASE: /database/filebrowser.db
+      FB_ROOT: /srv
+    volumes:
+      - ${YDZ_DATA}/database:/database
+      - ${DOSSIER}:/srv

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "ESPHome te permet de transformer un petit module ESP32 à quelques euros en capteur ou interrupteur connecté, en décrivant ce que tu veux dans un fichier simple. Il s'intègre à Home Assistant.",
+  "pour_qui": "Pour les bricoleurs qui fabriquent leurs propres capteurs.",
+  "difficulte": "avancé",
+  "ram_mo": 768,
+  "alternative_a": "Capteurs connectés du commerce",
+  "site": "https://esphome.io"
+}

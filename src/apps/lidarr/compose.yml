@@ -1,0 +1,15 @@
+# YDZ OS : Lidarr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    restart: unless-stopped
+    ports:
+      - "8686:8686/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${MEDIAS}:/media
+      - ${TELECHARGEMENTS}:/downloads

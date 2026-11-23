@@ -1,0 +1,15 @@
+# YDZ OS : code-server (VS Code). Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    restart: unless-stopped
+    ports:
+      - "8106:8443/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      PASSWORD: ${MDP_WEB}
+      DEFAULT_WORKSPACE: /config/workspace
+    volumes:
+      - ${YDZ_DATA}/config:/config

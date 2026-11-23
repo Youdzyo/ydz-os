@@ -1,0 +1,15 @@
+# YDZ OS : Sonarr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    restart: unless-stopped
+    ports:
+      - "8989:8989/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${MEDIAS}:/media
+      - ${TELECHARGEMENTS}:/downloads

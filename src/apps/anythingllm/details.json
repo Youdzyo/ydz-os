@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "AnythingLLM te laisse poser des questions à tes documents (cours, PDF, notes) : l'IA lit tes fichiers et répond en s'appuyant dessus. Tout peut rester chez toi si tu l'associes à Ollama.",
+  "pour_qui": "Pour résumer et interroger ses cours, contrats ou notes avec une IA.",
+  "difficulte": "avancé",
+  "ram_mo": 1536,
+  "alternative_a": "ChatGPT (analyse de fichiers) / NotebookLM",
+  "site": "https://anythingllm.com"
+}

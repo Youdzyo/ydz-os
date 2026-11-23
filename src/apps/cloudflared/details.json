@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Cloudflare Tunnel crée une liaison sortante sécurisée vers Cloudflare : tes amis accèdent à ton site ou à tes applis par une adresse publique, sans que tu aies à ouvrir de port sur ta box.",
+  "pour_qui": "Pour partager un service à l'extérieur sans toucher à sa box (box en CGNAT, par exemple).",
+  "difficulte": "avancé",
+  "ram_mo": 128,
+  "alternative_a": "Ouverture de ports sur la box / ngrok",
+  "site": "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/"
+}

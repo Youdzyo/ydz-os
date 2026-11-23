@@ -1,0 +1,42 @@
+{
+  "id": "komga",
+  "nom": "Komga",
+  "description": "Serveur de mangas et de BD, avec lecture dans le navigateur.",
+  "categorie": "Médias",
+  "icone": "book-marked",
+  "image": "gotson/komga",
+  "noeud_conseille": "vault",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 25600,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 25600,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "LIVRES",
+      "nom": "Dossier des mangas / BD",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz (CBZ, CBR, PDF, EPUB…)."
+    }
+  ],
+  "notes": [
+    "Komga organise tes mangas et bandes dessinées en séries, lit les fichiers CBZ, CBR, PDF ou EPUB et propose un lecteur web ainsi qu'une compatibilité avec plusieurs applis mobiles.",
+    "Le compte administrateur se crée à la première ouverture.",
+    "Ta bibliothèque apparaît dans le dossier /data ; ajoute-la dans l'interface.",
+    "Java : prévois 768 Mo de mémoire."
+  ]
+}

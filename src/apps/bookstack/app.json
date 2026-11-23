@@ -1,0 +1,54 @@
+{
+  "id": "bookstack",
+  "nom": "BookStack",
+  "description": "Un wiki simple organisé en étagères, livres et chapitres.",
+  "categorie": "Notes et documents",
+  "icone": "library",
+  "image": "lscr.io/linuxserver/bookstack + mariadb",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 6875,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 6875,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé de chiffrement (1/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    },
+    {
+      "cle": "CLE_APP2",
+      "nom": "Clé de chiffrement (2/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    }
+  ],
+  "notes": [
+    "BookStack est un wiki très clair pour documenter ce que tu sais : tu ranges tes pages dans des livres, eux-mêmes dans des étagères. Facile à prendre en main même pour quelqu'un qui n'est pas technique.",
+    "Première connexion : admin@admin.com avec le mot de passe « password ». Change-les immédiatement.",
+    "Si la page ne s'affiche pas après un changement d'adresse, vérifie que l'adresse du nœud n'a pas changé (bail DHCP fixe conseillé)."
+  ]
+}

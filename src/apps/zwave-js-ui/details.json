@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Z-Wave JS UI gère tes capteurs et prises Z-Wave depuis une page web et les met à disposition de Home Assistant, avec un réseau de mesure et un diagnostic complet.",
+  "pour_qui": "Pour ceux qui ont des appareils Z-Wave.",
+  "difficulte": "avancé",
+  "ram_mo": 256,
+  "alternative_a": "Boxes Z-Wave propriétaires",
+  "site": "https://zwave-js.github.io/zwave-js-ui/"
+}

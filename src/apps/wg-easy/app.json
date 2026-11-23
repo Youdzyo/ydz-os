@@ -1,0 +1,37 @@
+{
+  "id": "wg-easy",
+  "nom": "WireGuard (wg-easy)",
+  "description": "VPN pour accéder à ta tour et à ton réseau depuis l'extérieur.",
+  "categorie": "Réseau",
+  "icone": "shield-check",
+  "image": "ghcr.io/wg-easy/wg-easy",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 51820,
+      "proto": "udp",
+      "nom": "VPN"
+    },
+    {
+      "port": 51821,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 51821,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "etc-wireguard"
+  ],
+  "privilegie": true,
+  "reglages": [],
+  "notes": [
+    "À la première ouverture, l'interface te fait créer un compte administrateur et te demande l'adresse publique de ta box.",
+    "Ouvre le port 51820 en UDP sur ta box vers ce nœud. N'ouvre PAS le port 51821 (interface) vers Internet.",
+    "L'interface est servie en HTTP simple : ne l'utilise que depuis ton réseau local."
+  ]
+}

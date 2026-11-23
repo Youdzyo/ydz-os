@@ -1,0 +1,18 @@
+# YDZ OS : SFTPGo. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  sftpgo:
+    image: drakkan/sftpgo:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "8090:8080/tcp"
+      - "2022:2022/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      SFTPGO_SFTPD__BINDINGS__0__PORT: "2022"
+      SFTPGO_HTTPD__BINDINGS__0__PORT: "8080"
+      SFTPGO_DEFAULT_ADMIN_USERNAME: ${ADMIN}
+      SFTPGO_DEFAULT_ADMIN_PASSWORD: ${MDP_ADMIN}
+    volumes:
+      - ${YDZ_DATA}/data:/var/lib/sftpgo
+      - ${YDZ_DATA}/home:/srv/sftpgo

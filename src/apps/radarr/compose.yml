@@ -1,0 +1,15 @@
+# YDZ OS : Radarr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    restart: unless-stopped
+    ports:
+      - "7878:7878/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${MEDIAS}:/media
+      - ${TELECHARGEMENTS}:/downloads

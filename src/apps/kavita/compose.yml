@@ -1,0 +1,12 @@
+# YDZ OS : Kavita. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  kavita:
+    image: jvmilazz0/kavita:latest
+    restart: unless-stopped
+    ports:
+      - "5004:5000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/kavita/config
+      - ${LIVRES}:/books

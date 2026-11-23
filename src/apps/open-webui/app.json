@@ -1,0 +1,49 @@
+{
+  "id": "open-webui",
+  "nom": "Open WebUI",
+  "description": "Une interface de discussion type ChatGPT, branchée sur tes modèles locaux.",
+  "categorie": "IA",
+  "icone": "bot",
+  "image": "ghcr.io/open-webui/open-webui",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 3023,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3023,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "URL_OLLAMA",
+      "nom": "Adresse d'Ollama",
+      "type": "texte",
+      "defaut": "http://host.docker.internal:11434",
+      "requis": true,
+      "motif": "^https?://[A-Za-z0-9._-]+(:[0-9]+)?$",
+      "aide": "Pour l'app Ollama sur le même nœud, laisse la valeur proposée."
+    },
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Open WebUI te donne une page de discussion qui ressemble à ChatGPT, mais qui parle à tes modèles Ollama locaux. Il garde l'historique, gère plusieurs comptes et peut lire des documents.",
+    "Le premier compte créé devient administrateur.",
+    "Installe l'app Ollama et télécharge un modèle (voir ses notes) : il apparaît alors dans la liste de Open WebUI.",
+    "Si Ollama est sur un autre nœud, mets son adresse, par exemple http://192.168.1.20:11434."
+  ]
+}

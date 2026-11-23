@@ -1,0 +1,57 @@
+{
+  "id": "rclone",
+  "nom": "Rclone",
+  "description": "Copie et synchronise tes fichiers avec plus de 70 services cloud.",
+  "categorie": "Sauvegarde",
+  "icone": "cloud-upload",
+  "image": "rclone/rclone",
+  "noeud_conseille": "vault",
+  "ram_mo": 192,
+  "ports": [
+    {
+      "port": 5572,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5572,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "DOSSIER",
+      "nom": "Dossier local à synchroniser",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz."
+    },
+    {
+      "cle": "UTILISATEUR",
+      "nom": "Nom d'utilisateur de l'interface",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe de l'interface",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Rclone est le « rsync du cloud » : il copie ou synchronise tes dossiers avec Google Drive, OneDrive, Dropbox et des dizaines d'autres services, avec chiffrement possible.",
+    "Dans l'interface, ajoute une « configuration » pour ton cloud (Google Drive, OneDrive, Dropbox, S3…) puis lance une synchronisation.",
+    "Au premier démarrage, l'interface web est téléchargée depuis Internet : il faut que le nœud soit en ligne."
+  ]
+}

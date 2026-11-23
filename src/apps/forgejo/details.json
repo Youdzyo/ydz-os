@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Forgejo fait la même chose que Gitea : héberger ton code, tes tickets et tes demandes de fusion chez toi. Il est géré par une association à but non lucratif.",
+  "pour_qui": "Pour les développeurs qui préfèrent un projet communautaire à but non lucratif.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "GitHub / GitLab",
+  "site": "https://forgejo.org"
+}

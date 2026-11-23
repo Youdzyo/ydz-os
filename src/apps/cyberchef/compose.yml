@@ -1,0 +1,7 @@
+# YDZ OS : CyberChef. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  cyberchef:
+    image: ghcr.io/gchq/cyberchef:latest
+    restart: unless-stopped
+    ports:
+      - "8109:8000/tcp"

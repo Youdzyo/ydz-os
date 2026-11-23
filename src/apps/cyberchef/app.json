@@ -1,0 +1,28 @@
+{
+  "id": "cyberchef",
+  "nom": "CyberChef",
+  "description": "Le « couteau suisse » pour encoder, décoder et analyser des données.",
+  "categorie": "Outils",
+  "icone": "flask-conical",
+  "image": "ghcr.io/gchq/cyberchef",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8109,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8109,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "CyberChef enchaîne des opérations sur des données : décoder du Base64, calculer une empreinte, déchiffrer un message, extraire des adresses. On glisse des « recettes » comme un jeu de blocs.",
+    "Tout s'exécute dans ton navigateur : rien n'est envoyé ailleurs."
+  ]
+}

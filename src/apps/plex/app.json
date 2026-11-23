@@ -1,0 +1,51 @@
+{
+  "id": "plex",
+  "nom": "Plex",
+  "description": "Tes films, séries et musiques sur tous les écrans (logiciel gratuit mais propriétaire).",
+  "categorie": "Médias",
+  "icone": "tv",
+  "image": "plexinc/pms-docker",
+  "noeud_conseille": "vault",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 32400,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 32400,
+    "chemin": "/web",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "transcode"
+  ],
+  "reglages": [
+    {
+      "cle": "MEDIAS",
+      "nom": "Dossier des médias",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, par exemple /srv/ydz/donnees/partages/films."
+    },
+    {
+      "cle": "PLEX_CLAIM",
+      "nom": "Code de liaison Plex (facultatif)",
+      "type": "texte",
+      "defaut": "",
+      "motif": "^(claim-[A-Za-z0-9_-]{15,30})?$",
+      "aide": "Va sur plex.tv/claim, copie le code (valable 4 minutes) et colle-le ici pour lier le serveur à ton compte."
+    }
+  ],
+  "notes": [
+    "Plex classe tes films, séries et musiques avec jaquettes et résumés, puis les diffuse vers ta télé, ton téléphone ou à distance. C'est l'alternative propriétaire à Jellyfin, avec des applis très répandues sur les télés.",
+    "Plex n'est pas un logiciel libre : il faut un compte Plex gratuit. Jellyfin est l'alternative 100 % libre.",
+    "Le Pi 5 n'a pas d'encodeur vidéo matériel : préfère la lecture directe (sans transcodage).",
+    "Tes médias apparaissent dans le dossier /data."
+  ]
+}

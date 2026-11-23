@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Seerr est la vitrine de ton serveur multimédia : tes proches y cherchent un film ou une série, demandent son ajout, et Radarr/Sonarr s'en occupent. Il se branche sur Jellyfin ou Plex.",
+  "pour_qui": "Pour ceux qui partagent leur serveur multimédia avec la famille ou des amis.",
+  "difficulte": "moyen",
+  "ram_mo": 384,
+  "alternative_a": "Demandes de films à un ami cinéphile",
+  "site": "https://github.com/seerr-team/seerr"
+}

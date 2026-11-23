@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "ArchiveBox garde une copie complète des pages web que tu lui donnes, pour qu'elles restent lisibles même si le site disparaît ou change.",
+  "pour_qui": "Pour archiver des sources, des articles ou des souvenirs du web.",
+  "difficulte": "moyen",
+  "ram_mo": 1024,
+  "alternative_a": "Wayback Machine (archive.org)",
+  "site": "https://archivebox.io"
+}

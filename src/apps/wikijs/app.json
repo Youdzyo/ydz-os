@@ -1,0 +1,39 @@
+{
+  "id": "wikijs",
+  "nom": "Wiki.js",
+  "description": "Un wiki moderne et élégant avec éditeur visuel ou Markdown.",
+  "categorie": "Notes et documents",
+  "icone": "book-open",
+  "image": "ghcr.io/requarks/wiki + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 3010,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3010,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Wiki.js est un wiki au look moderne : éditeur visuel, Markdown, recherche, historique des pages, droits d'accès. Parfait pour une base de connaissances partagée.",
+    "À la première ouverture, un assistant crée le compte administrateur.",
+    "La base de données est déjà branchée automatiquement."
+  ]
+}

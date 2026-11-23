@@ -1,0 +1,32 @@
+{
+  "id": "wallos",
+  "nom": "Wallos",
+  "description": "Suis tous tes abonnements (streaming, téléphone, jeux) et leur coût.",
+  "categorie": "Finances",
+  "icone": "receipt",
+  "image": "bellamy/wallos",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8282,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8282,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "logos"
+  ],
+  "reglages": [],
+  "notes": [
+    "Wallos liste tous tes abonnements (Netflix, Spotify, téléphone, salle de sport…), additionne ce que ça coûte et t'avertit avant les prélèvements.",
+    "Crée ton compte à la première ouverture.",
+    "Wallos te prévient avant chaque renouvellement et calcule ce que tu dépenses par mois et par an."
+  ]
+}

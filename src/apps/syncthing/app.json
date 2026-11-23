@@ -1,0 +1,56 @@
+{
+  "id": "syncthing",
+  "nom": "Syncthing",
+  "description": "Synchronise des dossiers entre tes appareils, sans passer par un cloud.",
+  "categorie": "Fichiers",
+  "icone": "folder-sync",
+  "image": "lscr.io/linuxserver/syncthing",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8384,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 22000,
+      "proto": "tcp",
+      "nom": "Synchronisation"
+    },
+    {
+      "port": 22000,
+      "proto": "udp",
+      "nom": "Synchronisation"
+    },
+    {
+      "port": 21027,
+      "proto": "udp",
+      "nom": "Découverte"
+    }
+  ],
+  "web": {
+    "port": 8384,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "DOSSIER",
+      "nom": "Dossier synchronisé",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz accessible en écriture à l'utilisateur 1000."
+    }
+  ],
+  "notes": [
+    "Syncthing garde des dossiers identiques sur plusieurs appareils : tu ajoutes un fichier sur ton PC, il apparaît sur ton téléphone et sur le serveur. Les échanges sont chiffrés et directs, sans service externe.",
+    "Aucun mot de passe au départ : ouvre l'interface et définis-en un tout de suite (Actions > Paramètres > Interface graphique).",
+    "Installe Syncthing sur tes autres appareils (PC, téléphone Android) puis ajoute-les avec leur identifiant."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "baikal",
+  "nom": "Baïkal",
+  "description": "Ton agenda et tes contacts synchronisés (CalDAV et CardDAV), chez toi.",
+  "categorie": "Productivité",
+  "icone": "calendar",
+  "image": "ckulka/baikal",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8101,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8101,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Baïkal garde ton agenda et ton carnet d'adresses sur ton propre serveur et les synchronise avec ton téléphone et ton ordinateur, à la place de Google Agenda et Contacts.",
+    "À la première ouverture, un assistant te fait choisir le mot de passe administrateur.",
+    "Sur ton téléphone, ajoute un compte CalDAV/CardDAV avec l'adresse http://adresse-du-nœud:8101/dav.php (DAVx5 sur Android ; compte « Autre » sur iPhone)."
+  ]
+}

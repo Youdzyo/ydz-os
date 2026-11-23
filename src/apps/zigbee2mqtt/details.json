@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Zigbee2MQTT fait le lien entre ta clé Zigbee USB et le reste de la maison : ampoules, prises, capteurs de température ou d'ouverture de marques différentes se retrouvent dans une même interface.",
+  "pour_qui": "Pour ceux qui équipent la maison en capteurs et ampoules Zigbee.",
+  "difficulte": "avancé",
+  "ram_mo": 256,
+  "alternative_a": "Hubs Philips Hue / IKEA / Aqara",
+  "site": "https://www.zigbee2mqtt.io"
+}

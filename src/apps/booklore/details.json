@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "BookLore range tes livres numériques (EPUB, PDF, BD), propose un lecteur dans le navigateur, la synchronisation de lecture et des étagères personnalisées.",
+  "pour_qui": "Pour ceux qui veulent une bibliothèque d'ebooks moderne et simple.",
+  "difficulte": "moyen",
+  "ram_mo": 768,
+  "alternative_a": "Kindle / Google Play Livres",
+  "site": "https://github.com/booklore-app/booklore"
+}

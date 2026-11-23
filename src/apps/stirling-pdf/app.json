@@ -1,0 +1,32 @@
+{
+  "id": "stirling-pdf",
+  "nom": "Stirling-PDF",
+  "description": "Une boîte à outils pour modifier tes PDF : fusionner, découper, compresser, signer.",
+  "categorie": "Notes et documents",
+  "icone": "file-text",
+  "image": "stirlingtools/stirling-pdf",
+  "noeud_conseille": "vault",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 8086,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8086,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "tessdata"
+  ],
+  "reglages": [],
+  "notes": [
+    "Stirling-PDF réunit plus de 50 outils pour les PDF : fusionner, découper, tourner, compresser, ajouter un mot de passe, convertir en images, lire le texte d'un scan. Tout se fait chez toi, sans envoyer tes documents à un site inconnu.",
+    "Aucun compte : les fichiers sont traités sur ton serveur et ne partent pas sur Internet.",
+    "Réserve-le à ton réseau local : il n'a pas d'identification."
+  ]
+}

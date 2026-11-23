@@ -1,0 +1,31 @@
+{
+  "id": "trilium",
+  "nom": "Trilium Notes",
+  "description": "Une grande base de notes hiérarchique, avec liens, images et code.",
+  "categorie": "Notes et documents",
+  "icone": "notebook-pen",
+  "image": "triliumnext/trilium",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 8087,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8087,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Trilium organise tes notes en arbre infini, avec des liens entre elles, des images, du code et des cartes mentales. Idéal pour construire sa base de connaissances personnelle.",
+    "À la première ouverture, tu choisis un mot de passe.",
+    "Il existe une application bureau qui se synchronise avec cette version serveur."
+  ]
+}

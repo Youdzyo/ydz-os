@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "File Browser donne accès aux fichiers d'un dossier du serveur depuis n'importe quel navigateur : parcourir, envoyer, télécharger, renommer, partager un lien. C'est un mini « Explorateur de fichiers » en ligne.",
+  "pour_qui": "Pour ceux qui veulent envoyer ou récupérer des fichiers sans configurer un partage réseau.",
+  "difficulte": "facile",
+  "ram_mo": 128,
+  "alternative_a": "Google Drive (explorateur)",
+  "site": "https://filebrowser.org"
+}

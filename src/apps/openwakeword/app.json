@@ -1,0 +1,27 @@
+{
+  "id": "openwakeword",
+  "nom": "openWakeWord",
+  "description": "Détecte le mot magique (« OK Nabu ») qui réveille ton assistant vocal.",
+  "categorie": "Maison",
+  "icone": "bell-ring",
+  "image": "rhasspy/wyoming-openwakeword",
+  "noeud_conseille": "forge",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 10400,
+      "proto": "tcp",
+      "nom": "Wyoming"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "openWakeWord reste à l'écoute d'une phrase d'activation. Dès qu'il l'entend, il réveille l'assistant vocal, comme « Dis Siri » mais en local.",
+    "Pas d'interface. À associer à Whisper et Piper dans Home Assistant (assistants vocaux).",
+    "Mot d'activation par défaut : « OK Nabu »."
+  ]
+}

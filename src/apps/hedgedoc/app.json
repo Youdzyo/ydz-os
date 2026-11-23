@@ -1,0 +1,47 @@
+{
+  "id": "hedgedoc",
+  "nom": "HedgeDoc",
+  "description": "Écris des notes en Markdown à plusieurs, en temps réel.",
+  "categorie": "Notes et documents",
+  "icone": "pencil",
+  "image": "quay.io/hedgedoc/hedgedoc + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 3011,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3011,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "uploads"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_SESSION",
+      "nom": "Clé de session",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "HedgeDoc est un éditeur de notes en Markdown où plusieurs personnes écrivent en même temps, comme dans un Google Doc, avec un aperçu instantané. Pratique pour prendre des notes de réunion ou préparer un exposé à plusieurs.",
+    "Crée un compte par e-mail à la première ouverture (aucun e-mail n'est réellement envoyé).",
+    "Ouvre le même document sur deux appareils : les modifications s'affichent en direct."
+  ]
+}

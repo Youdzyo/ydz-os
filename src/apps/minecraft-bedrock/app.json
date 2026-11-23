@@ -1,0 +1,90 @@
+{
+  "id": "minecraft-bedrock",
+  "nom": "Minecraft Bedrock",
+  "description": "Serveur Minecraft Bedrock (consoles, téléphones, Windows).",
+  "categorie": "Jeux",
+  "icone": "gamepad-2",
+  "image": "itzg/minecraft-bedrock-server",
+  "noeud_conseille": "forge",
+  "ram_mo": 1536,
+  "ports": [
+    {
+      "port": 19132,
+      "proto": "udp",
+      "nom": "Jeu"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MODE",
+      "nom": "Mode de jeu",
+      "type": "choix",
+      "defaut": "survival",
+      "choix": [
+        {
+          "valeur": "survival",
+          "nom": "Survie"
+        },
+        {
+          "valeur": "creative",
+          "nom": "Créatif"
+        },
+        {
+          "valeur": "adventure",
+          "nom": "Aventure"
+        }
+      ]
+    },
+    {
+      "cle": "DIFFICULTE",
+      "nom": "Difficulté",
+      "type": "choix",
+      "defaut": "normal",
+      "choix": [
+        {
+          "valeur": "peaceful",
+          "nom": "Paisible"
+        },
+        {
+          "valeur": "easy",
+          "nom": "Facile"
+        },
+        {
+          "valeur": "normal",
+          "nom": "Normale"
+        },
+        {
+          "valeur": "hard",
+          "nom": "Difficile"
+        }
+      ]
+    },
+    {
+      "cle": "JOUEURS",
+      "nom": "Joueurs au maximum",
+      "type": "nombre",
+      "defaut": "10",
+      "min": 1,
+      "max": 50
+    },
+    {
+      "cle": "NOM_SERVEUR",
+      "nom": "Nom du serveur",
+      "type": "texte",
+      "defaut": "Serveur YDZ",
+      "requis": true,
+      "motif": "^[A-Za-z0-9 _-]{1,40}$"
+    }
+  ],
+  "notes": [
+    "Ce serveur permet de jouer à Minecraft Bedrock entre amis depuis une console, un téléphone, une tablette ou un PC Windows, sur un monde hébergé chez toi.",
+    "En installant ce serveur, tu acceptes le contrat de licence (EULA) de Minecraft.",
+    "Le serveur officiel Bedrock est conçu pour processeurs x86 : sur Raspberry Pi il tourne par émulation, donc plus lentement. Compte 1 à 3 joueurs pour de bonnes performances.",
+    "Dans Minecraft Bedrock, ajoute un serveur avec l'adresse du nœud et le port 19132.",
+    "Ce n'est pas le même jeu que le serveur Minecraft Java du catalogue : les deux ne sont pas compatibles entre eux."
+  ]
+}

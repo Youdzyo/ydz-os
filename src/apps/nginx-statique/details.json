@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Ce serveur web minimal affiche les pages que tu y déposes : un CV en ligne, un site de projet ou un portfolio fait en HTML, sans base de données ni logiciel compliqué.",
+  "pour_qui": "Pour héberger un site simple (HTML/CSS/JS) à la maison.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "GitHub Pages / hébergement gratuit",
+  "site": "https://nginx.org"
+}

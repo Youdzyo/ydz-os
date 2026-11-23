@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Nginx Proxy Manager te permet d'accéder à tes applis avec un vrai nom (jellyfin.mondomaine.fr) et un cadenas HTTPS gratuit (Let's Encrypt), en cliquant dans une interface au lieu d'écrire des fichiers de configuration.",
+  "pour_qui": "Pour ceux qui veulent exposer proprement quelques services avec un nom de domaine.",
+  "difficulte": "avancé",
+  "ram_mo": 384,
+  "alternative_a": "Configuration Nginx à la main",
+  "site": "https://nginxproxymanager.com"
+}

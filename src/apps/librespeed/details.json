@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "LibreSpeed teste la vitesse de ton réseau maison : débit montant et descendant entre ton appareil et le serveur. Idéal pour trouver les coins de la maison où le Wi-Fi est faible.",
+  "pour_qui": "Pour tester son Wi-Fi ou son réseau local.",
+  "difficulte": "facile",
+  "ram_mo": 128,
+  "alternative_a": "Speedtest.net",
+  "site": "https://github.com/librespeed/speedtest"
+}

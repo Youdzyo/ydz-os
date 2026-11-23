@@ -1,0 +1,21 @@
+# YDZ OS : Minecraft Bedrock. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  bedrock:
+    image: itzg/minecraft-bedrock-server:latest
+    restart: unless-stopped
+    stop_grace_period: 60s
+    tty: true
+    stdin_open: true
+    ports:
+      - "19132:19132/udp"
+    environment:
+      EULA: "TRUE"
+      TZ: ${YDZ_TZ}
+      GAMEMODE: ${MODE}
+      DIFFICULTY: ${DIFFICULTE}
+      MAX_PLAYERS: ${JOUEURS}
+      SERVER_NAME: ${NOM_SERVEUR}
+      ALLOW_CHEATS: "false"
+      ONLINE_MODE: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/data

@@ -1,0 +1,50 @@
+{
+  "id": "bazarr",
+  "nom": "Bazarr",
+  "description": "Télécharge automatiquement les sous-titres de tes films et séries.",
+  "categorie": "Médias",
+  "icone": "scroll-text",
+  "image": "lscr.io/linuxserver/bazarr",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 6767,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 6767,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "FILMS",
+      "nom": "Dossier des films",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Le même dossier que celui de Radarr."
+    },
+    {
+      "cle": "SERIES",
+      "nom": "Dossier des séries",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Le même dossier que celui de Sonarr."
+    }
+  ],
+  "notes": [
+    "Bazarr repère les films et séries qui n'ont pas de sous-titres dans ta langue et les télécharge pour toi, en s'appuyant sur Sonarr et Radarr.",
+    "Connecte-le à Sonarr et Radarr dans Paramètres, puis choisis tes langues (français) et tes fournisseurs de sous-titres.",
+    "Les dossiers doivent être accessibles en écriture à l'utilisateur 1000."
+  ]
+}

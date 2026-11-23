@@ -1,0 +1,17 @@
+# YDZ OS : Duplicati. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    restart: unless-stopped
+    ports:
+      - "8200:8200/tcp"
+    environment:
+      PUID: "0"
+      PGID: "0"
+      TZ: ${YDZ_TZ}
+      SETTINGS_ENCRYPTION_KEY: ${CLE_CONFIG}
+      DUPLICATI__WEBSERVICE_PASSWORD: ${MDP_WEB}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${DESTINATION}:/backups
+      - ${SOURCE}:/source:ro

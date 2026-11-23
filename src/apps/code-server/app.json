@@ -1,0 +1,41 @@
+{
+  "id": "code-server",
+  "nom": "code-server (VS Code)",
+  "description": "Un éditeur de code VS Code complet, dans le navigateur.",
+  "categorie": "Développement",
+  "icone": "code",
+  "image": "lscr.io/linuxserver/code-server",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 8106,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8106,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe de l'éditeur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "code-server fait tourner l'éditeur Visual Studio Code sur ton serveur et l'affiche dans le navigateur. Tu peux coder depuis une tablette ou un PC de prêt avec toute ta configuration.",
+    "Programme depuis n'importe quel appareil : ton projet et ses extensions restent sur le Pi.",
+    "Un terminal intégré donne accès au système de l'app (pas à celui du nœud).",
+    "Sans HTTPS, certaines fonctions du navigateur (presse-papiers, aperçu web) sont limitées."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "ntfy",
+  "nom": "ntfy",
+  "description": "Envoie des notifications sur ton téléphone par simple requête web.",
+  "categorie": "Communication",
+  "icone": "bell",
+  "image": "binwiederhier/ntfy",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8125,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8125,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "cache",
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "ntfy t'envoie une notification sur ton téléphone dès qu'un script ou une appli lui envoie un message web. Très simple : une ligne de commande suffit pour t'avertir de la fin d'une sauvegarde.",
+    "Accès protégé : connecte-toi avec le compte réglé ici, dans l'appli ntfy (Android, iOS) comme sur le web.",
+    "Choisis un « sujet » secret dans l'appli et envoie-lui un message avec : curl -u admin:motdepasse -d « Salut » http://adresse-du-nœud:8125/mon-sujet",
+    "Les notifications iPhone passent par le service ntfy.sh (sans ton contenu) : demande un réglage « upstream » si tu en as besoin."
+  ]
+}

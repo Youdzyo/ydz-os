@@ -1,0 +1,33 @@
+# YDZ OS : RomM. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MDP_BASE}
+      MARIADB_DATABASE: romm
+      MARIADB_USER: romm
+      MARIADB_PASSWORD: ${MDP_BASE}
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/mysql
+  romm:
+    image: rommapp/romm:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8140:8080/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      DB_HOST: db
+      DB_NAME: romm
+      DB_USER: romm
+      DB_PASSWD: ${MDP_BASE}
+      ROMM_AUTH_SECRET_KEY: ${CLE_APP}${CLE_APP2}
+    volumes:
+      - ${YDZ_DATA}/resources:/romm/resources
+      - ${YDZ_DATA}/redis:/redis-data
+      - ${YDZ_DATA}/assets:/romm/assets
+      - ${YDZ_DATA}/config:/romm/config
+      - ${ROMS}:/romm/library

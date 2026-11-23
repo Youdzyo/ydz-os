@@ -1,0 +1,29 @@
+# YDZ OS : Docmost. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: docmost
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: docmost
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  docmost:
+    image: docmost/docmost:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3012:3000/tcp"
+    environment:
+      APP_URL: http://${YDZ_IP}:3012
+      APP_SECRET: ${CLE_APP}${CLE_APP2}
+      DATABASE_URL: postgresql://docmost:${MDP_BASE}@db:5432/docmost?schema=public
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - ${YDZ_DATA}/data:/app/data/storage

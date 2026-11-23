@@ -1,0 +1,51 @@
+{
+  "id": "lidarr",
+  "nom": "Lidarr",
+  "description": "Suit tes artistes préférés et range automatiquement la musique.",
+  "categorie": "Médias",
+  "icone": "download",
+  "image": "lscr.io/linuxserver/lidarr",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8686,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8686,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MEDIAS",
+      "nom": "Dossier de la médiathèque (de la musique)",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz où ranger le résultat. Le même dossier que ton lecteur multimédia."
+    },
+    {
+      "cle": "TELECHARGEMENTS",
+      "nom": "Dossier des téléchargements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Le dossier où ton client de téléchargement dépose les fichiers."
+    }
+  ],
+  "notes": [
+    "Lidarr surveille les nouvelles sorties de tes artistes, fait télécharger les albums et les range avec les bons noms et pochettes pour Navidrome ou Jellyfin.",
+    "Connecte-le à Prowlarr (sources) et à ton client de téléchargement dans Paramètres.",
+    "Les dossiers /media et /downloads doivent être accessibles en écriture à l'utilisateur 1000.",
+    "Un dossier médias et un dossier de téléchargements sur le même disque permettent un déplacement instantané."
+  ]
+}

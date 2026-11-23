@@ -1,0 +1,13 @@
+# YDZ OS : Spoolman. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  spoolman:
+    image: ghcr.io/donkie/spoolman:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "7912:8000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      SPOOLMAN_DB_TYPE: sqlite
+    volumes:
+      - ${YDZ_DATA}/data:/home/app/.local/share/spoolman

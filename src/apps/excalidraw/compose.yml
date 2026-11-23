@@ -1,0 +1,7 @@
+# YDZ OS : Excalidraw. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    restart: unless-stopped
+    ports:
+      - "5003:80/tcp"

@@ -1,0 +1,44 @@
+{
+  "id": "shlink",
+  "nom": "Shlink",
+  "description": "Ton raccourcisseur de liens personnel avec statistiques.",
+  "categorie": "Outils",
+  "icone": "link",
+  "image": "shlinkio/shlink + shlink-web-client",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8113,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 8114,
+      "proto": "tcp",
+      "nom": "Liens courts (API)"
+    }
+  ],
+  "web": {
+    "port": 8113,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_API",
+      "nom": "Clé d'accès à l'API",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Elle sert à l'interface web et aux applis."
+    }
+  ],
+  "notes": [
+    "Shlink raccourcit les longs liens (comme bit.ly) et compte les clics, avec les pays, les sources et les appareils. Tout reste chez toi.",
+    "Les liens courts sont servis par le port 8114 (ex. http://adresse-du-nœud:8114/abc12) ; l'interface de gestion est sur 8113.",
+    "L'interface est déjà reliée au serveur avec la clé d'API réglée ici."
+  ]
+}

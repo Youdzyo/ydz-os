@@ -1,0 +1,66 @@
+{
+  "id": "transmission",
+  "nom": "Transmission",
+  "description": "Client BitTorrent léger et simple, avec interface web.",
+  "categorie": "Téléchargements",
+  "icone": "download",
+  "image": "lscr.io/linuxserver/transmission",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 9091,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 51413,
+      "proto": "tcp",
+      "nom": "Échanges"
+    },
+    {
+      "port": 51413,
+      "proto": "udp",
+      "nom": "Échanges"
+    }
+  ],
+  "web": {
+    "port": 9091,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "TELECHARGEMENTS",
+      "nom": "Dossier des téléchargements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz accessible en écriture à l'utilisateur 1000."
+    },
+    {
+      "cle": "UTILISATEUR",
+      "nom": "Nom d'utilisateur de l'interface",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe de l'interface",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Transmission est un client BitTorrent très léger : peu de mémoire, une interface simple, parfait pour un petit Raspberry Pi.",
+    "L'interface est protégée par le nom d'utilisateur et le mot de passe réglés ici."
+  ]
+}

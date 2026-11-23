@@ -1,0 +1,11 @@
+# YDZ OS : Dozzle. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    restart: unless-stopped
+    ports:
+      - "8116:8080/tcp"
+    environment:
+      DOZZLE_NO_ANALYTICS: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro

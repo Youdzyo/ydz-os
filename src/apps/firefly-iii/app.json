@@ -1,0 +1,62 @@
+{
+  "id": "firefly-iii",
+  "nom": "Firefly III",
+  "description": "Un gestionnaire de finances personnelles complet : comptes, budgets, rapports.",
+  "categorie": "Finances",
+  "icone": "wallet",
+  "image": "fireflyiii/core + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8135,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8135,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "upload"
+  ],
+  "reglages": [
+    {
+      "cle": "EMAIL_ADMIN",
+      "nom": "E-mail du propriétaire",
+      "type": "texte",
+      "defaut": "admin@exemple.fr",
+      "requis": true,
+      "motif": "^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé de chiffrement (1/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    },
+    {
+      "cle": "CLE_APP2",
+      "nom": "Clé de chiffrement (2/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    }
+  ],
+  "notes": [
+    "Firefly III suit ton argent en détail : comptes, dépenses, revenus, budgets, catégories, règles automatiques et rapports. Tout est stocké chez toi, rien n'est envoyé à ta banque ni à un tiers.",
+    "Crée ton compte à la première ouverture : le premier compte est le propriétaire.",
+    "Pour importer tes relevés bancaires, utilise l'importateur de données de Firefly III (outil séparé non inclus)."
+  ]
+}

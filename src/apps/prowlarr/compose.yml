@@ -1,0 +1,13 @@
+# YDZ OS : Prowlarr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    restart: unless-stopped
+    ports:
+      - "9696:9696/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config

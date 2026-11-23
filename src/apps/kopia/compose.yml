@@ -1,0 +1,26 @@
+# YDZ OS : Kopia. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  kopia:
+    image: kopia/kopia:latest
+    restart: unless-stopped
+    hostname: ydz
+    command:
+      - server
+      - start
+      - --disable-csrf-token-checks
+      - --insecure
+      - --address=0.0.0.0:51515
+      - --server-username=${UTILISATEUR}
+      - --server-password=${MDP_WEB}
+    ports:
+      - "51515:51515/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      KOPIA_PASSWORD: ${MDP_DEPOT}
+      KOPIA_CHECK_FOR_UPDATES: "false"
+    volumes:
+      - ${YDZ_DATA}/config:/app/config
+      - ${YDZ_DATA}/cache:/app/cache
+      - ${YDZ_DATA}/logs:/app/logs
+      - ${SOURCE}:/data:ro
+      - ${DESTINATION}:/repository

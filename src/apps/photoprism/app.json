@@ -1,0 +1,58 @@
+{
+  "id": "photoprism",
+  "nom": "PhotoPrism",
+  "description": "Une galerie photo intelligente qui range et retrouve tes images toute seule.",
+  "categorie": "Photos",
+  "icone": "image",
+  "image": "photoprism/photoprism",
+  "noeud_conseille": "vault",
+  "ram_mo": 2048,
+  "ports": [
+    {
+      "port": 2342,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 2342,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "storage"
+  ],
+  "reglages": [
+    {
+      "cle": "PHOTOS",
+      "nom": "Dossier des photos",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz contenant tes photos (lecture seule)."
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un. L'utilisateur est « admin »."
+    },
+    {
+      "cle": "ADRESSE_SITE",
+      "nom": "Adresse du site",
+      "type": "texte",
+      "defaut": "",
+      "motif": "^https?://[A-Za-z0-9.-]+(:[0-9]+)?(/[A-Za-z0-9/_-]*)?$",
+      "aide": "Facultatif. Exemple : http://adresse-du-nœud:2342"
+    }
+  ],
+  "notes": [
+    "PhotoPrism analyse tes photos, reconnaît les visages, les lieux et les objets, puis te laisse chercher « plage », « chien » ou « Noël 2020 ». Tout reste sur ton serveur.",
+    "Compte administrateur : « admin » avec le mot de passe réglé ici.",
+    "Tes photos apparaissent dans le dossier /photoprism/originals (lecture seule) ; l'indexation est lente sur Raspberry Pi.",
+    "Base SQLite intégrée : suffisant pour une bibliothèque familiale."
+  ]
+}

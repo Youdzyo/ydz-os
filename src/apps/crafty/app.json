@@ -1,0 +1,87 @@
+{
+  "id": "crafty",
+  "nom": "Crafty Controller",
+  "description": "Une interface web pour créer et gérer plusieurs serveurs Minecraft.",
+  "categorie": "Jeux",
+  "icone": "pickaxe",
+  "image": "registry.gitlab.com/crafty-controller/crafty-4",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 8444,
+      "proto": "tcp",
+      "nom": "Interface (HTTPS)"
+    },
+    {
+      "port": 25500,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 1"
+    },
+    {
+      "port": 25501,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 2"
+    },
+    {
+      "port": 25502,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 3"
+    },
+    {
+      "port": 25503,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 4"
+    },
+    {
+      "port": 25504,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 5"
+    },
+    {
+      "port": 25505,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 6"
+    },
+    {
+      "port": 25506,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 7"
+    },
+    {
+      "port": 25507,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 8"
+    },
+    {
+      "port": 25508,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 9"
+    },
+    {
+      "port": 25509,
+      "proto": "tcp",
+      "nom": "Serveur Minecraft 10"
+    }
+  ],
+  "web": {
+    "port": 8444,
+    "chemin": "/",
+    "schema": "https"
+  },
+  "donnees": [
+    "backups",
+    "logs",
+    "servers",
+    "config",
+    "import"
+  ],
+  "reglages": [],
+  "notes": [
+    "Crafty Controller te laisse créer, démarrer, arrêter et sauvegarder plusieurs serveurs Minecraft (Java et Bedrock) depuis une seule page web, avec console, planification et gestion des joueurs.",
+    "L'identifiant et le mot de passe de départ sont écrits dans les journaux de l'app au premier démarrage (utilisateur admin) : lis-les puis change-les.",
+    "L'interface est en HTTPS avec un certificat auto-signé : ton navigateur affichera un avertissement, accepte-le.",
+    "Les serveurs créés doivent utiliser un port entre 25500 et 25509, ouverts pour toi par cette app.",
+    "Crafty remplace l'app Minecraft du catalogue quand tu veux plusieurs mondes : n'installe pas les deux en même temps sur un petit nœud (mémoire)."
+  ]
+}

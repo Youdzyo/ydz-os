@@ -1,0 +1,47 @@
+{
+  "id": "vaultwarden",
+  "nom": "Vaultwarden",
+  "description": "Gestionnaire de mots de passe compatible Bitwarden, hébergé chez toi.",
+  "categorie": "Sécurité",
+  "icone": "key-round",
+  "image": "vaultwarden/server",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8222,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8222,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "ADRESSE",
+      "nom": "Adresse HTTPS publique",
+      "type": "texte",
+      "defaut": "",
+      "motif": "^https://[A-Za-z0-9.-]+(:[0-9]+)?(/[A-Za-z0-9/_-]*)?$",
+      "aide": "Facultatif. Exemple : https://coffre.exemple.fr"
+    },
+    {
+      "cle": "INSCRIPTIONS",
+      "nom": "Autoriser la création de comptes",
+      "type": "booleen",
+      "defaut": "true",
+      "aide": "Désactive-le une fois ton compte créé."
+    }
+  ],
+  "notes": [
+    "Important : les applications Bitwarden et le coffre web exigent une adresse en HTTPS. En HTTP simple sur le réseau local, la page s'ouvre mais refuse de créer un compte.",
+    "Solution simple : passer par un VPN avec HTTPS (par exemple Tailscale « serve ») ou un proxy inverse avec certificat.",
+    "Sauvegarde régulièrement le dossier de données : il contient tous tes mots de passe (chiffrés)."
+  ]
+}

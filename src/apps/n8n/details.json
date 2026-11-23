@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "n8n relie tes applications entre elles : « quand il se passe ceci, fais cela ». Tu construis des automatisations en reliant des blocs sur un schéma, sans écrire de code.",
+  "pour_qui": "Pour ceux qui aiment automatiser les tâches répétitives.",
+  "difficulte": "moyen",
+  "ram_mo": 768,
+  "alternative_a": "Zapier / IFTTT / Make",
+  "site": "https://n8n.io"
+}

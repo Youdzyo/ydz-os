@@ -1,0 +1,14 @@
+# YDZ OS : Homepage. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    restart: unless-stopped
+    ports:
+      - "3018:3000/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      HOMEPAGE_ALLOWED_HOSTS: ${YDZ_IP}:3018,${YDZ_HOTE}.local:3018,${YDZ_HOTE}:3018,localhost:3018
+    volumes:
+      - ${YDZ_DATA}/config:/app/config

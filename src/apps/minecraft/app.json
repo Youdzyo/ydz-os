@@ -1,0 +1,158 @@
+{
+  "id": "minecraft",
+  "nom": "Minecraft",
+  "description": "Serveur Minecraft Java (Vanilla, Paper, Fabric, NeoForge, Forge).",
+  "categorie": "Jeux",
+  "icone": "pickaxe",
+  "image": "itzg/minecraft-server",
+  "noeud_conseille": "forge",
+  "ram_mo": 3072,
+  "ports": [
+    {
+      "port": 25565,
+      "proto": "tcp",
+      "nom": "Jeu"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "TYPE",
+      "nom": "Type de serveur",
+      "type": "choix",
+      "defaut": "VANILLA",
+      "choix": [
+        {
+          "valeur": "VANILLA",
+          "nom": "Vanilla (officiel)"
+        },
+        {
+          "valeur": "PAPER",
+          "nom": "Paper (rapide, plugins)"
+        },
+        {
+          "valeur": "FABRIC",
+          "nom": "Fabric (mods)"
+        },
+        {
+          "valeur": "NEOFORGE",
+          "nom": "NeoForge (mods)"
+        },
+        {
+          "valeur": "FORGE",
+          "nom": "Forge (mods)"
+        }
+      ]
+    },
+    {
+      "cle": "VERSION",
+      "nom": "Version de Minecraft",
+      "type": "texte",
+      "defaut": "LATEST",
+      "motif": "^(LATEST|SNAPSHOT|[0-9]+(\\.[0-9]+){1,2})$",
+      "aide": "LATEST ou un numéro, par exemple 1.21.1."
+    },
+    {
+      "cle": "NEOFORGE_VERSION",
+      "nom": "Version de NeoForge",
+      "type": "texte",
+      "defaut": "",
+      "motif": "^(latest|beta|[0-9][0-9A-Za-z.-]*)$",
+      "aide": "Laisse vide pour la dernière. Sert seulement au type NeoForge."
+    },
+    {
+      "cle": "JAVA",
+      "nom": "Version de Java",
+      "type": "choix",
+      "defaut": "latest",
+      "choix": [
+        {
+          "valeur": "latest",
+          "nom": "Automatique (Minecraft récent)"
+        },
+        {
+          "valeur": "java21",
+          "nom": "Java 21"
+        },
+        {
+          "valeur": "java17",
+          "nom": "Java 17 (1.18 à 1.20.4)"
+        },
+        {
+          "valeur": "java8",
+          "nom": "Java 8 (1.16 et avant, vieux Forge)"
+        }
+      ]
+    },
+    {
+      "cle": "MEMOIRE",
+      "nom": "Mémoire",
+      "type": "choix",
+      "defaut": "4G",
+      "choix": [
+        "2G",
+        "3G",
+        "4G",
+        "6G",
+        "8G",
+        "10G",
+        "12G"
+      ],
+      "aide": "4G suffit pour quelques joueurs en Vanilla ; 6G à 8G pour un gros modpack."
+    },
+    {
+      "cle": "JOUEURS",
+      "nom": "Joueurs au maximum",
+      "type": "nombre",
+      "defaut": "10",
+      "min": 1,
+      "max": 100
+    },
+    {
+      "cle": "DIFFICULTE",
+      "nom": "Difficulté",
+      "type": "choix",
+      "defaut": "normal",
+      "choix": [
+        {
+          "valeur": "peaceful",
+          "nom": "Paisible"
+        },
+        {
+          "valeur": "easy",
+          "nom": "Facile"
+        },
+        {
+          "valeur": "normal",
+          "nom": "Normale"
+        },
+        {
+          "valeur": "hard",
+          "nom": "Difficile"
+        }
+      ]
+    },
+    {
+      "cle": "MOTD",
+      "nom": "Message d'accueil",
+      "type": "texte",
+      "defaut": "Serveur YDZ",
+      "motif": "^[^$`\\\\\"]{0,59}$"
+    },
+    {
+      "cle": "COMPTES_OFFICIELS",
+      "nom": "Vérifier les comptes Minecraft",
+      "type": "booleen",
+      "defaut": "true",
+      "aide": "À laisser activé sauf serveur privé hors ligne."
+    }
+  ],
+  "notes": [
+    "En installant ce serveur, tu acceptes le contrat de licence (EULA) de Minecraft.",
+    "Adresse à donner aux joueurs chez toi : l'adresse IP de forge. Depuis Internet, il faut ouvrir le port 25565 sur ta box.",
+    "Un modpack se dépose dans le dossier de données (data/mods)."
+  ]
+}

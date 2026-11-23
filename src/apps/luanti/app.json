@@ -1,0 +1,27 @@
+{
+  "id": "luanti",
+  "nom": "Luanti (Minetest)",
+  "description": "Un jeu de construction en cubes, libre, avec serveur multijoueur.",
+  "categorie": "Jeux",
+  "icone": "pickaxe",
+  "image": "lscr.io/linuxserver/luanti",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 30000,
+      "proto": "udp",
+      "nom": "Jeu"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Luanti (anciennement Minetest) est un jeu de blocs libre et léger, dont les mondes se modifient avec des mods. Son serveur tourne très bien sur Raspberry Pi.",
+    "Dans le jeu Luanti (gratuit), ajoute un serveur avec l'adresse du nœud et le port 30000.",
+    "Les mods et jeux (Mineclonia, VoxeLibre…) se déposent dans le dossier de données."
+  ]
+}

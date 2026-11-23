@@ -1,0 +1,49 @@
+{
+  "id": "booklore",
+  "nom": "BookLore",
+  "description": "Une bibliothèque moderne pour tes livres numériques et BD, avec lecteur intégré.",
+  "categorie": "Médias",
+  "icone": "book-open",
+  "image": "ghcr.io/booklore-app/booklore + mariadb",
+  "noeud_conseille": "vault",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 6060,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 6060,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "LIVRES",
+      "nom": "Dossier des livres à importer",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz ; BookLore y cherche les livres à ajouter."
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "BookLore range tes livres numériques (EPUB, PDF, BD), propose un lecteur dans le navigateur, la synchronisation de lecture et des étagères personnalisées.",
+    "Le compte administrateur se crée à la première ouverture.",
+    "Dépose les livres dans le dossier choisi : ils sont détectés automatiquement (dossier /bookdrop)."
+  ]
+}

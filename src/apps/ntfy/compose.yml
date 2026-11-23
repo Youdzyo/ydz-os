@@ -1,0 +1,22 @@
+# YDZ OS : ntfy. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  ntfy:
+    image: binwiederhier/ntfy:latest
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - ntfy user add --role=admin "$$NTFY_USER" 2>/dev/null; exec ntfy serve
+    ports:
+      - "8125:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      NTFY_USER: ${ADMIN}
+      NTFY_PASSWORD: ${MDP_ADMIN}
+      NTFY_BASE_URL: http://${YDZ_IP}:8125
+      NTFY_CACHE_FILE: /var/cache/ntfy/cache.db
+      NTFY_AUTH_FILE: /var/lib/ntfy/user.db
+      NTFY_AUTH_DEFAULT_ACCESS: deny-all
+      NTFY_BEHIND_PROXY: "false"
+    volumes:
+      - ${YDZ_DATA}/cache:/var/cache/ntfy
+      - ${YDZ_DATA}/data:/var/lib/ntfy

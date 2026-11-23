@@ -1,0 +1,12 @@
+# YDZ OS : Linkding. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  linkding:
+    image: sissbruecker/linkding:latest
+    restart: unless-stopped
+    ports:
+      - "9090:9090/tcp"
+    environment:
+      LD_SUPERUSER_NAME: ${ADMIN}
+      LD_SUPERUSER_PASSWORD: ${MDP_ADMIN}
+    volumes:
+      - ${YDZ_DATA}/data:/etc/linkding/data

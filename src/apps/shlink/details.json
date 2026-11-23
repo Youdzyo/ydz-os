@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Shlink raccourcit les longs liens (comme bit.ly) et compte les clics, avec les pays, les sources et les appareils. Tout reste chez toi.",
+  "pour_qui": "Pour partager des liens courts et suivre combien de personnes cliquent.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Bitly / TinyURL",
+  "site": "https://shlink.io"
+}

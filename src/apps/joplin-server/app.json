@@ -1,0 +1,39 @@
+{
+  "id": "joplin-server",
+  "nom": "Joplin Server",
+  "description": "Synchronise tes notes Joplin entre tous tes appareils, chez toi.",
+  "categorie": "Notes et documents",
+  "icone": "notebook-pen",
+  "image": "joplin/server + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 22300,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 22300,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Joplin Server est le point de rendez-vous de tes notes Joplin : tu écris sur ton PC, tu retrouves tout sur ton téléphone. Les notes peuvent être chiffrées de bout en bout.",
+    "Première connexion : admin@localhost avec le mot de passe « admin ». Change-le immédiatement dans le profil.",
+    "Dans l'application Joplin, choisis la synchronisation « Joplin Server » et indique l'adresse du nœud."
+  ]
+}

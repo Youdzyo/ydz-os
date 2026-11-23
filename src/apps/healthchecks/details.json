@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Healthchecks surveille tes tâches planifiées : si ta sauvegarde de la nuit n'a pas « donné signe de vie », tu reçois une alerte. C'est l'inverse d'un moniteur classique, qui regarde si un site répond.",
+  "pour_qui": "Pour s'assurer que ses sauvegardes et scripts tournent vraiment.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Cronitor / Dead Man's Snitch",
+  "site": "https://healthchecks.io"
+}

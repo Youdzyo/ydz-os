@@ -1,0 +1,13 @@
+# YDZ OS : Jellyfin. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    restart: unless-stopped
+    ports:
+      - "8096:8096/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${YDZ_DATA}/cache:/cache
+      - ${MEDIAS}:/media:ro

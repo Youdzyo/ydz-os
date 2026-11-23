@@ -1,0 +1,40 @@
+# YDZ OS : Paperless-ngx. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: paperless
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  paperless:
+    image: ghcr.io/paperless-ngx/paperless-ngx:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "8000:8000/tcp"
+    environment:
+      PAPERLESS_REDIS: redis://redis:6379
+      PAPERLESS_DBHOST: db
+      PAPERLESS_DBUSER: paperless
+      PAPERLESS_DBPASS: ${MDP_BASE}
+      PAPERLESS_DBNAME: paperless
+      PAPERLESS_SECRET_KEY: ${CLE_SECRETE}
+      PAPERLESS_ADMIN_USER: ${ADMIN}
+      PAPERLESS_ADMIN_PASSWORD: ${MDP_ADMIN}
+      PAPERLESS_TIME_ZONE: ${YDZ_TZ}
+      PAPERLESS_OCR_LANGUAGE: fra+eng
+      PAPERLESS_OCR_LANGUAGES: fra
+      PAPERLESS_URL: http://${YDZ_IP}:8000
+    volumes:
+      - ${YDZ_DATA}/data:/usr/src/paperless/data
+      - ${YDZ_DATA}/media:/usr/src/paperless/media
+      - ${YDZ_DATA}/export:/usr/src/paperless/export
+      - ${YDZ_DATA}/consume:/usr/src/paperless/consume

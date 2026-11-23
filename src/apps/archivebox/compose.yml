@@ -1,0 +1,17 @@
+# YDZ OS : ArchiveBox. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  archivebox:
+    image: archivebox/archivebox:latest
+    restart: unless-stopped
+    command: server --quick-init 0.0.0.0:8000
+    ports:
+      - "8098:8000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      ADMIN_USERNAME: ${ADMIN}
+      ADMIN_PASSWORD: ${MDP_ADMIN}
+      PUBLIC_INDEX: "False"
+      PUBLIC_SNAPSHOTS: "False"
+      PUBLIC_ADD_VIEW: "False"
+    volumes:
+      - ${YDZ_DATA}/data:/data

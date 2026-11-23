@@ -1,0 +1,57 @@
+{
+  "id": "nextcloud",
+  "nom": "Nextcloud",
+  "description": "Ton cloud personnel : fichiers, photos, agenda, synchronisés sur tes appareils.",
+  "categorie": "Fichiers",
+  "icone": "cloud",
+  "image": "nextcloud + mariadb",
+  "noeud_conseille": "vault",
+  "ram_mo": 1536,
+  "ports": [
+    {
+      "port": 8088,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8088,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "html"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "requis": true,
+      "min": 10,
+      "motif": "^[^$`\\\\\" ]+$",
+      "aide": "10 caractères au moins, sans espace ni $ \" \\ `."
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Installe-le sur un nœud avec un disque de données (vault) et choisis ce disque comme emplacement.",
+    "La première installation prend 5 à 10 minutes. Le nom et le mot de passe administrateur ne servent qu'à ce premier démarrage.",
+    "Nextcloud est gourmand : compte 1,5 Go de mémoire."
+  ]
+}

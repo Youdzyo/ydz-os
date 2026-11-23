@@ -1,0 +1,25 @@
+# YDZ OS : Crafty Controller. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  crafty:
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: unless-stopped
+    ports:
+      - "8444:8443/tcp"
+      - "25500:25500/tcp"
+      - "25501:25501/tcp"
+      - "25502:25502/tcp"
+      - "25503:25503/tcp"
+      - "25504:25504/tcp"
+      - "25505:25505/tcp"
+      - "25506:25506/tcp"
+      - "25507:25507/tcp"
+      - "25508:25508/tcp"
+      - "25509:25509/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/backups:/crafty/backups
+      - ${YDZ_DATA}/logs:/crafty/logs
+      - ${YDZ_DATA}/servers:/crafty/servers
+      - ${YDZ_DATA}/config:/crafty/app/config
+      - ${YDZ_DATA}/import:/crafty/import

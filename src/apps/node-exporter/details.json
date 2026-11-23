@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Node Exporter est le « thermomètre » de ton Raspberry Pi : il relève l'utilisation du processeur, de la mémoire, des disques, du réseau et la température, et les met à disposition de Prometheus.",
+  "pour_qui": "Pour accompagner Prometheus et Grafana.",
+  "difficulte": "moyen",
+  "ram_mo": 64,
+  "alternative_a": "Outils de supervision cloud",
+  "site": "https://prometheus.io/docs/guides/node-exporter/"
+}

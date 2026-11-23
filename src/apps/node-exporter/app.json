@@ -1,0 +1,30 @@
+{
+  "id": "node-exporter",
+  "nom": "Node Exporter",
+  "description": "Expose les mesures du Raspberry Pi (CPU, mémoire, disque, température) à Prometheus.",
+  "categorie": "Supervision",
+  "icone": "cpu",
+  "image": "prom/node-exporter",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 9100,
+      "proto": "tcp",
+      "nom": "Mesures"
+    }
+  ],
+  "web": {
+    "port": 9100,
+    "chemin": "/metrics",
+    "schema": "http"
+  },
+  "donnees": [],
+  "privilegie": true,
+  "reglages": [],
+  "notes": [
+    "Node Exporter est le « thermomètre » de ton Raspberry Pi : il relève l'utilisation du processeur, de la mémoire, des disques, du réseau et la température, et les met à disposition de Prometheus.",
+    "Droits étendus : il lit le système du nœud (en lecture seule) pour mesurer son état.",
+    "Pas d'interface : les mesures s'affichent en texte brut sur la page /metrics, destinées à Prometheus."
+  ]
+}

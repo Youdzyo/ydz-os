@@ -1,0 +1,45 @@
+{
+  "id": "tailscale",
+  "nom": "Tailscale",
+  "description": "Un VPN simple et sans configuration pour joindre ta maison de partout.",
+  "categorie": "Réseau",
+  "icone": "shield-check",
+  "image": "tailscale/tailscale",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [],
+  "web": null,
+  "donnees": [
+    "state"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_AUTH",
+      "nom": "Clé d'authentification Tailscale (facultatif)",
+      "type": "secret",
+      "motif": "^[A-Za-z0-9_-]{10,200}$",
+      "aide": "Crée-la sur login.tailscale.com > Settings > Keys. Sans clé, un lien de connexion apparaît dans les journaux de l'app."
+    },
+    {
+      "cle": "NOM_APPAREIL",
+      "nom": "Nom de l'appareil",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9-]{2,30}$"
+    },
+    {
+      "cle": "ROUTES",
+      "nom": "Réseau local à partager (facultatif)",
+      "type": "texte",
+      "defaut": "",
+      "motif": "^([0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$",
+      "aide": "Ex. 192.168.1.0/24 : tes appareils Tailscale pourront joindre toute ta maison. À valider dans la console Tailscale."
+    }
+  ],
+  "notes": [
+    "Tailscale relie tes appareils entre eux par un réseau privé chiffré. Une fois installé, tu retrouves ta maison depuis ton téléphone n'importe où, sans ouvrir de port sur ta box.",
+    "Il faut un compte Tailscale gratuit. L'app tourne en mode « utilisateur » sans droits spéciaux.",
+    "Plus simple que d'ouvrir un port : n'ouvre rien sur ta box, installe Tailscale sur ton téléphone et c'est connecté."
+  ]
+}

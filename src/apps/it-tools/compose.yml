@@ -1,0 +1,7 @@
+# YDZ OS : IT-Tools. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  it-tools:
+    image: corentinth/it-tools:latest
+    restart: unless-stopped
+    ports:
+      - "8108:80/tcp"

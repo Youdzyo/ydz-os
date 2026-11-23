@@ -1,0 +1,21 @@
+# YDZ OS : PrivateBin. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  init-droits:
+    image: busybox:stable
+    restart: "no"
+    command: chown -R 65534:65534 /srv/data
+    volumes:
+      - ${YDZ_DATA}/data:/srv/data
+  privatebin:
+    image: privatebin/nginx-fpm-alpine:latest
+    restart: unless-stopped
+    depends_on:
+      init-droits:
+        condition: service_completed_successfully
+    read_only: true
+    ports:
+      - "8112:8080/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/srv/data

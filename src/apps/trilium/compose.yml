@@ -1,0 +1,12 @@
+# YDZ OS : Trilium Notes. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  trilium:
+    image: triliumnext/trilium:latest
+    restart: unless-stopped
+    ports:
+      - "8087:8080/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      TRILIUM_DATA_DIR: /home/node/trilium-data
+    volumes:
+      - ${YDZ_DATA}/data:/home/node/trilium-data

@@ -1,0 +1,20 @@
+# YDZ OS : Speedtest Tracker. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  speedtest-tracker:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c", "export APP_KEY=base64:$$(printf %s $$CLE_1$$CLE_2 | head -c 32 | base64) && exec /init"]
+    ports:
+      - "8119:80/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      CLE_1: ${CLE_APP}
+      CLE_2: ${CLE_APP2}
+      APP_URL: http://${YDZ_IP}:8119
+      DB_CONNECTION: sqlite
+      SPEEDTEST_SCHEDULE: 0 */6 * * *
+      DISPLAY_TIMEZONE: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config

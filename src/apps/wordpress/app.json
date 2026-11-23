@@ -1,0 +1,41 @@
+{
+  "id": "wordpress",
+  "nom": "WordPress",
+  "description": "Le système de création de sites web le plus utilisé au monde.",
+  "categorie": "Sites web",
+  "icone": "globe",
+  "image": "wordpress + mariadb",
+  "noeud_conseille": "forge",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 8138,
+      "proto": "tcp",
+      "nom": "Site"
+    }
+  ],
+  "web": {
+    "port": 8138,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "html"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "WordPress permet de créer un site, un blog ou une boutique sans programmer, avec des milliers de thèmes et d'extensions.",
+    "Au premier accès, l'assistant d'installation te demande le nom du site et le compte administrateur.",
+    "L'adresse du site sera celle du nœud ; pour un nom de domaine et du HTTPS, prévois un proxy (Nginx Proxy Manager).",
+    "Pense à mettre à jour les extensions et à limiter leur nombre : c'est la première source de failles."
+  ]
+}

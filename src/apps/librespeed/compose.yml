@@ -1,0 +1,16 @@
+# YDZ OS : LibreSpeed. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  librespeed:
+    image: lscr.io/linuxserver/librespeed:latest
+    restart: unless-stopped
+    ports:
+      - "8122:80/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      MODE: standalone
+      PASSWORD: ${MDP_STATS}
+      DB_TYPE: sqlite
+    volumes:
+      - ${YDZ_DATA}/config:/config

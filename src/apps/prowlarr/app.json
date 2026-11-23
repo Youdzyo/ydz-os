@@ -1,0 +1,31 @@
+{
+  "id": "prowlarr",
+  "nom": "Prowlarr",
+  "description": "Gère en un seul endroit les sources de recherche de Sonarr, Radarr et Lidarr.",
+  "categorie": "Médias",
+  "icone": "search",
+  "image": "lscr.io/linuxserver/prowlarr",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 9696,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 9696,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Prowlarr est l'annuaire central de tes sources de téléchargement. Tu les configures une seule fois et il les partage avec Sonarr, Radarr et Lidarr.",
+    "Ajoute tes sources dans Prowlarr puis synchronise-les avec Sonarr, Radarr et Lidarr (Paramètres > Applications).",
+    "Certaines sources demandent FlareSolverr, présent dans le catalogue."
+  ]
+}

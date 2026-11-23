@@ -1,0 +1,16 @@
+# YDZ OS : Manyfold. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  manyfold:
+    image: ghcr.io/manyfold3d/manyfold-solo:latest
+    restart: unless-stopped
+    ports:
+      - "3214:3214/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      SECRET_KEY_BASE: ${CLE_SECRETE}${CLE_SECRETE}
+      MULTIUSER: "enabled"
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${MODELES}:/libraries

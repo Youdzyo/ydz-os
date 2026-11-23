@@ -1,0 +1,19 @@
+# YDZ OS : Gitea. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  gitea:
+    image: gitea/gitea:latest
+    restart: unless-stopped
+    ports:
+      - "3030:3000/tcp"
+      - "2222:22/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      USER_UID: "1000"
+      USER_GID: "1000"
+      GITEA__database__DB_TYPE: sqlite3
+      GITEA__server__ROOT_URL: http://${YDZ_IP}:3030/
+      GITEA__server__SSH_DOMAIN: ${YDZ_IP}
+      GITEA__server__SSH_PORT: "2222"
+      GITEA__server__SSH_LISTEN_PORT: "22"
+    volumes:
+      - ${YDZ_DATA}/data:/data

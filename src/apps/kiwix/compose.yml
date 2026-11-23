@@ -1,0 +1,12 @@
+# YDZ OS : Kiwix. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  kiwix:
+    image: ghcr.io/kiwix/kiwix-serve:latest
+    restart: unless-stopped
+    command: "*.zim"
+    ports:
+      - "8142:8080/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${ZIM}:/data:ro

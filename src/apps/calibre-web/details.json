@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Calibre-Web affiche ta bibliothèque Calibre dans un navigateur : tu peux chercher, lire les EPUB en ligne, télécharger un livre ou l'envoyer sur ta liseuse.",
+  "pour_qui": "Pour ceux qui gèrent leurs ebooks avec Calibre et veulent y accéder depuis la maison.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Kindle / Google Play Livres",
+  "site": "https://github.com/janeczku/calibre-web"
+}

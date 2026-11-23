@@ -1,0 +1,48 @@
+{
+  "id": "linkding",
+  "nom": "Linkding",
+  "description": "Ton carnet de marque-pages en ligne, rapide et sans fioritures.",
+  "categorie": "Lecture et veille",
+  "icone": "bookmark",
+  "image": "sissbruecker/linkding",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 9090,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 9090,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Linkding garde tes liens favoris avec des étiquettes et une recherche instantanée. Il peut aussi en conserver une copie, au cas où la page disparaîtrait un jour.",
+    "Une extension pour Firefox et Chrome permet d'ajouter un lien en un clic.",
+    "Les pages sont archivées pour rester consultables si le site disparaît."
+  ]
+}

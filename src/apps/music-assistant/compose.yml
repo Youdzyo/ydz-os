@@ -1,0 +1,11 @@
+# YDZ OS : Music Assistant. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  music-assistant:
+    image: ghcr.io/music-assistant/server:latest
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/data
+      - ${MUSIQUE}:/media:ro

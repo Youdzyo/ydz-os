@@ -1,0 +1,42 @@
+{
+  "id": "photoview",
+  "nom": "Photoview",
+  "description": "Une galerie photo simple qui parcourt ton dossier de photos.",
+  "categorie": "Photos",
+  "icone": "image",
+  "image": "photoview/photoview",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8100,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8100,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "cache",
+    "db"
+  ],
+  "reglages": [
+    {
+      "cle": "PHOTOS",
+      "nom": "Dossier des photos",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz contenant tes photos."
+    }
+  ],
+  "notes": [
+    "Photoview lit ton dossier de photos tel quel, sans le déplacer, et en fait une galerie web avec carte, visages et albums par dossier.",
+    "Le compte administrateur se crée à la première ouverture ; indique /photos comme dossier à analyser.",
+    "Base SQLite intégrée : rien d'autre à installer."
+  ]
+}

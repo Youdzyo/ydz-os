@@ -1,0 +1,3 @@
+# YDZ : garde les ports USB réveillés pour que les appareils branchés à chaud soient détectés.
+ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="pci", DRIVER=="xhci_hcd", TEST=="power/control", ATTR{power/control}="on"

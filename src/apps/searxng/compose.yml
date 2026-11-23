@@ -1,0 +1,12 @@
+# YDZ OS : SearXNG. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  searxng:
+    image: searxng/searxng:latest
+    restart: unless-stopped
+    ports:
+      - "8115:8080/tcp"
+    environment:
+      SEARXNG_SECRET: ${CLE_SECRETE}
+      SEARXNG_BASE_URL: http://${YDZ_IP}:8115/
+    volumes:
+      - ${YDZ_DATA}/config:/etc/searxng

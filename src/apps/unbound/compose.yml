@@ -1,0 +1,8 @@
+# YDZ OS : Unbound. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  unbound:
+    image: klutchell/unbound:latest
+    restart: unless-stopped
+    ports:
+      - "5335:5335/tcp"
+      - "5335:5335/udp"

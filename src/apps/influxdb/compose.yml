@@ -1,0 +1,17 @@
+# YDZ OS : InfluxDB. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  influxdb:
+    image: influxdb:2
+    restart: unless-stopped
+    ports:
+      - "8121:8086/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${ADMIN}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${MDP_ADMIN}
+      DOCKER_INFLUXDB_INIT_ORG: ${ORGANISATION}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${SEAU}
+    volumes:
+      - ${YDZ_DATA}/data:/var/lib/influxdb2
+      - ${YDZ_DATA}/config:/etc/influxdb2

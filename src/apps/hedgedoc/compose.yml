@@ -1,0 +1,31 @@
+# YDZ OS : HedgeDoc. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: hedgedoc
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: hedgedoc
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  hedgedoc:
+    image: quay.io/hedgedoc/hedgedoc:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "3011:3011/tcp"
+    environment:
+      CMD_PORT: "3011"
+      CMD_DB_URL: postgres://hedgedoc:${MDP_BASE}@db:5432/hedgedoc
+      CMD_DOMAIN: ${YDZ_IP}
+      CMD_URL_ADDPORT: "true"
+      CMD_PROTOCOL_USESSL: "false"
+      CMD_SESSION_SECRET: ${CLE_SESSION}
+      CMD_ALLOW_ANONYMOUS: "false"
+      CMD_ALLOW_ANONYMOUS_EDITS: "false"
+      CMD_ALLOW_EMAIL_REGISTER: "true"
+      CMD_DEFAULT_PERMISSION: limited
+    volumes:
+      - ${YDZ_DATA}/uploads:/hedgedoc/public/uploads

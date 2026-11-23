@@ -1,0 +1,13 @@
+# YDZ OS : Dockge. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  dockge:
+    image: louislam/dockge:1
+    restart: unless-stopped
+    ports:
+      - "5002:5001/tcp"
+    environment:
+      DOCKGE_STACKS_DIR: ${YDZ_DATA}/stacks
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${YDZ_DATA}/data:/app/data
+      - ${YDZ_DATA}/stacks:${YDZ_DATA}/stacks

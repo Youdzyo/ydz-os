@@ -1,0 +1,36 @@
+{
+  "id": "gitea",
+  "nom": "Gitea",
+  "description": "Ton propre « GitHub » léger pour héberger ton code et tes projets.",
+  "categorie": "Développement",
+  "icone": "git-branch",
+  "image": "gitea/gitea",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 3030,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 2222,
+      "proto": "tcp",
+      "nom": "Git (SSH)"
+    }
+  ],
+  "web": {
+    "port": 3030,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Gitea héberge tes dépôts Git chez toi : code, historique, tickets, demandes de fusion. C'est comme GitHub, mais sur ton serveur et très léger.",
+    "À la première ouverture, un assistant crée le compte administrateur ; garde les réglages proposés (base SQLite).",
+    "Pour envoyer du code en SSH, utilise le port 2222 : ssh://git@adresse-du-nœud:2222/utilisateur/projet.git"
+  ]
+}

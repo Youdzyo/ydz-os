@@ -1,0 +1,41 @@
+{
+  "id": "calibre-web",
+  "nom": "Calibre-Web",
+  "description": "Ta bibliothèque de livres numériques (EPUB, PDF) dans le navigateur.",
+  "categorie": "Médias",
+  "icone": "library",
+  "image": "lscr.io/linuxserver/calibre-web",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8083,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8083,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "LIVRES",
+      "nom": "Dossier de la bibliothèque Calibre",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Le dossier Calibre existant (avec metadata.db) ou un dossier vide sous /srv/ydz."
+    }
+  ],
+  "notes": [
+    "Calibre-Web affiche ta bibliothèque Calibre dans un navigateur : tu peux chercher, lire les EPUB en ligne, télécharger un livre ou l'envoyer sur ta liseuse.",
+    "Identifiants par défaut au premier lancement : admin / admin123. Change le mot de passe tout de suite.",
+    "À la première connexion, indique /books comme emplacement de la base Calibre. Si le dossier est vide, copie-y d'abord un fichier metadata.db (Calibre bureau)."
+  ]
+}

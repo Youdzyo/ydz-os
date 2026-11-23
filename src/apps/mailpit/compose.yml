@@ -1,0 +1,15 @@
+# YDZ OS : Mailpit. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - "8025:8025/tcp"
+      - "1025:1025/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      MP_DATABASE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: "1"
+      MP_SMTP_AUTH_ALLOW_INSECURE: "1"
+    volumes:
+      - ${YDZ_DATA}/data:/data

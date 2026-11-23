@@ -1,0 +1,60 @@
+[Unit]
+Description=YDZ OS : agent du nœud (ydzd)
+Documentation=file:/opt/ydz/TECHNIQUE.md
+After=network-online.target docker.service avahi-daemon.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -u /opt/ydz/bin/ydzd
+# Sécurité : si le démon s'arrête, le GPIO du ventilateur repasse à 0 = 100 % (transistor inverseur).
+ExecStopPost=/bin/sh -c 'for f in /sys/class/pwm/pwmchip*/pwm[0-3]/duty_cycle; do [ -w "$f" ] && echo 0 > "$f"; done; exit 0'
+Restart=always
+RestartSec=3
+Environment=PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+# ProtectHome=yes rend /root inaccessible : sans HOME ailleurs, docker/compose écrivent des avertissements (ou échouent) sur ~/.docker
+Environment=HOME=/var/lib/ydz
+RuntimeDirectory=ydz
+RuntimeDirectoryPreserve=yes
+StateDirectory=ydz
+StateDirectoryMode=0700
+LogsDirectory=ydz
+OOMScoreAdjust=-300
+MemoryHigh=128M
+MemoryMax=768M
+TasksMax=256
+
+# Durcissement. Le démon reste root (Docker, disques, PWM, port 80), mais :
+#  - /usr et /boot sont en lecture seule, /home est invisible, /tmp est privé ;
+#  - il ne peut ni charger un module noyau, ni changer l'heure, ni lire le journal noyau.
+# Les montages se font par « systemctl start <point>.mount » (PID 1), pas par mount(8) :
+# l'espace de montage du service est privé.
+# Volontairement absents : ProtectKernelTunables (le PWM s'écrit dans /sys),
+# PrivateDevices/ProtectClock/DeviceAllow (port série du badge, disques), NoNewPrivileges
+# n'empêche rien d'utile ici.
+NoNewPrivileges=yes
+ProtectSystem=true
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectHostname=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK AF_PACKET
+CapabilityBoundingSet=~CAP_SYS_MODULE CAP_SYS_TIME CAP_SYS_BOOT CAP_SYS_PTRACE CAP_SYSLOG CAP_AUDIT_CONTROL CAP_AUDIT_WRITE CAP_MAC_ADMIN CAP_MAC_OVERRIDE CAP_WAKE_ALARM CAP_BPF CAP_PERFMON CAP_SYS_PACCT CAP_LINUX_IMMUTABLE
+# 1.0.15 (durcissement F-20, sûrs ici) : les autres processus sont invisibles dans /proc, IPC isolé.
+# /proc reste complet (métriques /proc/meminfo, /proc/stat, /proc/net/*). ProtectSystem reste « true » :
+# ydzd écrit dans /etc/ydz, /etc/fstab, /etc/samba, /etc/NetworkManager (passer à « full » demanderait une
+# liste ReadWritePaths exhaustive — documenté dans TECHNIQUE.md plutôt que risquer de bloquer un montage).
+ProtectProc=invisible
+ProcSubset=all
+PrivateIPC=yes
+RemoveIPC=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,28 @@
+{
+  "id": "excalidraw",
+  "nom": "Excalidraw",
+  "description": "Un tableau blanc pour dessiner des schémas à main levée.",
+  "categorie": "Outils",
+  "icone": "pen-tool",
+  "image": "excalidraw/excalidraw",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 5003,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5003,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "Excalidraw est un tableau blanc au style crayonné : schémas, plans, idées de projet. Les dessins ont l'air faits à la main et sont très rapides à produire.",
+    "Les dessins sont enregistrés dans le navigateur, ou exportables en image ou fichier. Le travail à plusieurs en direct demande un serveur supplémentaire non inclus."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Mailpit attrape les e-mails envoyés par tes programmes pendant leur développement et les affiche dans une boîte de réception, sans rien envoyer de vrai.",
+  "pour_qui": "Pour tester un site ou une appli qui envoie des e-mails.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "Mailtrap",
+  "site": "https://mailpit.axllent.org"
+}

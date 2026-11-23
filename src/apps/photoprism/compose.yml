@@ -1,0 +1,21 @@
+# YDZ OS : PhotoPrism. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  photoprism:
+    image: photoprism/photoprism:latest
+    restart: unless-stopped
+    ports:
+      - "2342:2342/tcp"
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    environment:
+      TZ: ${YDZ_TZ}
+      PHOTOPRISM_ADMIN_USER: admin
+      PHOTOPRISM_ADMIN_PASSWORD: ${MDP_ADMIN}
+      PHOTOPRISM_AUTH_MODE: password
+      PHOTOPRISM_SITE_URL: ${ADRESSE_SITE:-http://localhost:2342/}
+      PHOTOPRISM_DATABASE_DRIVER: sqlite
+    working_dir: /photoprism
+    volumes:
+      - ${YDZ_DATA}/storage:/photoprism/storage
+      - ${PHOTOS}:/photoprism/originals:ro

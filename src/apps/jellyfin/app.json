@@ -1,0 +1,41 @@
+{
+  "id": "jellyfin",
+  "nom": "Jellyfin",
+  "description": "Tes films, séries et musiques sur la télé, le téléphone et l'ordinateur.",
+  "categorie": "Médias",
+  "icone": "film",
+  "image": "jellyfin/jellyfin",
+  "noeud_conseille": "vault",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 8096,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8096,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "cache"
+  ],
+  "reglages": [
+    {
+      "cle": "MEDIAS",
+      "nom": "Dossier des médias",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, par exemple /srv/ydz/donnees/partages/films."
+    }
+  ],
+  "notes": [
+    "Le Raspberry Pi 5 n'a pas d'encodeur vidéo matériel : préfère la lecture directe (sans transcodage).",
+    "Dans Jellyfin, tes médias apparaissent dans le dossier /media."
+  ]
+}

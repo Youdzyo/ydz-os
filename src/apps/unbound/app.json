@@ -1,0 +1,30 @@
+{
+  "id": "unbound",
+  "nom": "Unbound",
+  "description": "Un résolveur DNS privé qui n'envoie tes requêtes à aucun fournisseur.",
+  "categorie": "Réseau",
+  "icone": "network",
+  "image": "klutchell/unbound",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 5335,
+      "proto": "tcp",
+      "nom": "DNS"
+    },
+    {
+      "port": 5335,
+      "proto": "udp",
+      "nom": "DNS"
+    }
+  ],
+  "web": null,
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "Unbound répond aux questions « quelle est l'adresse de ce site ? » en interrogeant lui-même les serveurs d'origine, sans confier tes habitudes de navigation à Google, Cloudflare ou ton fournisseur.",
+    "Pas d'interface. Dans Pi-hole (Paramètres > DNS), ajoute le serveur DNS personnalisé adresse-du-nœud#5335 à la place de Quad9 ou Cloudflare.",
+    "Unbound interroge directement les serveurs racine d'Internet : plus privé, mais la toute première requête d'un site est un peu plus lente."
+  ]
+}

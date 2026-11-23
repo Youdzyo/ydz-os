@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr" translate="no">
+<head>
+<meta charset="utf-8">
+  <meta name="google" content="notranslate">
+<title>Home Pi Lab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- TETE -->
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="img/icone-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icone-32.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Home Pi Lab">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="color-scheme" content="dark">
+<style>
+  /* Couleurs de l'identité YDZ : noir OLED, terracotta. Le reste des styles est dans css/ydz.css. */
+  :root {
+    --fond: #000000;
+    --surface: #0d0c0b;
+    --surface-2: #151311;
+    --surface-3: #201d1a;
+    --trait: rgba(255, 236, 220, 0.09);
+    --trait-fort: rgba(255, 236, 220, 0.17);
+    --texte: #f5efe8;
+    --texte-2: #b5aba0;
+    --texte-3: #81786f;
+    --accent: #d9713f;
+    --accent-clair: #f08d5c;
+    --accent-fond: rgba(217, 113, 63, 0.14);
+    --sur-accent: #1b0c04;
+    --ok: #86c79a;
+    --warn: #e9b44c;
+    --crit: #f0645a;
+  }
+  html { background: var(--fond); }
+  body { margin: 0; background: var(--fond); color: var(--texte); }
+  #ydz:empty::before {
+    content: "YDZ"; position: fixed; inset: 0; display: grid; place-items: center;
+    font: 600 44px/1 "Unbounded", system-ui, sans-serif; letter-spacing: 0.08em; color: var(--accent);
+  }
+</style>
+<link rel="stylesheet" href="css/ydz.css">
+<!-- /TETE -->
+</head>
+<body>
+<!-- CORPS -->
+<div id="ydz"></div>
+<noscript><p style="padding:24px;font:18px system-ui">Home Pi Lab (YDZ OS) a besoin de JavaScript pour afficher la tour.</p></noscript>
+<script type="module" src="js/main.js"></script>
+<!-- /CORPS -->
+</body>
+</html>

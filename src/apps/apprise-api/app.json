@@ -1,0 +1,32 @@
+{
+  "id": "apprise-api",
+  "nom": "Apprise API",
+  "description": "Un seul point d'envoi pour tes notifications vers plus de 100 services.",
+  "categorie": "Communication",
+  "icone": "send",
+  "image": "caronc/apprise",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8126,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8126,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "attach"
+  ],
+  "reglages": [],
+  "notes": [
+    "Apprise API est une passerelle : tu lui envoies un message une fois, il le distribue vers Discord, Telegram, e-mail, ntfy ou Gotify selon la liste que tu as enregistrée.",
+    "Enregistre tes destinations (Discord, Telegram, e-mail, ntfy…) dans l'interface, puis envoie un message avec une simple requête web.",
+    "Sans mot de passe : réserve-le au réseau local."
+  ]
+}

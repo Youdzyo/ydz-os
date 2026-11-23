@@ -1,0 +1,12 @@
+# YDZ OS : Node Exporter. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  node-exporter:
+    image: prom/node-exporter:latest
+    restart: unless-stopped
+    pid: host
+    ports:
+      - "9100:9100/tcp"
+    command:
+      - --path.rootfs=/host
+    volumes:
+      - /:/host:ro,rslave

@@ -1,0 +1,48 @@
+{
+  "id": "adguard-home",
+  "nom": "AdGuard Home",
+  "description": "Bloque pubs et traqueurs au niveau du réseau, avec une interface très claire.",
+  "categorie": "Réseau",
+  "icone": "shield-ban",
+  "image": "adguard/adguardhome",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8136,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 3000,
+      "proto": "tcp",
+      "nom": "Assistant de départ"
+    },
+    {
+      "port": 5300,
+      "proto": "tcp",
+      "nom": "DNS"
+    },
+    {
+      "port": 5300,
+      "proto": "udp",
+      "nom": "DNS"
+    }
+  ],
+  "web": {
+    "port": 8136,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "work",
+    "conf"
+  ],
+  "reglages": [],
+  "notes": [
+    "AdGuard Home filtre les publicités, les traqueurs et les sites dangereux pour tous les appareils du réseau, avec des statistiques détaillées et un contrôle parental.",
+    "Premier démarrage : ouvre d'abord http://adresse-du-nœud:3000 pour l'assistant. Choisis « Toutes les interfaces » port 80 pour l'interface, port 53 pour le DNS (ce sont des ports internes au conteneur), puis crée ton compte. Ensuite l'interface est sur le port 8136.",
+    "Le DNS est proposé sur le port 5300 (le port 53 est réservé à Pi-hole sur le réseau YDZ). Les box ne savent pas utiliser un port DNS différent de 53 : AdGuard Home sert donc d'abord de DNS en amont (par exemple pour Pi-hole : adresse-du-nœud#5300) ou pour tes essais.",
+    "Pour qu'AdGuard Home remplace Pi-hole, désinstalle Pi-hole et prévois un nœud où le port 53 est libre."
+  ]
+}

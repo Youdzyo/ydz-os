@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Gotify est un petit service de notifications privé : tes serveurs et scripts lui envoient un message, et ton téléphone le reçoit tout de suite.",
+  "pour_qui": "Pour recevoir des alertes de ses services sans dépendre d'un tiers.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "Pushover / notifications Telegram",
+  "site": "https://gotify.net"
+}

@@ -1,0 +1,15 @@
+# YDZ OS : Nginx Proxy Manager. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    ports:
+      - "8182:81/tcp"
+      - "8880:80/tcp"
+      - "8443:443/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      DISABLE_IPV6: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/data
+      - ${YDZ_DATA}/letsencrypt:/etc/letsencrypt

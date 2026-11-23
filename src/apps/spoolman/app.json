@@ -1,0 +1,31 @@
+{
+  "id": "spoolman",
+  "nom": "Spoolman",
+  "description": "Suit tes bobines de filament d'imprimante 3D : reste, couleur, coût.",
+  "categorie": "Impression 3D",
+  "icone": "cuboid",
+  "image": "ghcr.io/donkie/spoolman",
+  "noeud_conseille": "forge",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 7912,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 7912,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Spoolman tient l'inventaire de tes bobines de filament : matière, couleur, poids restant, prix. Il peut déduire automatiquement ce que chaque impression consomme.",
+    "Pas de mot de passe : réserve-le à ton réseau local.",
+    "Il s'intègre à OrcaSlicer, OctoPrint, Klipper et à Home Assistant pour décompter le filament utilisé."
+  ]
+}

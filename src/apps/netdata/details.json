@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Netdata affiche en direct tout ce qui se passe sur ton Raspberry Pi : processeur, mémoire, disques, réseau, température et processus, avec des graphiques qui bougent à la seconde.",
+  "pour_qui": "Pour voir immédiatement ce qui ralentit ou chauffe, sans configuration.",
+  "difficulte": "facile",
+  "ram_mo": 512,
+  "alternative_a": "Moniteur d'activité / Gestionnaire des tâches",
+  "site": "https://www.netdata.cloud"
+}

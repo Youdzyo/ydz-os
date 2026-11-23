@@ -1,0 +1,8 @@
+# YDZ OS : Cloudflare Tunnel. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${JETON_TUNNEL}

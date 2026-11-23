@@ -1,0 +1,13 @@
+# YDZ OS : Heimdall. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    restart: unless-stopped
+    ports:
+      - "8104:80/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config

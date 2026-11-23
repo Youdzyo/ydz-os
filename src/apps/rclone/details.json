@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Rclone est le « rsync du cloud » : il copie ou synchronise tes dossiers avec Google Drive, OneDrive, Dropbox et des dizaines d'autres services, avec chiffrement possible.",
+  "pour_qui": "Pour sauvegarder ses fichiers vers un cloud ou les rapatrier.",
+  "difficulte": "avancé",
+  "ram_mo": 192,
+  "alternative_a": "Clients de synchronisation cloud",
+  "site": "https://rclone.org"
+}

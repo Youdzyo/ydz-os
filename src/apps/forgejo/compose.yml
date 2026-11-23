@@ -1,0 +1,19 @@
+# YDZ OS : Forgejo. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  forgejo:
+    image: codeberg.org/forgejo/forgejo:15
+    restart: unless-stopped
+    ports:
+      - "3031:3000/tcp"
+      - "2223:22/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      USER_UID: "1000"
+      USER_GID: "1000"
+      FORGEJO__database__DB_TYPE: sqlite3
+      FORGEJO__server__ROOT_URL: http://${YDZ_IP}:3031/
+      FORGEJO__server__SSH_DOMAIN: ${YDZ_IP}
+      FORGEJO__server__SSH_PORT: "2223"
+      FORGEJO__server__SSH_LISTEN_PORT: "22"
+    volumes:
+      - ${YDZ_DATA}/data:/data

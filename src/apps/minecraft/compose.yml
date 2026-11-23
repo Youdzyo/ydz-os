@@ -1,0 +1,24 @@
+# YDZ OS : Minecraft. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  minecraft:
+    image: itzg/minecraft-server:${JAVA}
+    restart: unless-stopped
+    stop_grace_period: 90s
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565/tcp"
+    environment:
+      EULA: "TRUE"
+      TZ: ${YDZ_TZ}
+      TYPE: ${TYPE}
+      VERSION: ${VERSION}
+      NEOFORGE_VERSION: ${NEOFORGE_VERSION:-latest}
+      MEMORY: ${MEMOIRE}
+      MOTD: ${MOTD}
+      DIFFICULTY: ${DIFFICULTE}
+      MAX_PLAYERS: ${JOUEURS}
+      ONLINE_MODE: ${COMPTES_OFFICIELS}
+      USE_AIKAR_FLAGS: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/data

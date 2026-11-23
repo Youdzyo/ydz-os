@@ -1,0 +1,11 @@
+# YDZ OS : Actual Budget. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  actual:
+    image: actualbudget/actual-server:latest
+    restart: unless-stopped
+    ports:
+      - "5007:5006/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/data

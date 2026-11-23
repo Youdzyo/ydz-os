@@ -1,0 +1,10 @@
+# YDZ OS : Baïkal. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: unless-stopped
+    ports:
+      - "8101:80/tcp"
+    volumes:
+      - ${YDZ_DATA}/config:/var/www/baikal/config
+      - ${YDZ_DATA}/data:/var/www/baikal/Specific

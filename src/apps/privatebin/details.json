@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "PrivateBin te permet d'envoyer un message ou un bout de code confidentiel à quelqu'un : tu obtiens un lien, le texte est chiffré et peut se détruire après lecture.",
+  "pour_qui": "Pour partager un mot de passe ou un secret sans le laisser traîner dans une messagerie.",
+  "difficulte": "facile",
+  "ram_mo": 128,
+  "alternative_a": "Pastebin / Snapchat-like notes",
+  "site": "https://privatebin.info"
+}

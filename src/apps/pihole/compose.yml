@@ -1,0 +1,16 @@
+# YDZ OS : Pi-hole. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  pihole:
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8081:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      FTLCONF_webserver_api_password: ${MOT_DE_PASSE}
+      FTLCONF_dns_listeningMode: all
+      FTLCONF_dns_upstreams: ${DNS_AMONT}
+    volumes:
+      - ${YDZ_DATA}/etc-pihole:/etc/pihole

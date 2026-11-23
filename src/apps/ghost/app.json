@@ -1,0 +1,41 @@
+{
+  "id": "ghost",
+  "nom": "Ghost",
+  "description": "Une plateforme de blog et de newsletter élégante.",
+  "categorie": "Sites web",
+  "icone": "pen-tool",
+  "image": "ghost + mysql",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 2368,
+      "proto": "tcp",
+      "nom": "Site"
+    }
+  ],
+  "web": {
+    "port": 2368,
+    "chemin": "/ghost/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "content"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Ghost est une plateforme de publication : tu écris des articles dans un éditeur épuré, ton blog est rapide et joli, et tu peux envoyer des newsletters à tes abonnés.",
+    "Va sur /ghost pour créer le compte administrateur et configurer ton site.",
+    "L'adresse du site est celle du nœud : pour publier sur Internet avec un nom de domaine, il faudra un proxy HTTPS (voir Nginx Proxy Manager).",
+    "Les e-mails (newsletter) demandent un service d'envoi externe, à configurer dans Ghost."
+  ]
+}

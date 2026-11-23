@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "DuckDNS te donne un nom gratuit qui suit l'adresse IP de ta box, même quand elle change. Tu peux ainsi joindre ta maison par un nom facile à retenir.",
+  "pour_qui": "Pour ceux qui veulent accéder à leur serveur depuis l'extérieur avec un nom stable.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "No-IP / DynDNS",
+  "site": "https://www.duckdns.org"
+}

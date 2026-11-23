@@ -1,0 +1,36 @@
+{
+  "id": "mailpit",
+  "nom": "Mailpit",
+  "description": "Une fausse boîte mail pour tester l'envoi d'e-mails de tes projets.",
+  "categorie": "Développement",
+  "icone": "mail",
+  "image": "axllent/mailpit",
+  "noeud_conseille": "forge",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8025,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 1025,
+      "proto": "tcp",
+      "nom": "SMTP"
+    }
+  ],
+  "web": {
+    "port": 8025,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Mailpit attrape les e-mails envoyés par tes programmes pendant leur développement et les affiche dans une boîte de réception, sans rien envoyer de vrai.",
+    "Configure ton application pour envoyer ses e-mails vers l'adresse du nœud, port 1025 : ils s'affichent ici au lieu d'être envoyés pour de vrai.",
+    "Aucun e-mail ne sort jamais vers Internet."
+  ]
+}

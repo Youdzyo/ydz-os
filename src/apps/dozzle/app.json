@@ -1,0 +1,30 @@
+{
+  "id": "dozzle",
+  "nom": "Dozzle",
+  "description": "Lis en direct les journaux (logs) de tous tes conteneurs Docker.",
+  "categorie": "Supervision",
+  "icone": "scroll-text",
+  "image": "amir20/dozzle",
+  "noeud_conseille": "forge",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8116,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8116,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "privilegie": true,
+  "reglages": [],
+  "notes": [
+    "Dozzle montre les messages que produisent tes applications (journaux) en temps réel dans une page web, avec recherche. Très pratique pour comprendre pourquoi une app ne démarre pas.",
+    "Droits étendus : le socket Docker est monté en lecture seule pour lire les journaux. Réserve cette app à ton réseau local.",
+    "Il n'y a pas de mot de passe par défaut."
+  ]
+}

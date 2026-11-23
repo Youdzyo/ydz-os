@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Piper lit du texte à voix haute avec une voix naturelle, sans cloud. C'est la « bouche » de ton assistant vocal Home Assistant : il répond à voix haute.",
+  "pour_qui": "Pour ceux qui veulent un assistant vocal 100 % local.",
+  "difficulte": "avancé",
+  "ram_mo": 512,
+  "alternative_a": "Alexa / Google Assistant (voix)",
+  "site": "https://github.com/rhasspy/piper"
+}

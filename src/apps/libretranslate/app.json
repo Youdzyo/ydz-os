@@ -1,0 +1,53 @@
+{
+  "id": "libretranslate",
+  "nom": "LibreTranslate",
+  "description": "Un traducteur automatique privé, comme Google Traduction.",
+  "categorie": "IA",
+  "icone": "languages",
+  "image": "libretranslate/libretranslate",
+  "noeud_conseille": "forge",
+  "ram_mo": 1536,
+  "ports": [
+    {
+      "port": 5011,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5011,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "models"
+  ],
+  "reglages": [
+    {
+      "cle": "LANGUES",
+      "nom": "Langues chargées",
+      "type": "choix",
+      "defaut": "en,fr,es,de,it",
+      "choix": [
+        {
+          "valeur": "en,fr",
+          "nom": "Anglais et français (léger)"
+        },
+        {
+          "valeur": "en,fr,es,de,it",
+          "nom": "Anglais, français, espagnol, allemand, italien"
+        },
+        {
+          "valeur": "en,fr,es,de,it,pt,nl,ja,zh",
+          "nom": "Neuf langues (lourd)"
+        }
+      ],
+      "aide": "Moins de langues = moins de mémoire et un démarrage plus rapide."
+    }
+  ],
+  "notes": [
+    "LibreTranslate traduit des textes et des documents entre de nombreuses langues sans envoyer ce que tu traduis à une grande entreprise.",
+    "Au premier démarrage, les modèles de langue se téléchargent : ça peut prendre plusieurs minutes.",
+    "Une API est aussi disponible pour tes programmes."
+  ]
+}

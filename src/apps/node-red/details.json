@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Node-RED te laisse construire des automatisations en tirant des fils entre des blocs : « si le capteur détecte du mouvement, allume la lumière et envoie-moi une notification ».",
+  "pour_qui": "Pour ceux qui veulent automatiser leur maison ou des tâches sans programmer.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "IFTTT / Zapier",
+  "site": "https://nodered.org"
+}

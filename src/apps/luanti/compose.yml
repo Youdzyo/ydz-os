@@ -1,0 +1,14 @@
+# YDZ OS : Luanti (Minetest). Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  luanti:
+    image: lscr.io/linuxserver/luanti:latest
+    restart: unless-stopped
+    ports:
+      - "30000:30000/udp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      CLI_ARGS: --gameid devtest
+    volumes:
+      - ${YDZ_DATA}/config:/config/.minetest

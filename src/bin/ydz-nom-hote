@@ -1,0 +1,79 @@
+#!/bin/bash
+# YDZ OS 1.0.13 : change le nom d'hôte réseau de ce Pi (ex. forge -> pi-one), proprement et une seule fois.
+#   ydz-nom-hote NOUVEAU [--role forge|vault|pulse] [--sans-relance]
+# Lancé par ydzd via systemd-run (hors de son bac à sable : ProtectHostname), ou par apres.sh.
+# Ce qui change : hostnamectl, ligne 127.0.1.1 de /etc/hosts, avahi (NOUVEAU.local), Tailscale (si connecté),
+# ydz.conf (rôle écrit en clair pour ne pas dépendre du nom, liste « noeuds », clé « nom »).
+# L'adresse IP ne change pas. L'ancien nom est noté dans /var/lib/ydz/noms-hote-anciens.
+set -u
+CONF=/etc/ydz/ydz.conf
+ANCIENS=/var/lib/ydz/noms-hote-anciens
+NOUVEAU=${1:-}
+shift || true
+ROLE=""; RELANCE=1
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --role) ROLE=${2:-}; shift 2 ;;
+        --sans-relance) RELANCE=0; shift ;;
+        *) shift ;;
+    esac
+done
+if ! printf '%s' "$NOUVEAU" | grep -Eq '^[a-z0-9]([a-z0-9-]{0,30}[a-z0-9])?$'; then
+    echo "ydz-nom-hote : nom refusé « $NOUVEAU » (a-z, 0-9, tirets)"; exit 2
+fi
+ANCIEN=$(hostname 2>/dev/null | cut -d. -f1)
+if [ "$ANCIEN" = "$NOUVEAU" ]; then echo "ydz-nom-hote : déjà « $NOUVEAU », rien à faire"; exit 0; fi
+echo "ydz-nom-hote : « $ANCIEN » -> « $NOUVEAU »"
+
+lire() { sed -n "s/^[[:space:]]*$1[[:space:]]*=[[:space:]]*//p" "$CONF" 2>/dev/null | tail -n 1 | tr -d '\r"'"'" | sed 's/[[:space:]]*$//'; }
+poser() {   # poser clé valeur : remplace la ligne ou l'ajoute (commentaires gardés)
+    if grep -Eq "^[[:space:]]*$1[[:space:]]*=" "$CONF" 2>/dev/null; then
+        sed -i -E "s|^[[:space:]]*$1[[:space:]]*=.*|$1=$2|" "$CONF"
+    else printf '%s=%s\n' "$1" "$2" >> "$CONF"; fi
+}
+
+# 1. le rôle ne doit plus dépendre du nom d'hôte (role=auto déduisait « forge » de « forge »)
+if [ -f "$CONF" ]; then
+    R=$(lire role | tr '[:upper:]' '[:lower:]')
+    if [ -n "$ROLE" ]; then poser role "$ROLE"
+    elif [ -z "$R" ] || [ "$R" = auto ]; then
+        case "$ANCIEN" in forge*) R=forge ;; vault*) R=vault ;; pulse*) R=pulse ;; *) R=pulse ;; esac
+        poser role "$R"; echo "ydz-nom-hote : role=$R écrit dans ydz.conf"
+    fi
+    # liste des nœuds : l'ancien nom laisse la place au nouveau
+    N=$(lire noeuds)
+    if [ -n "$N" ]; then
+        N2=$(printf '%s' "$N" | tr ',' '\n' | sed 's/[[:space:]]//g' | sed "s/^$ANCIEN\$/$NOUVEAU/" | awk 'NF && !v[$0]++' | paste -sd, -)
+        [ "$N2" != "$N" ] && poser noeuds "$N2" && echo "ydz-nom-hote : noeuds=$N2"
+    fi
+    V=$(lire nom)
+    if [ -n "$V" ] && [ "$V" != auto ]; then poser nom "$NOUVEAU"; fi
+fi
+
+# 2. nom d'hôte
+if command -v hostnamectl >/dev/null && hostnamectl set-hostname "$NOUVEAU"; then :
+else printf '%s\n' "$NOUVEAU" > /etc/hostname; hostname "$NOUVEAU" 2>/dev/null || true; fi
+if [ -f /etc/hosts ]; then
+    if grep -q '^127\.0\.1\.1' /etc/hosts; then
+        sed -i "s/^127\.0\.1\.1.*/127.0.1.1\t$NOUVEAU/" /etc/hosts
+    else printf '127.0.1.1\t%s\n' "$NOUVEAU" >> /etc/hosts; fi
+fi
+# cloud-init (Pi OS récent) ne doit pas remettre l'ancien nom au démarrage suivant
+if [ -d /etc/cloud/cloud.cfg.d ]; then
+    printf '# YDZ OS : le nom d'"'"'hôte est géré par YDZ\npreserve_hostname: true\n' > /etc/cloud/cloud.cfg.d/99-ydz.cfg
+fi
+install -d -m 700 /var/lib/ydz
+grep -qx "$ANCIEN" "$ANCIENS" 2>/dev/null || printf '%s\n' "$ANCIEN" >> "$ANCIENS"
+
+# 3. avahi : NOUVEAU.local
+if systemctl is-active --quiet avahi-daemon 2>/dev/null; then
+    systemctl restart avahi-daemon && echo "ydz-nom-hote : $NOUVEAU.local annoncé"
+fi
+# 4. Tailscale : nom dans le tailnet (MagicDNS)
+if command -v tailscale >/dev/null && tailscale status >/dev/null 2>&1; then
+    if tailscale set --hostname="$NOUVEAU"; then echo "ydz-nom-hote : Tailscale -> $NOUVEAU"
+    else echo "ydz-nom-hote : tailscale set --hostname a échoué (à refaire : sudo tailscale set --hostname=$NOUVEAU)"; fi
+fi
+# 5. ydzd relit son nom au démarrage
+if [ "$RELANCE" = 1 ]; then systemctl restart ydzd; fi
+echo "ydz-nom-hote : terminé ($NOUVEAU)"

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "SABnzbd télécharge depuis Usenet : il récupère, vérifie, répare et décompresse les fichiers tout seul. Il s'associe à Sonarr et Radarr.",
+  "pour_qui": "Pour ceux qui ont un abonnement Usenet.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "Clients Usenet payants",
+  "site": "https://sabnzbd.org"
+}

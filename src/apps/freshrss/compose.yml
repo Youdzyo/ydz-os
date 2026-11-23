@@ -1,0 +1,15 @@
+# YDZ OS : FreshRSS. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  freshrss:
+    image: freshrss/freshrss:latest
+    restart: unless-stopped
+    ports:
+      - "8094:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      CRON_MIN: "1,31"
+      FRESHRSS_INSTALL: --api-enabled --db-type sqlite --language fr
+      FRESHRSS_USER: --user ${ADMIN} --password ${MDP_ADMIN} --api-password ${MDP_ADMIN} --language fr
+    volumes:
+      - ${YDZ_DATA}/data:/var/www/FreshRSS/data
+      - ${YDZ_DATA}/extensions:/var/www/FreshRSS/extensions

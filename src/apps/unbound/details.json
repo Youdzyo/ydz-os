@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Unbound répond aux questions « quelle est l'adresse de ce site ? » en interrogeant lui-même les serveurs d'origine, sans confier tes habitudes de navigation à Google, Cloudflare ou ton fournisseur.",
+  "pour_qui": "Pour compléter Pi-hole avec un DNS 100 % privé.",
+  "difficulte": "avancé",
+  "ram_mo": 128,
+  "alternative_a": "DNS de Google / Cloudflare",
+  "site": "https://nlnetlabs.nl/projects/unbound/about/"
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Dozzle montre les messages que produisent tes applications (journaux) en temps réel dans une page web, avec recherche. Très pratique pour comprendre pourquoi une app ne démarre pas.",
+  "pour_qui": "Pour dépanner une application qui plante ou se comporte bizarrement.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "Lire les logs en ligne de commande",
+  "site": "https://dozzle.dev"
+}

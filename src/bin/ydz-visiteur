@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+# ydz-visiteur : petit serveur HTTP de l'espace visiteurs (processus séparé, sans aucun privilège).
+# Il n'écoute que 127.0.0.1:8090, ne lit que /run/ydz/public, et n'a AUCUN accès à ydzd.
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "lib"))
+from ydz.visiteur import servir  # noqa: E402
+
+sys.exit(servir())

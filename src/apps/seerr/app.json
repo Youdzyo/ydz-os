@@ -1,0 +1,31 @@
+{
+  "id": "seerr",
+  "nom": "Seerr",
+  "description": "Une page où ta famille demande des films et séries, et ça se télécharge tout seul.",
+  "categorie": "Médias",
+  "icone": "clapperboard",
+  "image": "ghcr.io/seerr-team/seerr",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 5055,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5055,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Seerr est la vitrine de ton serveur multimédia : tes proches y cherchent un film ou une série, demandent son ajout, et Radarr/Sonarr s'en occupent. Il se branche sur Jellyfin ou Plex.",
+    "À la première ouverture, connecte-le à Jellyfin (ou Plex), puis à Radarr et Sonarr.",
+    "Seerr remplace Jellyseerr et Overseerr, qui ont fusionné."
+  ]
+}

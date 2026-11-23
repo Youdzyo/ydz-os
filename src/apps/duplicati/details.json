@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Duplicati copie régulièrement tes dossiers importants vers un autre disque ou dans le cloud, en les chiffrant et en ne gardant que les changements. En cas de panne, tu restaures tout.",
+  "pour_qui": "Pour protéger ses photos et documents contre une panne de disque.",
+  "difficulte": "moyen",
+  "ram_mo": 384,
+  "alternative_a": "Time Machine / Backblaze",
+  "site": "https://duplicati.com"
+}

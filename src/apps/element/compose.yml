@@ -1,0 +1,24 @@
+# YDZ OS : Element Web. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  element:
+    image: ghcr.io/element-hq/element-web:latest
+    restart: unless-stopped
+    ports:
+      - "8127:80/tcp"
+    configs:
+      - source: element_conf
+        target: /app/config.json
+configs:
+  element_conf:
+    content: |
+      {
+        "default_server_config": {
+          "m.homeserver": {
+            "base_url": "http://${YDZ_IP}:8008",
+            "server_name": "matrix.maison"
+          }
+        },
+        "disable_guests": true,
+        "disable_custom_urls": false,
+        "brand": "Element YDZ"
+      }

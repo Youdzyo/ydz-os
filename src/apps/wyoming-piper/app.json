@@ -1,0 +1,52 @@
+{
+  "id": "wyoming-piper",
+  "nom": "Piper (texte en voix)",
+  "description": "Donne une voix à ton assistant : transforme du texte en parole naturelle.",
+  "categorie": "Maison",
+  "icone": "volume-2",
+  "image": "rhasspy/wyoming-piper",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 10200,
+      "proto": "tcp",
+      "nom": "Wyoming"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "VOIX",
+      "nom": "Voix",
+      "type": "choix",
+      "defaut": "fr_FR-siwis-medium",
+      "choix": [
+        {
+          "valeur": "fr_FR-siwis-medium",
+          "nom": "Français : Siwis (femme)"
+        },
+        {
+          "valeur": "fr_FR-upmc-medium",
+          "nom": "Français : UPMC"
+        },
+        {
+          "valeur": "fr_FR-gilles-low",
+          "nom": "Français : Gilles (homme)"
+        },
+        {
+          "valeur": "en_US-lessac-medium",
+          "nom": "Anglais : Lessac"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Piper lit du texte à voix haute avec une voix naturelle, sans cloud. C'est la « bouche » de ton assistant vocal Home Assistant : il répond à voix haute.",
+    "Pas d'interface. Dans Home Assistant : Paramètres > Appareils > Ajouter > Wyoming Protocol, adresse du nœud, port 10200.",
+    "La voix se télécharge au premier démarrage."
+  ]
+}

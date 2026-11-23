@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "FlareSolverr est un petit assistant invisible : il ouvre un vrai navigateur pour passer les vérifications « êtes-vous un robot ? » de certains sites, afin que Prowlarr puisse les interroger.",
+  "pour_qui": "Pour ceux qui utilisent Prowlarr avec des sources protégées.",
+  "difficulte": "avancé",
+  "ram_mo": 512,
+  "alternative_a": "Passer les vérifications à la main",
+  "site": "https://github.com/FlareSolverr/FlareSolverr"
+}

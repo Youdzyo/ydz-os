@@ -1,0 +1,51 @@
+{
+  "id": "ollama",
+  "nom": "Ollama",
+  "description": "Fais tourner des IA de conversation (Llama, Mistral, Gemma…) sur ton propre serveur.",
+  "categorie": "IA",
+  "icone": "brain",
+  "image": "ollama/ollama",
+  "noeud_conseille": "forge",
+  "ram_mo": 4096,
+  "ports": [
+    {
+      "port": 11434,
+      "proto": "tcp",
+      "nom": "API"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "models"
+  ],
+  "reglages": [
+    {
+      "cle": "MEMOIRE_MODELE",
+      "nom": "Durée de mémoire du modèle",
+      "type": "choix",
+      "defaut": "5m",
+      "choix": [
+        {
+          "valeur": "5m",
+          "nom": "5 minutes puis libère la mémoire"
+        },
+        {
+          "valeur": "30m",
+          "nom": "30 minutes"
+        },
+        {
+          "valeur": "-1",
+          "nom": "Toujours en mémoire"
+        }
+      ],
+      "aide": "Plus long = réponses plus rapides, mais la mémoire reste occupée."
+    }
+  ],
+  "notes": [
+    "Ollama télécharge et fait tourner des modèles d'IA sur ton propre matériel : aucune donnée ne part chez un fournisseur. Sur Raspberry Pi, les petits modèles répondent lentement mais correctement.",
+    "Ollama n'a pas d'interface : utilise l'app Open WebUI pour discuter, ou l'adresse http://adresse-du-nœud:11434 dans d'autres programmes.",
+    "Télécharge un modèle avec : docker exec ydz-ollama-ollama-1 ollama pull llama3.2:3b (les petits modèles de 1 à 4 milliards de paramètres marchent bien sur Pi 5, à quelques mots par seconde).",
+    "Le port 11434 est le port réservé aux outils IA de YDZ OS.",
+    "Pas d'accélération graphique sur Raspberry Pi : tout se fait sur le processeur."
+  ]
+}

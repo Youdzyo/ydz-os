@@ -1,0 +1,3 @@
+// YDZ : téléchargements en IPv4 et relance automatique en cas de coupure (Wi-Fi faible).
+Acquire::ForceIPv4 "true";
+Acquire::Retries "10";

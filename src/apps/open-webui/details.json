@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Open WebUI te donne une page de discussion qui ressemble à ChatGPT, mais qui parle à tes modèles Ollama locaux. Il garde l'historique, gère plusieurs comptes et peut lire des documents.",
+  "pour_qui": "Pour discuter avec une IA locale depuis n'importe quel appareil de la maison.",
+  "difficulte": "moyen",
+  "ram_mo": 1024,
+  "alternative_a": "ChatGPT / Claude.ai",
+  "site": "https://openwebui.com"
+}

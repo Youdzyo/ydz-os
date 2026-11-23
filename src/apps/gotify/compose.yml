@@ -1,0 +1,14 @@
+# YDZ OS : Gotify. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  gotify:
+    image: gotify/server:latest
+    restart: unless-stopped
+    ports:
+      - "8124:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      GOTIFY_DEFAULTUSER_NAME: ${ADMIN}
+      GOTIFY_DEFAULTUSER_PASS: ${MDP_ADMIN}
+      GOTIFY_REGISTRATION: "false"
+    volumes:
+      - ${YDZ_DATA}/data:/app/data

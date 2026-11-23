@@ -1,0 +1,27 @@
+{
+  "id": "cloudflared",
+  "nom": "Cloudflare Tunnel",
+  "description": "Rend une appli accessible depuis Internet sans ouvrir de port sur ta box.",
+  "categorie": "Réseau",
+  "icone": "cloud",
+  "image": "cloudflare/cloudflared",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [],
+  "web": null,
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "JETON_TUNNEL",
+      "nom": "Jeton du tunnel Cloudflare",
+      "type": "secret",
+      "requis": true,
+      "motif": "^[A-Za-z0-9=_-]{40,}$"
+    }
+  ],
+  "notes": [
+    "Cloudflare Tunnel crée une liaison sortante sécurisée vers Cloudflare : tes amis accèdent à ton site ou à tes applis par une adresse publique, sans que tu aies à ouvrir de port sur ta box.",
+    "Il faut un compte Cloudflare gratuit et un nom de domaine. Crée un tunnel dans Cloudflare Zero Trust, copie le jeton (token) et colle-le ici.",
+    "Attention : tout ce que tu publies devient accessible à tout Internet. N'expose pas les interfaces d'administration."
+  ]
+}

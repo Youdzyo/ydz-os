@@ -1,0 +1,5 @@
+{
+  "nom": "YDZ OS 1.0.21 — Gestion du disque",
+  "version": "1.0.21",
+  "description": "Répartition du disque système poste par poste, bouton « Libérer de l'espace » (nettoyage Docker inutilisé, vieilles sauvegardes, cache apt, journaux) avec aperçu avant confirmation, et garde-fous : alerte progressive 85/95 %, réserve d'espace pour que les mises à jour puissent toujours s'installer."
+}

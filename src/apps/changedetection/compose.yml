@@ -1,0 +1,12 @@
+# YDZ OS : Changedetection.io. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:latest
+    restart: unless-stopped
+    ports:
+      - "5006:5000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      BASE_URL: http://${YDZ_IP}:5006
+    volumes:
+      - ${YDZ_DATA}/datastore:/datastore

@@ -1,0 +1,14 @@
+# YDZ OS : Stirling-PDF. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest
+    restart: unless-stopped
+    ports:
+      - "8086:8080/tcp"
+    environment:
+      DOCKER_ENABLE_SECURITY: "false"
+      LANGS: fr_FR
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/configs
+      - ${YDZ_DATA}/tessdata:/usr/share/tessdata

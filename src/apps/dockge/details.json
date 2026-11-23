@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Dockge te laisse écrire, démarrer et arrêter des projets Docker Compose depuis une page web, avec les journaux en direct. C'est plus simple que Portainer quand on aime les fichiers compose.",
+  "pour_qui": "Pour ceux qui lancent leurs propres conteneurs en plus du catalogue YDZ.",
+  "difficulte": "avancé",
+  "ram_mo": 192,
+  "alternative_a": "Portainer",
+  "site": "https://dockge.kuma.pet"
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Ce serveur permet de jouer à Minecraft Bedrock entre amis depuis une console, un téléphone, une tablette ou un PC Windows, sur un monde hébergé chez toi.",
+  "pour_qui": "Pour jouer à Minecraft entre amis sur console ou téléphone.",
+  "difficulte": "moyen",
+  "ram_mo": 1536,
+  "alternative_a": "Realms (abonnement Minecraft)",
+  "site": "https://github.com/itzg/docker-minecraft-bedrock-server"
+}

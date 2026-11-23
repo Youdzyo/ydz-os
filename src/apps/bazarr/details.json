@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Bazarr repère les films et séries qui n'ont pas de sous-titres dans ta langue et les télécharge pour toi, en s'appuyant sur Sonarr et Radarr.",
+  "pour_qui": "Pour ceux qui regardent des films et séries en version originale sous-titrée.",
+  "difficulte": "moyen",
+  "ram_mo": 384,
+  "alternative_a": "Chercher les sous-titres à la main",
+  "site": "https://www.bazarr.media"
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Grafana transforme des chiffres (température du Pi, charge, consommation, trafic) en graphiques et jauges faciles à lire. C'est l'outil de référence pour surveiller un serveur.",
+  "pour_qui": "Pour ceux qui veulent de beaux graphiques sur l'état de leurs machines.",
+  "difficulte": "moyen",
+  "ram_mo": 384,
+  "alternative_a": "Tableaux de bord de supervision payants",
+  "site": "https://grafana.com"
+}

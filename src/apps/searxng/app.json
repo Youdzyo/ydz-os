@@ -1,0 +1,39 @@
+{
+  "id": "searxng",
+  "nom": "SearXNG",
+  "description": "Un moteur de recherche qui interroge Google, Bing et d'autres sans te pister.",
+  "categorie": "Outils",
+  "icone": "search",
+  "image": "searxng/searxng",
+  "noeud_conseille": "pulse",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 8115,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8115,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "SearXNG est un moteur de recherche qui envoie ta question à plusieurs autres moteurs (Google, Bing, DuckDuckGo…) sans transmettre ton identité, ni garder d'historique.",
+    "Pour l'utiliser par défaut dans ton navigateur, ajoute http://adresse-du-nœud:8115/search?q=%s comme moteur de recherche personnalisé.",
+    "Les moteurs interrogés peuvent parfois te bloquer temporairement : c'est normal."
+  ]
+}

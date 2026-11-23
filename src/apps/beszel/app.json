@@ -1,0 +1,31 @@
+{
+  "id": "beszel",
+  "nom": "Beszel",
+  "description": "Un tableau de bord léger pour surveiller plusieurs serveurs et leurs conteneurs.",
+  "categorie": "Supervision",
+  "icone": "server",
+  "image": "henrygd/beszel",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8117,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8117,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Beszel est un tableau de bord simple et léger pour suivre l'état de plusieurs machines : processeur, mémoire, disque, réseau, température. Il envoie des alertes quand quelque chose ne va pas.",
+    "Crée le compte administrateur à la première ouverture, puis ajoute un système : Beszel te donne la clé publique à copier dans l'app « Beszel Agent » installée sur chaque nœud.",
+    "Pour surveiller le nœud qui héberge le hub, installe aussi l'app Beszel Agent ici."
+  ]
+}

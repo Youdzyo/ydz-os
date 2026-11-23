@@ -1,0 +1,1 @@
+{"labo":"Home Pi Lab","tour":{"etat":"ok"},"uptime":183600,"temperature":45,"jeux":[{"nom":"Minecraft","jeu":"Minecraft","en_ligne":true,"adresse":"mc.exemple.fr","joueurs":2,"max":10,"motd":"Serveur entre amis — viens jouer !"},{"nom":"Minecraft","jeu":"Serveur créatif","en_ligne":false,"adresse":null,"joueurs":null,"max":null,"motd":null}],"maj":0}

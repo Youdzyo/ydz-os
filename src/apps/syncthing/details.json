@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Syncthing garde des dossiers identiques sur plusieurs appareils : tu ajoutes un fichier sur ton PC, il apparaît sur ton téléphone et sur le serveur. Les échanges sont chiffrés et directs, sans service externe.",
+  "pour_qui": "Pour ceux qui veulent synchroniser leurs documents ou photos sans cloud.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Dropbox / OneDrive",
+  "site": "https://syncthing.net"
+}

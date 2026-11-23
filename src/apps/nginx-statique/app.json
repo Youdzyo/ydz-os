@@ -1,0 +1,31 @@
+{
+  "id": "nginx-statique",
+  "nom": "Site statique (Nginx)",
+  "description": "Héberge un petit site web fait de simples fichiers HTML.",
+  "categorie": "Sites web",
+  "icone": "globe",
+  "image": "nginx",
+  "noeud_conseille": "forge",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8139,
+      "proto": "tcp",
+      "nom": "Site"
+    }
+  ],
+  "web": {
+    "port": 8139,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "html"
+  ],
+  "reglages": [],
+  "notes": [
+    "Ce serveur web minimal affiche les pages que tu y déposes : un CV en ligne, un site de projet ou un portfolio fait en HTML, sans base de données ni logiciel compliqué.",
+    "Dépose tes fichiers (index.html, images, CSS) dans le dossier de données « html » de l'app, par exemple avec File Browser ou un partage réseau.",
+    "Une page d'exemple est créée au premier démarrage."
+  ]
+}

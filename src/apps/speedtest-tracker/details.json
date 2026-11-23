@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Speedtest Tracker fait régulièrement un test de débit de ta connexion Internet et trace l'historique : tu vois si ta box tient ses promesses et à quelles heures ça rame.",
+  "pour_qui": "Pour vérifier la qualité de sa fibre ou de son ADSL dans le temps.",
+  "difficulte": "facile",
+  "ram_mo": 256,
+  "alternative_a": "Speedtest.net (ponctuel)",
+  "site": "https://docs.speedtest-tracker.dev"
+}

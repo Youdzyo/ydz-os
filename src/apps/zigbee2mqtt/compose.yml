@@ -1,0 +1,21 @@
+# YDZ OS : Zigbee2MQTT. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt:latest
+    restart: unless-stopped
+    ports:
+      - "8128:8080/tcp"
+    devices:
+      - ${PERIPH}:/dev/ttyZIGBEE
+    environment:
+      TZ: ${YDZ_TZ}
+      ZIGBEE2MQTT_CONFIG_SERIAL_PORT: /dev/ttyZIGBEE
+      ZIGBEE2MQTT_CONFIG_MQTT_SERVER: mqtt://${YDZ_IP}:1883
+      ZIGBEE2MQTT_CONFIG_MQTT_USER: ${MQTT_USER}
+      ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ${MQTT_PASSWORD}
+      ZIGBEE2MQTT_CONFIG_FRONTEND_ENABLED: "true"
+      ZIGBEE2MQTT_CONFIG_FRONTEND_PORT: "8080"
+      ZIGBEE2MQTT_CONFIG_HOMEASSISTANT_ENABLED: "true"
+      ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: "false"
+    volumes:
+      - ${YDZ_DATA}/data:/app/data

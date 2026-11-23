@@ -1,0 +1,15 @@
+# YDZ OS : Mumble. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  mumble:
+    image: mumblevoip/mumble-server:latest
+    restart: unless-stopped
+    ports:
+      - "64738:64738/tcp"
+      - "64738:64738/udp"
+    environment:
+      TZ: ${YDZ_TZ}
+      MUMBLE_SUPERUSER_PASSWORD: ${MDP_SUPER}
+      MUMBLE_CONFIG_SERVERPASSWORD: ${MDP_SERVEUR}
+      MUMBLE_CONFIG_WELCOMETEXT: Bienvenue sur le serveur YDZ
+    volumes:
+      - ${YDZ_DATA}/data:/data

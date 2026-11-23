@@ -1,0 +1,13 @@
+# YDZ OS : Apprise API. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  apprise:
+    image: caronc/apprise:latest
+    restart: unless-stopped
+    ports:
+      - "8126:8000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      APPRISE_STATEFUL_MODE: simple
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${YDZ_DATA}/attach:/attach

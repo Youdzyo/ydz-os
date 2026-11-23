@@ -1,0 +1,51 @@
+{
+  "id": "sonarr",
+  "nom": "Sonarr",
+  "description": "Suit tes séries préférées et organise automatiquement les nouveaux épisodes.",
+  "categorie": "Médias",
+  "icone": "download",
+  "image": "lscr.io/linuxserver/sonarr",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8989,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8989,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MEDIAS",
+      "nom": "Dossier de la médiathèque (des séries)",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz où ranger le résultat. Le même dossier que ton lecteur multimédia."
+    },
+    {
+      "cle": "TELECHARGEMENTS",
+      "nom": "Dossier des téléchargements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Le dossier où ton client de téléchargement dépose les fichiers."
+    }
+  ],
+  "notes": [
+    "Sonarr surveille la sortie des épisodes de tes séries, les fait télécharger par ton client (qBittorrent, Transmission…) puis les renomme et les range proprement pour Jellyfin ou Plex.",
+    "Connecte-le à Prowlarr (sources) et à ton client de téléchargement dans Paramètres.",
+    "Les dossiers /media et /downloads doivent être accessibles en écriture à l'utilisateur 1000.",
+    "Un dossier médias et un dossier de téléchargements sur le même disque permettent un déplacement instantané."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Apprise API est une passerelle : tu lui envoies un message une fois, il le distribue vers Discord, Telegram, e-mail, ntfy ou Gotify selon la liste que tu as enregistrée.",
+  "pour_qui": "Pour centraliser les alertes de plusieurs applis.",
+  "difficulte": "moyen",
+  "ram_mo": 128,
+  "alternative_a": "IFTTT / Zapier (notifications)",
+  "site": "https://github.com/caronc/apprise-api"
+}

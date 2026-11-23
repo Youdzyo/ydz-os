@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Gitea héberge tes dépôts Git chez toi : code, historique, tickets, demandes de fusion. C'est comme GitHub, mais sur ton serveur et très léger.",
+  "pour_qui": "Pour les développeurs qui veulent leurs projets privés chez eux.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "GitHub / GitLab",
+  "site": "https://about.gitea.com"
+}

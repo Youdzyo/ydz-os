@@ -1,0 +1,29 @@
+# YDZ OS : Prometheus. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "9092:9090/tcp"
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=30d
+    configs:
+      - source: prometheus_conf
+        target: /etc/prometheus/prometheus.yml
+    volumes:
+      - ${YDZ_DATA}/data:/prometheus
+configs:
+  prometheus_conf:
+    content: |
+      global:
+        scrape_interval: 30s
+      scrape_configs:
+        - job_name: prometheus
+          static_configs:
+            - targets: ["localhost:9090"]
+        - job_name: noeud
+          static_configs:
+            - targets: ["${YDZ_IP}:9100"]

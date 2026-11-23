@@ -1,0 +1,13 @@
+# YDZ OS : Vaultwarden. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    ports:
+      - "8222:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      DOMAIN: ${ADRESSE}
+      SIGNUPS_ALLOWED: ${INSCRIPTIONS}
+    volumes:
+      - ${YDZ_DATA}/data:/data

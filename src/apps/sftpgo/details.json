@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "SFTPGo permet à des personnes d'envoyer et récupérer des fichiers de façon sécurisée (SFTP, WebDAV, web) avec un compte et un dossier propres à chacune.",
+  "pour_qui": "Pour donner à quelques personnes un accès simple et sécurisé à un dossier.",
+  "difficulte": "moyen",
+  "ram_mo": 128,
+  "alternative_a": "Serveur FTP classique",
+  "site": "https://sftpgo.com"
+}

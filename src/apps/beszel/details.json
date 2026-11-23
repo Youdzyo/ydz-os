@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Beszel est un tableau de bord simple et léger pour suivre l'état de plusieurs machines : processeur, mémoire, disque, réseau, température. Il envoie des alertes quand quelque chose ne va pas.",
+  "pour_qui": "Pour surveiller ses trois Raspberry Pi depuis une seule page.",
+  "difficulte": "moyen",
+  "ram_mo": 128,
+  "alternative_a": "Supervision payante (Datadog)",
+  "site": "https://beszel.dev"
+}

@@ -1,0 +1,13 @@
+# YDZ OS : Matrix Synapse. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    restart: unless-stopped
+    ports:
+      - "8008:8008/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      SYNAPSE_SERVER_NAME: ${NOM_SERVEUR}
+      SYNAPSE_REPORT_STATS: "no"
+    volumes:
+      - ${YDZ_DATA}/data:/data

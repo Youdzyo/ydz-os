@@ -1,0 +1,23 @@
+# YDZ OS : Umami. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: umami
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "3026:3000/tcp"
+    environment:
+      DATABASE_URL: postgresql://umami:${MDP_BASE}@db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${CLE_APP}
+      DISABLE_TELEMETRY: "1"

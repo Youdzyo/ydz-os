@@ -1,0 +1,37 @@
+{
+  "id": "duckdns",
+  "nom": "DuckDNS",
+  "description": "Garde un nom gratuit (monnom.duckdns.org) pointé vers l'IP de ta box.",
+  "categorie": "Réseau",
+  "icone": "globe",
+  "image": "lscr.io/linuxserver/duckdns",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [],
+  "web": null,
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "SOUS_DOMAINE",
+      "nom": "Nom DuckDNS",
+      "type": "texte",
+      "defaut": "",
+      "requis": true,
+      "motif": "^[a-z0-9][a-z0-9-]{2,30}$",
+      "aide": "Seulement la partie avant .duckdns.org, créée sur duckdns.org."
+    },
+    {
+      "cle": "JETON",
+      "nom": "Jeton DuckDNS",
+      "type": "secret",
+      "requis": true,
+      "motif": "^[A-Fa-f0-9-]{30,40}$",
+      "aide": "Visible sur la page d'accueil de duckdns.org une fois connecté."
+    }
+  ],
+  "notes": [
+    "DuckDNS te donne un nom gratuit qui suit l'adresse IP de ta box, même quand elle change. Tu peux ainsi joindre ta maison par un nom facile à retenir.",
+    "Ta box change d'adresse IP de temps en temps : DuckDNS met à jour le nom toutes les 5 minutes.",
+    "Pas d'interface : l'app tourne en arrière-plan."
+  ]
+}

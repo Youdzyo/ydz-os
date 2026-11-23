@@ -1,0 +1,13 @@
+# YDZ OS : Komga. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  komga:
+    image: gotson/komga:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "25600:25600/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${LIVRES}:/data

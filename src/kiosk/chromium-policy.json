@@ -1,0 +1,13 @@
+{
+  "_comment": "YDZ OS 1.0.15 : stratégie Chromium du kiosque (F-19). Installée par apres.sh dans /etc/chromium/policies/managed/ydz.json. DevTools coupés, navigation limitée à l'interface locale et au terminal, aucun téléchargement ni impression.",
+  "DeveloperToolsAvailability": 2,
+  "URLAllowlist": ["http://127.0.0.1/*", "http://127.0.0.1:7681/*", "http://localhost/*"],
+  "URLBlocklist": ["*"],
+  "DownloadRestrictions": 3,
+  "PrintingEnabled": false,
+  "BrowserAddPersonEnabled": false,
+  "IncognitoModeAvailability": 1,
+  "PasswordManagerEnabled": false,
+  "DefaultBrowserSettingEnabled": false,
+  "MetricsReportingEnabled": false
+}

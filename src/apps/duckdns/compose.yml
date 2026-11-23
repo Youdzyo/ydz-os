@@ -1,0 +1,11 @@
+# YDZ OS : DuckDNS. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:latest
+    restart: unless-stopped
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      SUBDOMAINS: ${SOUS_DOMAINE}
+      TOKEN: ${JETON}

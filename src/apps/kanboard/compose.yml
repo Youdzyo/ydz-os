@@ -1,0 +1,12 @@
+# YDZ OS : Kanboard. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  kanboard:
+    image: kanboard/kanboard:latest
+    restart: unless-stopped
+    ports:
+      - "8099:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/var/www/app/data
+      - ${YDZ_DATA}/plugins:/var/www/app/plugins

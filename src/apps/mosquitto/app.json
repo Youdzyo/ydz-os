@@ -1,0 +1,44 @@
+{
+  "id": "mosquitto",
+  "nom": "Mosquitto (MQTT)",
+  "description": "Le « facteur » qui fait parler tes objets connectés entre eux.",
+  "categorie": "Maison",
+  "icone": "radio-tower",
+  "image": "eclipse-mosquitto",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 1883,
+      "proto": "tcp",
+      "nom": "MQTT"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MQTT_USER",
+      "nom": "Nom d'utilisateur MQTT",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MQTT_PASSWORD",
+      "nom": "Mot de passe MQTT",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages. À reprendre dans Zigbee2MQTT et Home Assistant."
+    }
+  ],
+  "notes": [
+    "Mosquitto est un serveur de messages MQTT : capteurs, interrupteurs et applis y publient leur état (« il fait 21 °C », « la porte est ouverte ») et d'autres programmes s'y abonnent.",
+    "Pas d'interface : les appareils et applis (Zigbee2MQTT, Home Assistant, ESPHome…) se connectent au port 1883 avec l'utilisateur et le mot de passe réglés ici.",
+    "L'accès sans mot de passe est désactivé."
+  ]
+}

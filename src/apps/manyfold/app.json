@@ -1,0 +1,49 @@
+{
+  "id": "manyfold",
+  "nom": "Manyfold",
+  "description": "Une bibliothèque pour classer tes modèles 3D (STL, 3MF) avec aperçu.",
+  "categorie": "Impression 3D",
+  "icone": "cuboid",
+  "image": "ghcr.io/manyfold3d/manyfold-solo",
+  "noeud_conseille": "forge",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 3214,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3214,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MODELES",
+      "nom": "Dossier des modèles 3D",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz contenant tes fichiers STL / 3MF / OBJ, accessible en écriture à l'utilisateur 1000."
+    },
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Manyfold range tous tes modèles 3D à imprimer : aperçu 3D dans le navigateur, étiquettes, recherche, détection des doublons. Fini le dossier « Téléchargements » impossible à trier.",
+    "Crée le compte administrateur à la première ouverture.",
+    "Version « solo » : la base de données et Redis sont embarqués dans le conteneur.",
+    "Indique /libraries comme dossier de bibliothèque quand l'assistant te le demande."
+  ]
+}

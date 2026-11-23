@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Luanti (anciennement Minetest) est un jeu de blocs libre et léger, dont les mondes se modifient avec des mods. Son serveur tourne très bien sur Raspberry Pi.",
+  "pour_qui": "Pour jouer en construction multijoueur avec des mods, sans licence payante.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "Minecraft",
+  "site": "https://www.luanti.org"
+}

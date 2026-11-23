@@ -1,0 +1,12 @@
+# YDZ OS : openWakeWord. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword:latest
+    restart: unless-stopped
+    command: --preload-model ok_nabu
+    ports:
+      - "10400:10400/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/data

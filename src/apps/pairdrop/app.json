@@ -1,0 +1,29 @@
+{
+  "id": "pairdrop",
+  "nom": "PairDrop",
+  "description": "Envoie des fichiers d'un appareil à l'autre sur ton réseau, comme AirDrop.",
+  "categorie": "Outils",
+  "icone": "share-2",
+  "image": "lscr.io/linuxserver/pairdrop",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 3019,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3019,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "PairDrop te permet d'envoyer une photo ou un fichier de ton téléphone vers ton PC (ou l'inverse) en ouvrant simplement la même page, sans câble, sans compte et sans application.",
+    "Ouvre la page sur les deux appareils (téléphone, PC…) : ils se voient et peuvent s'envoyer fichiers et textes.",
+    "Les envois passent directement d'un appareil à l'autre quand c'est possible."
+  ]
+}

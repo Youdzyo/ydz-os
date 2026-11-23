@@ -1,0 +1,15 @@
+# YDZ OS : Z-Wave JS UI. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  zwave-js-ui:
+    image: zwavejs/zwave-js-ui:latest
+    restart: unless-stopped
+    ports:
+      - "8129:8091/tcp"
+      - "3022:3000/tcp"
+    devices:
+      - ${PERIPH}:/dev/zwave
+    environment:
+      TZ: ${YDZ_TZ}
+      SESSION_SECRET: ${CLE_SESSION}
+    volumes:
+      - ${YDZ_DATA}/store:/usr/src/app/store

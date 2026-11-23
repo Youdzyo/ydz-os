@@ -1,0 +1,31 @@
+{
+  "id": "homebox",
+  "nom": "Homebox",
+  "description": "Inventaire de tout ce que tu possèdes : garanties, factures, emplacements.",
+  "categorie": "Cuisine et maison",
+  "icone": "boxes",
+  "image": "ghcr.io/sysadminsmedia/homebox",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 7745,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 7745,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Homebox liste tout ce que tu possèdes : matériel informatique, outils, électroménager. Tu y mets les photos, les factures, les dates de garantie, et l'endroit où c'est rangé.",
+    "Crée ton compte à la première ouverture (inscription ouverte au début, ferme-la ensuite dans les réglages).",
+    "Pense à l'étiquette QR pour retrouver une boîte dans le garage."
+  ]
+}

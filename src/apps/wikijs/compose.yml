@@ -1,0 +1,25 @@
+# YDZ OS : Wiki.js. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: wiki
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: wiki
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  wiki:
+    image: ghcr.io/requarks/wiki:2
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "3010:3000/tcp"
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: wiki
+      DB_PASS: ${MDP_BASE}
+      DB_NAME: wiki

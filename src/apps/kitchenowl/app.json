@@ -1,0 +1,39 @@
+{
+  "id": "kitchenowl",
+  "nom": "KitchenOwl",
+  "description": "Listes de courses partagées et recettes, en famille.",
+  "categorie": "Cuisine et maison",
+  "icone": "shopping-basket",
+  "image": "tombursch/kitchenowl",
+  "noeud_conseille": "vault",
+  "ram_mo": 192,
+  "ports": [
+    {
+      "port": 8134,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8134,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_JWT",
+      "nom": "Clé de session",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "KitchenOwl est la liste de courses de la famille : chacun ajoute ce qui manque depuis son téléphone et coche en magasin, tout se synchronise en direct. Il stocke aussi vos recettes.",
+    "Crée ton compte à la première ouverture. Des applis Android et iOS sont disponibles.",
+    "La liste de courses se met à jour en direct sur tous les téléphones."
+  ]
+}

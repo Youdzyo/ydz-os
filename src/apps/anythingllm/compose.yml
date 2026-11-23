@@ -1,0 +1,14 @@
+# YDZ OS : AnythingLLM. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  anythingllm:
+    image: mintplexlabs/anythingllm:latest
+    restart: unless-stopped
+    ports:
+      - "3024:3001/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      STORAGE_DIR: /app/server/storage
+      JWT_SECRET: ${CLE_JWT}
+      DISABLE_TELEMETRY: "true"
+    volumes:
+      - ${YDZ_DATA}/storage:/app/server/storage

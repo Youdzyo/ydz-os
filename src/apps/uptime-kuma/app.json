@@ -1,0 +1,29 @@
+{
+  "id": "uptime-kuma",
+  "nom": "Uptime Kuma",
+  "description": "Surveille tes services et te prévient quand l'un d'eux tombe.",
+  "categorie": "Supervision",
+  "icone": "activity",
+  "image": "louislam/uptime-kuma",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 3001,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3001,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Le compte administrateur se crée à la première ouverture."
+  ]
+}

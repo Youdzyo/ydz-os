@@ -1,0 +1,42 @@
+{
+  "id": "navidrome",
+  "nom": "Navidrome",
+  "description": "Ta bibliothèque de musique en streaming, compatible avec des dizaines d'applis.",
+  "categorie": "Médias",
+  "icone": "music",
+  "image": "deluan/navidrome",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 4533,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 4533,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MUSIQUE",
+      "nom": "Dossier de la musique",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz contenant tes fichiers MP3/FLAC, par exemple /srv/ydz/donnees/partages/musique."
+    }
+  ],
+  "notes": [
+    "Navidrome lit ta collection de musique (MP3, FLAC…) et la diffuse sur ton téléphone, ta télé ou ton navigateur, comme Spotify mais avec tes propres fichiers. Il classe tout par artiste, album et genre.",
+    "Le compte administrateur se crée à la première ouverture.",
+    "Compatible avec les applis Subsonic (DSub, Symfonium, Substreamer…) sur téléphone.",
+    "Ta musique apparaît dans le dossier /music de Navidrome ; elle est lue en lecture seule."
+  ]
+}

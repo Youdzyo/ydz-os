@@ -1,0 +1,37 @@
+{
+  "id": "forgejo",
+  "nom": "Forgejo",
+  "description": "Une forge de code libre et communautaire, dérivée de Gitea.",
+  "categorie": "Développement",
+  "icone": "git-branch",
+  "image": "codeberg.org/forgejo/forgejo",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 3031,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 2223,
+      "proto": "tcp",
+      "nom": "Git (SSH)"
+    }
+  ],
+  "web": {
+    "port": 3031,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Forgejo fait la même chose que Gitea : héberger ton code, tes tickets et tes demandes de fusion chez toi. Il est géré par une association à but non lucratif.",
+    "À la première ouverture, un assistant crée le compte administrateur ; garde les réglages proposés (base SQLite).",
+    "Pour envoyer du code en SSH, utilise le port 2223.",
+    "Ne l'installe pas en même temps que Gitea sur le même nœud sans vérifier : leurs ports sont différents, mais ils font le même travail."
+  ]
+}

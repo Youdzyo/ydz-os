@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Umami compte les visites de ton site (pages vues, pays, appareils, sources) sans cookies ni traçage des personnes. C'est une alternative simple à Google Analytics.",
+  "pour_qui": "Pour ceux qui ont un site ou un blog et veulent savoir s'il est lu.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "Google Analytics",
+  "site": "https://umami.is"
+}

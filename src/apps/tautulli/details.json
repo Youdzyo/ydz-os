@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Tautulli surveille ton serveur Plex : historique de lecture, qui regarde en ce moment, films les plus vus, notifications quand quelqu'un lance un film.",
+  "pour_qui": "Pour ceux qui partagent un serveur Plex et veulent voir l'usage.",
+  "difficulte": "facile",
+  "ram_mo": 256,
+  "alternative_a": "Statistiques de lecture (rien d'équivalent chez Netflix)",
+  "site": "https://tautulli.com"
+}

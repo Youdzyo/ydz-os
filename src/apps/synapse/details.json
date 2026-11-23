@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Synapse est le serveur de référence du réseau Matrix : une messagerie chiffrée et décentralisée. Hébergé chez toi, il te donne une messagerie type Discord ou WhatsApp que tu contrôles.",
+  "pour_qui": "Pour ceux qui veulent leur propre messagerie privée pour la famille ou les amis.",
+  "difficulte": "avancé",
+  "ram_mo": 768,
+  "alternative_a": "WhatsApp / Discord / Slack",
+  "site": "https://element-hq.github.io/synapse/"
+}

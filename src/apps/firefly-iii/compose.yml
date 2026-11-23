@@ -1,0 +1,46 @@
+# YDZ OS : Firefly III. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: firefly
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: firefly
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  init-droits:
+    image: busybox:stable
+    restart: "no"
+    command: chown -R 33:33 /upload
+    volumes:
+      - ${YDZ_DATA}/upload:/upload
+  firefly:
+    image: fireflyiii/core:latest
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c", "export APP_KEY=$$(printf %s $$CLE_1$$CLE_2 | head -c 32) && exec docker-php-serversideup-entrypoint /init"]
+    depends_on:
+      db:
+        condition: service_started
+      init-droits:
+        condition: service_completed_successfully
+    ports:
+      - "8135:8080/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      CLE_1: ${CLE_APP}
+      CLE_2: ${CLE_APP2}
+      SITE_OWNER: ${EMAIL_ADMIN}
+      APP_ENV: production
+      APP_URL: http://${YDZ_IP}:8135
+      TRUSTED_PROXIES: "**"
+      DEFAULT_LANGUAGE: fr_FR
+      DEFAULT_LOCALE: fr_FR
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_DATABASE: firefly
+      DB_USERNAME: firefly
+      DB_PASSWORD: ${MDP_BASE}
+    volumes:
+      - ${YDZ_DATA}/upload:/var/www/html/storage/upload

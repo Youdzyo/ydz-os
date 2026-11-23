@@ -1,0 +1,65 @@
+{
+  "id": "influxdb",
+  "nom": "InfluxDB",
+  "description": "Une base de données faite pour stocker des mesures dans le temps.",
+  "categorie": "Supervision",
+  "icone": "database",
+  "image": "influxdb",
+  "noeud_conseille": "pulse",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 8121,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8121,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "ORGANISATION",
+      "nom": "Nom de l'organisation",
+      "type": "texte",
+      "defaut": "maison",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_-]{2,32}$"
+    },
+    {
+      "cle": "SEAU",
+      "nom": "Nom du premier « seau » de données",
+      "type": "texte",
+      "defaut": "mesures",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_-]{2,32}$"
+    }
+  ],
+  "notes": [
+    "InfluxDB range des mesures datées (température, consommation, vitesse…) pour les retrouver et les tracer ensuite. Il fonctionne très bien avec Grafana et Home Assistant.",
+    "Le compte est créé au premier démarrage avec les valeurs réglées ici. Version 2 d'InfluxDB.",
+    "Sert de source de données à Grafana, Home Assistant, Node-RED…"
+  ]
+}

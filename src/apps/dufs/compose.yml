@@ -1,0 +1,13 @@
+# YDZ OS : Dufs. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  dufs:
+    image: sigoden/dufs:latest
+    restart: unless-stopped
+    command: /data
+    ports:
+      - "5001:5000/tcp"
+    environment:
+      DUFS_AUTH: "${UTILISATEUR}:${MDP_WEB}@/:rw"
+      DUFS_ALLOW_ALL: "true"
+    volumes:
+      - ${DOSSIER}:/data

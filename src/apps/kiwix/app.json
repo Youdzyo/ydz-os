@@ -1,0 +1,39 @@
+{
+  "id": "kiwix",
+  "nom": "Kiwix",
+  "description": "Wikipédia et d'autres savoirs consultables sans Internet, chez toi.",
+  "categorie": "Éducation",
+  "icone": "graduation-cap",
+  "image": "ghcr.io/kiwix/kiwix-serve",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8142,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8142,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "ZIM",
+      "nom": "Dossier des bibliothèques (.zim)",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz contenant des fichiers .zim téléchargés sur library.kiwix.org (Wikipédia en français, Wikisource, cours…)."
+    }
+  ],
+  "notes": [
+    "Kiwix héberge des copies hors ligne de Wikipédia, de livres libres ou de cours. Tu peux consulter toute l'encyclopédie sans connexion, par exemple en voyage ou pour des révisions.",
+    "Télécharge d'abord au moins un fichier .zim (par exemple Wikipédia en français, quelques Go) et dépose-le dans le dossier choisi : sans fichier, l'app redémarre en boucle.",
+    "Après avoir ajouté un fichier, redémarre l'app."
+  ]
+}

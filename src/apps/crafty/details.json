@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Crafty Controller te laisse créer, démarrer, arrêter et sauvegarder plusieurs serveurs Minecraft (Java et Bedrock) depuis une seule page web, avec console, planification et gestion des joueurs.",
+  "pour_qui": "Pour héberger plusieurs mondes Minecraft sans ligne de commande.",
+  "difficulte": "moyen",
+  "ram_mo": 1024,
+  "alternative_a": "Hébergeurs de serveurs Minecraft payants",
+  "site": "https://craftycontrol.com"
+}

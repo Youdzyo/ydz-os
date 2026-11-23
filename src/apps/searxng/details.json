@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "SearXNG est un moteur de recherche qui envoie ta question à plusieurs autres moteurs (Google, Bing, DuckDuckGo…) sans transmettre ton identité, ni garder d'historique.",
+  "pour_qui": "Pour ceux qui veulent chercher sur le web sans être pistés.",
+  "difficulte": "moyen",
+  "ram_mo": 384,
+  "alternative_a": "Google / Bing",
+  "site": "https://docs.searxng.org"
+}

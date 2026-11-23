@@ -1,0 +1,44 @@
+[Unit]
+Description=YDZ OS : écran de la tour (kiosque)
+After=systemd-user-sessions.service plymouth-quit-wait.service getty@tty1.service ydzd.service
+Wants=ydzd.service
+Conflicts=getty@tty1.service
+ConditionPathExists=/opt/ydz/kiosk/ydz-kiosk
+
+[Service]
+Type=simple
+User=ydz-kiosk
+# Session logind sur tty1 : c'est elle qui donne l'accès à l'écran et au tactile (pas de seatd).
+PAMName=login
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+StandardInput=tty-fail
+StandardOutput=journal
+StandardError=journal
+UtmpIdentifier=tty1
+UtmpMode=user
+Environment=XDG_SESSION_TYPE=wayland
+ExecStart=/bin/bash /opt/ydz/kiosk/ydz-kiosk
+Restart=always
+RestartSec=4
+# 1.0.15 (durcissement F-19) : le kiosque ne parle qu'à 127.0.0.1, /tmp est privé, pas d'élévation de privilèges.
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+# 1.0.16.1 : labwc (Wayland) et Chromium doivent écrire leur socket et leur cache dans le dossier
+# d'exécution. Sans ces chemins, ProtectSystem=strict les rendait en lecture seule -> écran noir.
+# Le « - » rend le chemin facultatif (pas d'échec du service s'il n'existe pas ; le script a un secours).
+ReadWritePaths=/var/lib/ydz-kiosk /run/ydz-kiosk
+ReadWritePaths=-/run/user/%U -/run/user
+ProtectHome=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+IPAddressAllow=localhost
+IPAddressDeny=any
+RestrictNamespaces=yes
+LockPersonality=yes
+RestrictRealtime=yes
+
+[Install]
+WantedBy=multi-user.target

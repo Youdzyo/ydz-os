@@ -1,0 +1,15 @@
+# YDZ OS : Wallabag. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  wallabag:
+    image: wallabag/wallabag:latest
+    restart: unless-stopped
+    ports:
+      - "8092:80/tcp"
+    environment:
+      SYMFONY__ENV__DOMAIN_NAME: http://${YDZ_IP}:8092
+      SYMFONY__ENV__FOSUSER_REGISTRATION: "false"
+      SYMFONY__ENV__FOSUSER_CONFIRMATION: "false"
+      SYMFONY__ENV__SERVER_NAME: Wallabag YDZ
+    volumes:
+      - ${YDZ_DATA}/data:/var/www/wallabag/data
+      - ${YDZ_DATA}/images:/var/www/wallabag/web/assets/images

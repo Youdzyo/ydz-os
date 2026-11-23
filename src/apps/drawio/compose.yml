@@ -1,0 +1,7 @@
+# YDZ OS : draw.io (diagrams.net). Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  drawio:
+    image: jgraph/drawio:latest
+    restart: unless-stopped
+    ports:
+      - "8111:8080/tcp"

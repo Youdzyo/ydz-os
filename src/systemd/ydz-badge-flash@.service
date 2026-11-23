@@ -1,0 +1,8 @@
+[Unit]
+Description=YDZ OS : vérifie (et flashe si besoin) le badge branché sur %I
+After=ydzd.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/ydz/bin/ydz badge auto /dev/%I
+TimeoutStartSec=180

@@ -1,0 +1,67 @@
+{
+  "id": "romm",
+  "nom": "RomM",
+  "description": "Une médiathèque de tes jeux rétro avec jaquettes, et jouables dans le navigateur.",
+  "categorie": "Jeux",
+  "icone": "joystick",
+  "image": "rommapp/romm + mariadb",
+  "noeud_conseille": "vault",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 8140,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8140,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "resources",
+    "assets",
+    "config",
+    "redis"
+  ],
+  "reglages": [
+    {
+      "cle": "ROMS",
+      "nom": "Dossier des jeux (ROMs)",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz avec un sous-dossier par console (roms/gba, roms/snes…). Seulement des jeux que tu possèdes légalement."
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé de session (1/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "CLE_APP2",
+      "nom": "Clé de session (2/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "RomM range ta collection de jeux rétro (GBA, SNES, PlayStation…) avec jaquettes et descriptions, et permet d'y jouer directement dans le navigateur avec ses sauvegardes.",
+    "Crée le compte administrateur à la première ouverture.",
+    "La structure attendue est : <dossier>/roms/<console>/<fichier>.",
+    "Pour récupérer les jaquettes et résumés, ajoute (facultatif) des clés des services IGDB ou ScreenScraper dans les réglages de l'appli."
+  ]
+}

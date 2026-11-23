@@ -1,0 +1,47 @@
+{
+  "id": "linkwarden",
+  "nom": "Linkwarden",
+  "description": "Collectionne et archive des pages web, avec dossiers partagés.",
+  "categorie": "Lecture et veille",
+  "icone": "bookmark",
+  "image": "ghcr.io/linkwarden/linkwarden + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 3015,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3015,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Linkwarden range tes liens dans des collections, que tu peux partager, et en garde une copie (capture et PDF). C'est ta mémoire du web, qui ne disparaît pas si le site ferme.",
+    "Crée ton compte à la première ouverture ; il devient administrateur.",
+    "Chaque lien est archivé (capture d'écran et PDF) : prévois de la place disque."
+  ]
+}

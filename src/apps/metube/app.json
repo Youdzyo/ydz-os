@@ -1,0 +1,39 @@
+{
+  "id": "metube",
+  "nom": "MeTube",
+  "description": "Télécharge des vidéos ou de l'audio depuis YouTube et d'autres sites.",
+  "categorie": "Téléchargements",
+  "icone": "cloud-download",
+  "image": "ghcr.io/alexta69/metube",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8089,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8089,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "TELECHARGEMENTS",
+      "nom": "Dossier des téléchargements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz accessible en écriture à l'utilisateur 1000."
+    }
+  ],
+  "notes": [
+    "MeTube est une page web où tu colles un lien de vidéo (YouTube et des centaines d'autres sites) pour l'enregistrer en vidéo ou en MP3 sur ton serveur.",
+    "Colle un lien dans l'interface : la vidéo est enregistrée dans le dossier choisi (yt-dlp en dessous).",
+    "Respecte les droits d'auteur : télécharge seulement ce que tu as le droit de garder."
+  ]
+}

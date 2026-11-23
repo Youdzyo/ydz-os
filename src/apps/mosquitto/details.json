@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Mosquitto est un serveur de messages MQTT : capteurs, interrupteurs et applis y publient leur état (« il fait 21 °C », « la porte est ouverte ») et d'autres programmes s'y abonnent.",
+  "pour_qui": "Pour la domotique avec Zigbee2MQTT, ESPHome ou Home Assistant.",
+  "difficulte": "moyen",
+  "ram_mo": 64,
+  "alternative_a": "Hubs propriétaires (cloud des marques)",
+  "site": "https://mosquitto.org"
+}

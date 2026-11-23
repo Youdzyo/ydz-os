@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Spoolman tient l'inventaire de tes bobines de filament : matière, couleur, poids restant, prix. Il peut déduire automatiquement ce que chaque impression consomme.",
+  "pour_qui": "Pour ceux qui ont une imprimante 3D et beaucoup de bobines.",
+  "difficulte": "facile",
+  "ram_mo": 128,
+  "alternative_a": "Tableur de bobines",
+  "site": "https://github.com/Donkie/Spoolman"
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "2FAuth stocke les codes à 6 chiffres de tes comptes (Google, Discord, banque…) comme une appli d'authentification, mais sur ton serveur. Tu peux les consulter depuis n'importe quel navigateur.",
+  "pour_qui": "Pour ceux qui veulent leurs codes 2FA sauvegardés et sous contrôle.",
+  "difficulte": "moyen",
+  "ram_mo": 128,
+  "alternative_a": "Google Authenticator / Authy",
+  "site": "https://docs.2fauth.app"
+}

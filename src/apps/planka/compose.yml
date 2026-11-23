@@ -1,0 +1,28 @@
+# YDZ OS : Planka. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: planka
+      POSTGRES_PASSWORD: ${MDP_BASE}
+      POSTGRES_DB: planka
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/postgresql/data
+  planka:
+    image: ghcr.io/plankanban/planka:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "1337:1337/tcp"
+    environment:
+      BASE_URL: http://${YDZ_IP}:1337
+      DATABASE_URL: postgresql://planka:${MDP_BASE}@db/planka
+      SECRET_KEY: ${CLE_SECRETE}
+      DEFAULT_ADMIN_EMAIL: ${EMAIL_ADMIN}
+      DEFAULT_ADMIN_PASSWORD: ${MDP_ADMIN}
+      DEFAULT_ADMIN_NAME: Administrateur
+      DEFAULT_ADMIN_USERNAME: admin
+    volumes:
+      - ${YDZ_DATA}/data:/app/data

@@ -1,0 +1,15 @@
+# YDZ OS : AdGuard Home. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    restart: unless-stopped
+    ports:
+      - "8136:80/tcp"
+      - "3000:3000/tcp"
+      - "5300:53/tcp"
+      - "5300:53/udp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/work:/opt/adguardhome/work
+      - ${YDZ_DATA}/conf:/opt/adguardhome/conf

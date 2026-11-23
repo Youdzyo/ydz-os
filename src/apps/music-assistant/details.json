@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Music Assistant réunit ta musique locale et tes comptes de streaming (Spotify, Deezer…) et l'envoie sur les enceintes de ton choix, dans une ou plusieurs pièces à la fois.",
+  "pour_qui": "Pour la musique dans toute la maison, avec Home Assistant ou seul.",
+  "difficulte": "moyen",
+  "ram_mo": 512,
+  "alternative_a": "Sonos / Spotify Connect",
+  "site": "https://music-assistant.io"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "gokapi",
+  "nom": "Gokapi",
+  "description": "Envoie des fichiers avec un lien qui expire, façon WeTransfer.",
+  "categorie": "Fichiers",
+  "icone": "share-2",
+  "image": "f0rc3/gokapi",
+  "noeud_conseille": "vault",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 53842,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 53842,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Gokapi te permet d'envoyer un fichier à quelqu'un avec un lien qui s'arrête de marcher après un certain nombre de téléchargements ou de jours. C'est ta propre version de WeTransfer.",
+    "À la première ouverture, un assistant te fait choisir le mot de passe administrateur ; garde l'adresse en HTTP pour le réseau local.",
+    "Les fichiers sont stockés dans le dossier de données de l'app."
+  ]
+}

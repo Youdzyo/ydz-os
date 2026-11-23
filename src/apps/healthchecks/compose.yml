@@ -1,0 +1,19 @@
+# YDZ OS : Healthchecks. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  healthchecks:
+    image: lscr.io/linuxserver/healthchecks:latest
+    restart: unless-stopped
+    ports:
+      - "8120:8000/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      SITE_ROOT: http://${YDZ_IP}:8120
+      SITE_NAME: Healthchecks YDZ
+      SUPERUSER_EMAIL: ${EMAIL_ADMIN}
+      SUPERUSER_PASSWORD: ${MDP_ADMIN}
+      ALLOWED_HOSTS: "*"
+      REGISTRATION_OPEN: "False"
+    volumes:
+      - ${YDZ_DATA}/config:/config

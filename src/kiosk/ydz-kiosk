@@ -1,0 +1,182 @@
+#!/usr/bin/env bash
+# YDZ OS : lance l'interface plein écran sur l'écran DSI de la tour.
+# Sans argument : démarre le compositeur choisi dans ydz.conf (kiosk=labwc|cage|cog).
+# Avec « --session » : tourne DANS le compositeur (règle la rotation, lance le navigateur).
+set -u
+CONF=/etc/ydz/ydz.conf
+lire() { local v; v=$(sed -n "s/^[[:space:]]*$1[[:space:]]*=[[:space:]]*//p" "$CONF" 2>/dev/null | tail -n 1 | tr -d '\r"'"'" | sed 's/[[:space:]]*$//'); printf '%s' "${v:-$2}"; }
+KIOSK=$(lire kiosk labwc)
+ROT=$(lire rotation 90)
+URL="http://127.0.0.1:$(lire port_web 80)/"
+MOI=$(readlink -f "$0")
+# 1.0.16.1 : dossier de travail TOUJOURS sous /var/lib/ydz-kiosk (jamais $HOME). Avec ProtectHome=yes
+# et ProtectSystem=strict (durcissement 1.0.15), un $HOME sous /home devenait illisible et labwc/Chromium
+# ne pouvaient plus écrire leur profil : écran noir. /var/lib/ydz-kiosk est en ReadWritePaths du service.
+ETAT=/var/lib/ydz-kiosk
+mkdir -p "$ETAT" 2>/dev/null
+# XDG_RUNTIME_DIR : fourni par logind (session tty1). En secours, un dossier inscriptible garanti.
+if [ -z "${XDG_RUNTIME_DIR:-}" ] || ! { mkdir -p "$XDG_RUNTIME_DIR" 2>/dev/null && [ -w "$XDG_RUNTIME_DIR" ]; }; then
+    export XDG_RUNTIME_DIR="$ETAT/run"
+    mkdir -p "$XDG_RUNTIME_DIR" 2>/dev/null; chmod 700 "$XDG_RUNTIME_DIR" 2>/dev/null
+    echo "ydz-kiosk : XDG_RUNTIME_DIR de secours -> $XDG_RUNTIME_DIR"
+fi
+
+navigateur() { command -v chromium 2>/dev/null || command -v chromium-browser 2>/dev/null; }
+
+if [ "${1:-}" = "--session" ]; then
+    # 1. rotation de l'affichage ; le tactile suit la sortie (labwc : mapToOutput ; cage : automatique)
+    SORTIE=$(wlr-randr 2>/dev/null | awk '/^DSI-/{print $1; exit}')
+    [ -n "$SORTIE" ] || SORTIE=$(wlr-randr 2>/dev/null | awk '/^[A-Za-z]/{print $1; exit}')
+    case "$ROT" in 0) T=normal ;; 90|180|270) T=$ROT ;; *) T=90 ;; esac
+    if [ -n "$SORTIE" ]; then wlr-randr --output "$SORTIE" --transform "$T" || echo "ydz-kiosk : rotation refusée sur $SORTIE"
+    else echo "ydz-kiosk : aucun écran vu par wlr-randr"; fi
+    # 2. on attend le hub (30 s au plus) pour ne pas afficher une page d'erreur
+    for _ in $(seq 1 30); do curl -fs -m 2 "${URL}api/ping" >/dev/null 2>&1 && break; sleep 1; done
+    # 2b. confiance « écran local » : jeton lu dans un fichier que seul ce compte peut lire, échangé contre un
+    #     billet à usage unique (le jeton n'apparaît jamais dans la ligne de commande de Chromium). Sans lui,
+    #     l'interface fonctionne en mode « réseau » : le code PIN est demandé pour agir.
+    # 1.0.15 : le jeton est publié dans /run/ydz-kiosk (dossier de root, groupe ydz-kiosk, 0440) ; ancien
+    #     emplacement /var/lib/ydz-kiosk gardé en repli le temps d'un premier redémarrage de ydzd.
+    JETON=""
+    for _ in $(seq 1 15); do
+        for f in /run/ydz-kiosk/jeton-local "$ETAT/jeton-local"; do [ -r "$f" ] && JETON="$f" && break; done
+        [ -n "$JETON" ] && break; sleep 1
+    done
+    if [ -n "$JETON" ]; then
+        BILLET=$(printf 'header = "X-YDZ-Local: %s"\n' "$(tr -d '\r\n' < "$JETON")" \
+            | curl -fs -m 3 -K - -X POST "${URL}api/ecran/billet" 2>/dev/null | sed -n 's/.*"billet":"\([^"]*\)".*/\1/p')
+        [ -n "$BILLET" ] && URL="${URL}?billet=$BILLET" || echo "ydz-kiosk : billet refusé, interface en mode réseau (PIN demandé)"
+    else
+        echo "ydz-kiosk : jeton local absent (/run/ydz-kiosk/jeton-local), interface en mode réseau (PIN demandé)"
+    fi
+    # 2c. écran sans souris ni tactile : tableau de bord seul (ecran_mode=affichage dans ydz.conf)
+    if [ "$(lire ecran_mode complet)" = affichage ]; then
+        case "$URL" in *\?*) URL="${URL}&affichage=1" ;; *) URL="${URL}?affichage=1" ;; esac
+    fi
+    # 2d. veille de nuit : le hub écrit « jour », « horloge » ou « eteint » dans /run/ydz/ecran-nuit.
+    #     1.0.14 : « eteint » DÉSACTIVE la sortie (wlr-randr --off) : plus aucun signal, le moniteur HDMI se met
+    #     en veille tout seul (« pas de signal »). wlopm (DPMS) seulement si wlr-randr échoue. Au réveil : sortie
+    #     réactivée avec sa rotation et son mode d'avant ; Chromium n'est jamais relancé. Un seul guetteur par
+    #     session ; il hérite de SORTIE et T (définis plus haut, même session) et les redétecte s'ils manquent.
+    VERROU="$XDG_RUNTIME_DIR/ydz-nuit.pid"
+    if ! { [ -r "$VERROU" ] && kill -0 "$(cat "$VERROU")" 2>/dev/null; }; then
+        (
+            ETEINT=0; METHODE=""; MODE=""
+            sortie() {
+                [ -n "${SORTIE:-}" ] && return 0
+                SORTIE=$(wlr-randr 2>/dev/null | awk '/^DSI-/{print $1; exit}')
+                [ -n "$SORTIE" ] || SORTIE=$(wlr-randr 2>/dev/null | awk '/^[A-Za-z]/{print $1; exit}')
+                [ -n "$SORTIE" ]
+            }
+            mode_actuel() {   # « 1920x1080@60.000000 » : le mode courant de la sortie, pour le remettre au réveil
+                wlr-randr 2>/dev/null | awk -v s="$SORTIE" '
+                    /^[A-Za-z]/ { dans = ($1 == s) }
+                    dans && /current/ { print $1 "@" $3; exit }'
+            }
+            T=${T:-90}
+            while true; do
+                V=$(cat /run/ydz/ecran-nuit 2>/dev/null)
+                if [ "$V" = eteint ] && [ $ETEINT = 0 ]; then
+                    if sortie; then MODE=$(mode_actuel); fi
+                    if [ -n "${SORTIE:-}" ] && wlr-randr --output "$SORTIE" --off; then
+                        METHODE=randr; echo "ydz-kiosk : écran éteint (sortie $SORTIE coupée : plus de signal)"
+                    elif command -v wlopm >/dev/null && wlopm --off '*'; then
+                        METHODE=wlopm; echo "ydz-kiosk : écran éteint par DPMS (wlopm), wlr-randr a échoué"
+                    else
+                        METHODE=""; echo "ydz-kiosk : impossible d'éteindre l'écran (ni wlr-randr ni wlopm)"
+                    fi
+                    ETEINT=1
+                elif [ "$V" != eteint ] && [ $ETEINT = 1 ]; then
+                    if [ "$METHODE" = wlopm ]; then
+                        wlopm --on '*' && echo "ydz-kiosk : écran rallumé (wlopm)"
+                    elif [ -n "${SORTIE:-}" ]; then
+                        if [ -n "$MODE" ] && wlr-randr --output "$SORTIE" --on --mode "$MODE" --transform "$T"; then
+                            echo "ydz-kiosk : écran rallumé ($SORTIE, $MODE, rotation $T)"
+                        elif wlr-randr --output "$SORTIE" --on --transform "$T"; then
+                            echo "ydz-kiosk : écran rallumé ($SORTIE, mode préféré, rotation $T)"
+                        else
+                            echo "ydz-kiosk : rallumage refusé sur $SORTIE, essai DPMS"; wlopm --on '*' 2>/dev/null
+                        fi
+                        # Chromium redessine au changement de sortie ; par sécurité, une seule réapplication de
+                        # la rotation 2 s plus tard (jamais de relance du navigateur)
+                        sleep 2; wlr-randr --output "$SORTIE" --transform "$T" >/dev/null 2>&1
+                    fi
+                    ETEINT=0
+                fi
+                sleep 2      # lecture d'un fichier en mémoire (/run) : quasi gratuit, et le test de 10 s se voit
+            done
+        ) &
+        echo $! > "$VERROU"
+    fi
+    NAV=$(navigateur) || { echo "ydz-kiosk : Chromium introuvable"; sleep 20; exit 1; }
+    # 3. un profil propre à chaque lancement : jamais de bulle « restaurer la session »
+    rm -rf "$ETAT/chromium/Singleton"* 2>/dev/null
+    # 3b. jamais de bulle « Google Traduction » : traduction coupée dans les préférences du profil
+    mkdir -p "$ETAT/chromium/Default"
+    python3 - "$ETAT/chromium/Default/Preferences" <<'PY' 2>/dev/null || true
+import json, sys
+p = sys.argv[1]
+try:
+    d = json.load(open(p))
+except Exception:
+    d = {}
+d.setdefault("translate", {})["enabled"] = False
+d["translate_blocked_languages"] = ["fr", "en"]
+d.setdefault("intl", {})["accept_languages"] = "fr-FR,fr"
+json.dump(d, open(p, "w"))
+PY
+    exec "$NAV" --kiosk --ozone-platform=wayland --user-data-dir="$ETAT/chromium" \
+        --no-first-run --noerrdialogs --disable-infobars --disable-session-crashed-bubble \
+        --disable-features=Translate,TranslateUI,TranslateBubble,MediaRouter --disable-pinch --overscroll-history-navigation=0 \
+        --password-store=basic --check-for-update-interval=31536000 --disable-component-update \
+        --disk-cache-dir="${XDG_RUNTIME_DIR:-/tmp}/ydz-kiosk-cache" --disk-cache-size=33554432 --hide-scrollbars \
+        --autoplay-policy=no-user-gesture-required --lang=fr-FR "$URL"
+fi
+
+case "$KIOSK" in
+    non) echo "ydz-kiosk : kiosk=non, rien à lancer"; sleep infinity ;;
+    cog)
+        # WPE WebKit directement sur DRM/KMS, sans compositeur (voie légère, moins éprouvée)
+        case "$ROT" in 90) R=1 ;; 180) R=2 ;; 270) R=3 ;; *) R=0 ;; esac
+        exec cog --platform=drm --platform-params="rotation=$R" "$URL" ;;
+    cage)
+        exec cage -d -s -- /bin/bash "$MOI" --session ;;
+    *)
+        C=$ETAT/labwc
+        mkdir -p "$C"
+        # curseur invisible : thème de curseurs « vide » (une image 1x1 transparente pour tous les noms)
+        V="$ETAT/icons/ydz-vide/cursors"
+        if [ ! -s "$V/left_ptr" ]; then
+            mkdir -p "$V"
+            python3 -c '
+import struct, sys
+img = struct.pack("<9I", 36, 0xfffd0002, 1, 1, 1, 1, 0, 0, 0) + struct.pack("<I", 0)
+d = b"Xcur" + struct.pack("<3I", 16, 0x10000, 1) + struct.pack("<3I", 0xfffd0002, 1, 28) + img
+open(sys.argv[1], "wb").write(d)' "$V/left_ptr"
+            for n in default arrow top_left_arrow pointer hand1 hand2 text xterm wait watch progress \
+                     crosshair grab grabbing move all-scroll not-allowed col-resize row-resize ew-resize ns-resize; do
+                ln -sf left_ptr "$V/$n"
+            done
+            printf '[Icon Theme]\nName=ydz-vide\n' > "$ETAT/icons/ydz-vide/index.theme"
+        fi
+        cat > "$C/rc.xml" <<'XML'
+<?xml version="1.0"?>
+<labwc_config>
+  <core><gap>0</gap></core>
+  <!-- le tactile est rattaché à l'écran DSI : il tourne avec lui -->
+  <touch deviceName="" mapToOutput="DSI-1" mouseEmulation="no"/>
+  <windowRules>
+    <windowRule identifier="*" serverDecoration="no"/>
+  </windowRules>
+  <keyboard><default/></keyboard>
+</labwc_config>
+XML
+        printf '#!/bin/sh\n# relance le navigateur s'"'"'il se ferme\nwhile true; do /bin/bash %s --session; sleep 2; done &\n' "$MOI" > "$C/autostart"
+        # curseur=oui dans ydz.conf (Réglages > Écran) le fait réapparaître
+        if [ "$(lire curseur non)" = oui ]; then
+            : > "$C/environment"
+        else
+            printf 'XCURSOR_PATH=%s/icons\nXCURSOR_THEME=ydz-vide\nXCURSOR_SIZE=24\n' "$ETAT" > "$C/environment"
+        fi
+        exec labwc -C "$C" ;;
+esac

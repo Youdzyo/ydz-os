@@ -1,0 +1,31 @@
+{
+  "id": "memos",
+  "nom": "Memos",
+  "description": "Des notes rapides façon fil d'actualité, pour tout noter en un clin d'œil.",
+  "categorie": "Notes et documents",
+  "icone": "message-square",
+  "image": "neosmemo/memos",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 5230,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5230,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Memos est un carnet de pensées rapides : tu écris une idée, une tâche, un lien, et ça s'ajoute à ton fil, avec des étiquettes pour retrouver plus tard. Très léger, très simple.",
+    "Le premier compte créé devient administrateur : crée-le tout de suite après l'installation.",
+    "Pense à désactiver l'inscription dans les paramètres une fois ton compte créé."
+  ]
+}

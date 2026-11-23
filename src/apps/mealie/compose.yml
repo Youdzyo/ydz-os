@@ -1,0 +1,18 @@
+# YDZ OS : Mealie. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest
+    restart: unless-stopped
+    ports:
+      - "9925:9000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      BASE_URL: http://${YDZ_IP}:9925
+      ALLOW_SIGNUP: "false"
+      DEFAULT_GROUP: Maison
+    volumes:
+      - ${YDZ_DATA}/data:/app/data
+    deploy:
+      resources:
+        limits:
+          memory: 1000M

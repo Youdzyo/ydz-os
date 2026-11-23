@@ -1,0 +1,41 @@
+{
+  "id": "kavita",
+  "nom": "Kavita",
+  "description": "Une bibliothèque en ligne pour tes mangas, BD et livres numériques.",
+  "categorie": "Médias",
+  "icone": "book-open",
+  "image": "jvmilazz0/kavita",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 5004,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5004,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "LIVRES",
+      "nom": "Dossier des mangas / BD / livres",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz (CBZ, CBR, PDF, EPUB…)."
+    }
+  ],
+  "notes": [
+    "Kavita lit tes mangas, bandes dessinées et livres numériques directement dans le navigateur, avec un lecteur agréable, des collections et le suivi de lecture.",
+    "Le compte administrateur se crée à la première ouverture.",
+    "Ta bibliothèque apparaît dans le dossier /books ; ajoute-la dans l'interface (Admin > Bibliothèques)."
+  ]
+}

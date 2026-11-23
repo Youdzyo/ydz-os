@@ -1,0 +1,12 @@
+# YDZ OS : Wallos. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  wallos:
+    image: bellamy/wallos:latest
+    restart: unless-stopped
+    ports:
+      - "8282:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/db:/var/www/html/db
+      - ${YDZ_DATA}/logos:/var/www/html/images/uploads/logos

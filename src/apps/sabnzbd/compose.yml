@@ -1,0 +1,14 @@
+# YDZ OS : SABnzbd. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    restart: unless-stopped
+    ports:
+      - "8084:8080/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${TELECHARGEMENTS}:/downloads

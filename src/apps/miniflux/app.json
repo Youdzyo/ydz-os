@@ -1,0 +1,55 @@
+{
+  "id": "miniflux",
+  "nom": "Miniflux",
+  "description": "Un lecteur de flux RSS minimaliste et très rapide.",
+  "categorie": "Lecture et veille",
+  "icone": "rss",
+  "image": "miniflux/miniflux + postgres",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8131,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8131,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom d'utilisateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Miniflux est un lecteur de flux RSS volontairement simple : peu d'options, ultra rapide, parfait pour lire les nouveautés de tes sites favoris sans distraction.",
+    "Le compte administrateur est créé automatiquement avec les valeurs réglées ici.",
+    "Compatible avec les applis qui parlent l'API Fever ou Google Reader."
+  ]
+}

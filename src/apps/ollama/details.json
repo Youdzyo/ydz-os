@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Ollama télécharge et fait tourner des modèles d'IA sur ton propre matériel : aucune donnée ne part chez un fournisseur. Sur Raspberry Pi, les petits modèles répondent lentement mais correctement.",
+  "pour_qui": "Pour ceux qui veulent essayer une IA privée, sans abonnement ni envoi de données.",
+  "difficulte": "moyen",
+  "ram_mo": 4096,
+  "alternative_a": "ChatGPT / Gemini",
+  "site": "https://ollama.com"
+}

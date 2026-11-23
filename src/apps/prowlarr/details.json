@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Prowlarr est l'annuaire central de tes sources de téléchargement. Tu les configures une seule fois et il les partage avec Sonarr, Radarr et Lidarr.",
+  "pour_qui": "Pour ceux qui utilisent Sonarr, Radarr ou Lidarr.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Configurer chaque appli séparément",
+  "site": "https://prowlarr.com"
+}

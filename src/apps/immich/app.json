@@ -1,0 +1,43 @@
+{
+  "id": "immich",
+  "nom": "Immich",
+  "description": "Tes photos et vidéos sauvegardées depuis le téléphone, comme Google Photos.",
+  "categorie": "Photos",
+  "icone": "images",
+  "image": "ghcr.io/immich-app/immich-server + postgres + redis",
+  "noeud_conseille": "vault",
+  "ram_mo": 4096,
+  "ports": [
+    {
+      "port": 2283,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 2283,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "bibliotheque",
+    "ml-cache"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    }
+  ],
+  "notes": [
+    "Immich sauvegarde automatiquement les photos et vidéos de ton téléphone sur ton serveur, les classe par date, lieu, personnes et objets, et permet de les partager en albums. C'est l'alternative la plus proche de Google Photos.",
+    "Le compte administrateur se crée à la première ouverture. Installe l'appli Immich sur ton téléphone pour la sauvegarde automatique des photos.",
+    "Lourd : serveur, base de données, Redis et reconnaissance d'images (apprentissage automatique). Compte 4 Go de mémoire et un disque de données.",
+    "Les premiers jours, l'analyse des photos (visages, objets) est lente sur Raspberry Pi : c'est normal.",
+    "Installe-le sur un nœud avec un disque de données (vault) et choisis ce disque comme emplacement."
+  ]
+}

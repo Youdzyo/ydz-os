@@ -1,0 +1,49 @@
+{
+  "id": "freshrss",
+  "nom": "FreshRSS",
+  "description": "Lis les actualités de tes sites préférés dans un seul flux, sans algorithme.",
+  "categorie": "Lecture et veille",
+  "icone": "rss",
+  "image": "freshrss/freshrss",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8094,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8094,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "extensions"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom d'utilisateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "FreshRSS rassemble les nouveaux articles de tous tes sites, blogs et chaînes préférés dans une seule page, dans l'ordre, sans publicité ni algorithme qui choisit à ta place.",
+    "Le compte est créé automatiquement au premier démarrage avec les valeurs réglées ici.",
+    "Des applis mobiles (Readrops, Fluent Reader…) se connectent via l'API : active-la dans ton profil."
+  ]
+}

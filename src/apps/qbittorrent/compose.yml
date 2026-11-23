@@ -1,0 +1,17 @@
+# YDZ OS : qBittorrent. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    restart: unless-stopped
+    ports:
+      - "8085:8085/tcp"
+      - "6881:6881/tcp"
+      - "6881:6881/udp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+      WEBUI_PORT: "8085"
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${TELECHARGEMENTS}:/downloads

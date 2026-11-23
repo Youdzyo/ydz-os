@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Backrest est un tableau de bord pour restic, un outil de sauvegarde réputé : tu planifies, tu vois l'historique et tu restaures un fichier en quelques clics.",
+  "pour_qui": "Pour des sauvegardes solides avec une interface claire.",
+  "difficulte": "moyen",
+  "ram_mo": 256,
+  "alternative_a": "Time Machine / Backblaze",
+  "site": "https://github.com/garethgeorge/backrest"
+}

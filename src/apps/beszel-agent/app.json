@@ -1,0 +1,35 @@
+{
+  "id": "beszel-agent",
+  "nom": "Beszel Agent",
+  "description": "La petite sonde à installer sur chaque nœud surveillé par Beszel.",
+  "categorie": "Supervision",
+  "icone": "heart-pulse",
+  "image": "henrygd/beszel-agent",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 45876,
+      "proto": "tcp",
+      "nom": "Agent"
+    }
+  ],
+  "web": null,
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "CLE_PUBLIQUE",
+      "nom": "Clé publique du hub Beszel",
+      "type": "texte",
+      "defaut": "",
+      "requis": true,
+      "motif": "^ssh-ed25519 [A-Za-z0-9+/=]{20,100}$",
+      "aide": "Copie-la depuis Beszel : Ajouter un système > clé publique (elle commence par ssh-ed25519)."
+    }
+  ],
+  "notes": [
+    "Beszel Agent est la sonde qui remonte l'état d'un Raspberry Pi vers le tableau de bord Beszel. À installer sur chaque nœud que tu veux surveiller.",
+    "Pas d'interface : cette app envoie les mesures du nœud au hub Beszel.",
+    "Sans accès réseau « hôte », les statistiques réseau du nœud sont limitées ; les autres mesures restent complètes."
+  ]
+}

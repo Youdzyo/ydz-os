@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+# ydz-maj-chaine (1.0.14) : installe, une par une et dans l'ordre, les versions de YDZ OS téléchargées par ydzd.
+# Lancé par ydzd dans une unité systemd détachée (systemd-run --unit=ydz-maj-chaine) : il survit aux
+# redémarrages de ydzd provoqués par chaque paquet. Après chaque version, il se relance lui-même (exec) pour
+# utiliser le code tout juste installé. Avancement : /var/lib/ydz/maj/chaine.json ; journal : paquets.log.
+import os
+import sys
+
+BASE = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+sys.path.insert(0, os.path.join(BASE, "lib"))
+from ydz import majydz  # noqa: E402
+
+
+def main():
+    outils = majydz.OutilsChaine(BASE)
+    try:
+        r = majydz.etape_chaine(outils)
+    except Exception as ex:                       # jamais de chaîne « en cours » pour toujours
+        ch = majydz.lire_chaine() or {}
+        ch.update(etat="echec", erreur="Erreur inattendue : %s" % str(ex)[:200], fin=int(outils.now()))
+        majydz.ecrire_chaine(ch)
+        outils.journal("erreur inattendue %r" % ex)
+        return 1
+    if r == "continuer":
+        sys.stdout.flush()
+        os.execv(sys.executable, [sys.executable, os.path.join(BASE, "bin", "ydz-maj-chaine")])
+    return 0 if r == "fini" else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

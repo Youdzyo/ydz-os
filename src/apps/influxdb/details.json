@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "InfluxDB range des mesures datées (température, consommation, vitesse…) pour les retrouver et les tracer ensuite. Il fonctionne très bien avec Grafana et Home Assistant.",
+  "pour_qui": "Pour stocker des mesures de capteurs ou de domotique sur la durée.",
+  "difficulte": "avancé",
+  "ram_mo": 384,
+  "alternative_a": "Bases de mesures cloud",
+  "site": "https://www.influxdata.com"
+}

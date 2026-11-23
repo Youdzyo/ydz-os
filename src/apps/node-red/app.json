@@ -1,0 +1,31 @@
+{
+  "id": "node-red",
+  "nom": "Node-RED",
+  "description": "Programme des automatisations en reliant des blocs sur un schéma.",
+  "categorie": "Maison",
+  "icone": "workflow",
+  "image": "nodered/node-red",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 1880,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 1880,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Node-RED te laisse construire des automatisations en tirant des fils entre des blocs : « si le capteur détecte du mouvement, allume la lumière et envoie-moi une notification ».",
+    "Aucun mot de passe par défaut : réserve-le à ton réseau local, ou ajoute une identification dans le fichier settings.js du dossier de données.",
+    "Il se connecte facilement à Mosquitto, Home Assistant et à des centaines de services."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "qBittorrent télécharge des fichiers par BitTorrent (images disque Linux, jeux libres, archives…) et se pilote depuis n'importe quel navigateur de la maison.",
+  "pour_qui": "Pour ceux qui veulent un téléchargeur qui tourne en continu sans laisser le PC allumé.",
+  "difficulte": "facile",
+  "ram_mo": 512,
+  "alternative_a": "µTorrent / BitComet",
+  "site": "https://www.qbittorrent.org"
+}

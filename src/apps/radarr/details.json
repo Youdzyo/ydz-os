@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Radarr fait pour les films ce que Sonarr fait pour les séries : tu ajoutes un film à ta liste, il le fait télécharger en bonne qualité, le renomme et le range dans ton dossier de films.",
+  "pour_qui": "Pour ceux qui ont déjà un serveur multimédia et veulent automatiser la gestion de la collection.",
+  "difficulte": "avancé",
+  "ram_mo": 512,
+  "alternative_a": "Letterboxd (suivi) / location de films",
+  "site": "https://radarr.video"
+}

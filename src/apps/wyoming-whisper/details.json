@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Whisper écoute ce que tu dis et l'écrit sous forme de texte. Avec Home Assistant, c'est la « oreille » de ton assistant vocal local, sans envoyer ta voix sur Internet.",
+  "pour_qui": "Pour ceux qui veulent un assistant vocal 100 % local.",
+  "difficulte": "avancé",
+  "ram_mo": 1024,
+  "alternative_a": "Alexa / Google Assistant (reconnaissance vocale)",
+  "site": "https://github.com/rhasspy/wyoming-faster-whisper"
+}

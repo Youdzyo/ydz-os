@@ -1,0 +1,47 @@
+{
+  "id": "music-assistant",
+  "nom": "Music Assistant",
+  "description": "Diffuse ta musique et tes services de streaming sur toutes les enceintes de la maison.",
+  "categorie": "Maison",
+  "icone": "speaker",
+  "image": "ghcr.io/music-assistant/server",
+  "noeud_conseille": "pulse",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8095,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 8097,
+      "proto": "tcp",
+      "nom": "Flux audio"
+    }
+  ],
+  "web": {
+    "port": 8095,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reseau_hote": true,
+  "reglages": [
+    {
+      "cle": "MUSIQUE",
+      "nom": "Dossier de la musique",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz avec tes fichiers musicaux."
+    }
+  ],
+  "notes": [
+    "Music Assistant réunit ta musique locale et tes comptes de streaming (Spotify, Deezer…) et l'envoie sur les enceintes de ton choix, dans une ou plusieurs pièces à la fois.",
+    "Utilise le réseau de l'hôte pour découvrir les enceintes (Chromecast, AirPlay, Sonos, DLNA) de la maison : c'est indispensable à son fonctionnement.",
+    "Fonctionne seul ou avec Home Assistant (intégration Music Assistant)."
+  ]
+}

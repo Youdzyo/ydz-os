@@ -1,0 +1,30 @@
+# YDZ OS : BookLore. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MDP_BASE}
+      MARIADB_DATABASE: booklore
+      MARIADB_USER: booklore
+      MARIADB_PASSWORD: ${MDP_BASE}
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/mysql
+  booklore:
+    image: ghcr.io/booklore-app/booklore:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "6060:6060/tcp"
+    environment:
+      USER_ID: "0"
+      GROUP_ID: "0"
+      TZ: ${YDZ_TZ}
+      DATABASE_URL: jdbc:mariadb://db:3306/booklore
+      DATABASE_USERNAME: booklore
+      DATABASE_PASSWORD: ${MDP_BASE}
+    volumes:
+      - ${YDZ_DATA}/data:/app/data
+      - ${LIVRES}:/bookdrop

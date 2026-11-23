@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Tailscale relie tes appareils entre eux par un réseau privé chiffré. Une fois installé, tu retrouves ta maison depuis ton téléphone n'importe où, sans ouvrir de port sur ta box.",
+  "pour_qui": "Pour accéder à sa maison de l'extérieur, tout simplement.",
+  "difficulte": "facile",
+  "ram_mo": 128,
+  "alternative_a": "VPN classiques / ouverture de ports",
+  "site": "https://tailscale.com"
+}

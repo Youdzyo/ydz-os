@@ -1,0 +1,15 @@
+# YDZ OS : Bazarr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    restart: unless-stopped
+    ports:
+      - "6767:6767/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${FILMS}:/movies
+      - ${SERIES}:/tv

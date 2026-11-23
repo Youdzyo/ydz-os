@@ -1,0 +1,14 @@
+# YDZ OS : ESPHome. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  esphome:
+    image: ghcr.io/esphome/esphome:latest
+    restart: unless-stopped
+    ports:
+      - "6052:6052/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      USERNAME: ${UTILISATEUR}
+      PASSWORD: ${MDP_WEB}
+      ESPHOME_DASHBOARD_USE_PING: "true"
+    volumes:
+      - ${YDZ_DATA}/config:/config

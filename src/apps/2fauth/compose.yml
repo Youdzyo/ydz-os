@@ -1,0 +1,30 @@
+# YDZ OS : 2FAuth. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  init-droits:
+    image: busybox:stable
+    restart: "no"
+    command: chown -R 1000:1000 /2fauth
+    volumes:
+      - ${YDZ_DATA}/data:/2fauth
+  2fauth:
+    image: 2fauth/2fauth:latest
+    restart: unless-stopped
+    depends_on:
+      init-droits:
+        condition: service_completed_successfully
+    entrypoint: ["/bin/sh", "-c", "export APP_KEY=$$(printf %s $$CLE_1$$CLE_2 | head -c 32) && exec /usr/local/bin/entrypoint.sh"]
+    ports:
+      - "8137:8000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      CLE_1: ${CLE_APP}
+      CLE_2: ${CLE_APP2}
+      APP_NAME: 2FAuth
+      APP_ENV: production
+      APP_URL: http://${YDZ_IP}:8137
+      SITE_OWNER: ${EMAIL_ADMIN}
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /2fauth/database.sqlite
+      IS_DEMO_APP: "false"
+    volumes:
+      - ${YDZ_DATA}/data:/2fauth

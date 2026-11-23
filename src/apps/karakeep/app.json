@@ -1,0 +1,47 @@
+{
+  "id": "karakeep",
+  "nom": "Karakeep",
+  "description": "Enregistre liens, notes et images ; l'IA les classe pour toi.",
+  "categorie": "Lecture et veille",
+  "icone": "bookmark",
+  "image": "ghcr.io/karakeep-app/karakeep + chrome + meilisearch",
+  "noeud_conseille": "vault",
+  "ram_mo": 1536,
+  "ports": [
+    {
+      "port": 3016,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3016,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "meili"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    },
+    {
+      "cle": "CLE_RECHERCHE",
+      "nom": "Clé du moteur de recherche",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Karakeep (ex-Hoarder) est une boîte à tout garder : liens, notes, images, PDF. Il en fait des captures, extrait le texte et peut les étiqueter automatiquement avec une IA.",
+    "Anciennement Hoarder. Crée ton compte à la première ouverture.",
+    "Le classement automatique par IA est facultatif : il demande une clé d'un service d'IA ou un modèle Ollama installé sur le réseau."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "wallabag",
+  "nom": "Wallabag",
+  "description": "Enregistre des articles pour les lire plus tard, sans pub, même hors ligne.",
+  "categorie": "Lecture et veille",
+  "icone": "book-open",
+  "image": "wallabag/wallabag",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8092,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8092,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "images"
+  ],
+  "reglages": [],
+  "notes": [
+    "Wallabag extrait le texte d'un article web et le range dans ta liste de lecture, sans publicités ni fenêtres gênantes. Tu le lis plus tard, même sans connexion.",
+    "Première connexion : wallabag / wallabag. Change le mot de passe tout de suite dans Configuration.",
+    "Des applis Android et iOS ainsi qu'une extension navigateur permettent d'enregistrer un article en un geste."
+  ]
+}

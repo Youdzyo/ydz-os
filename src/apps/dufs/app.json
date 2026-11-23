@@ -1,0 +1,55 @@
+{
+  "id": "dufs",
+  "nom": "Dufs",
+  "description": "Un petit serveur de fichiers (navigateur et WebDAV), avec mot de passe.",
+  "categorie": "Fichiers",
+  "icone": "files",
+  "image": "sigoden/dufs",
+  "noeud_conseille": "vault",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 5001,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5001,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [
+    {
+      "cle": "DOSSIER",
+      "nom": "Dossier à partager",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz."
+    },
+    {
+      "cle": "UTILISATEUR",
+      "nom": "Nom d'utilisateur",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Dufs est un serveur de fichiers minuscule : une page web pour envoyer, télécharger et supprimer des fichiers dans un dossier, avec un mot de passe, et un accès WebDAV en prime.",
+    "Utilisable aussi comme lecteur réseau WebDAV (adresse http://adresse-du-nœud:5001) depuis Windows, macOS ou Android.",
+    "Le glisser-déposer pour envoyer des fichiers marche directement dans la page."
+  ]
+}

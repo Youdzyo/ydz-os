@@ -1,0 +1,11 @@
+# YDZ OS : Uptime Kuma. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:2
+    restart: unless-stopped
+    ports:
+      - "3001:3001/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/data:/app/data

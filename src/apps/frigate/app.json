@@ -1,0 +1,48 @@
+{
+  "id": "frigate",
+  "nom": "Frigate",
+  "description": "Un enregistreur de caméras de surveillance qui reconnaît personnes et voitures.",
+  "categorie": "Maison",
+  "icone": "cctv",
+  "image": "ghcr.io/blakeblackshear/frigate",
+  "noeud_conseille": "forge",
+  "ram_mo": 2048,
+  "ports": [
+    {
+      "port": 5110,
+      "proto": "tcp",
+      "nom": "Interface (sécurisée)"
+    },
+    {
+      "port": 8554,
+      "proto": "tcp",
+      "nom": "Flux RTSP"
+    }
+  ],
+  "web": {
+    "port": 5110,
+    "chemin": "/",
+    "schema": "https"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "ENREGISTREMENTS",
+      "nom": "Dossier des enregistrements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz sur un disque de données (les vidéos prennent beaucoup de place)."
+    }
+  ],
+  "notes": [
+    "Frigate enregistre tes caméras IP et ne garde que ce qui compte : il repère les personnes, voitures et animaux et envoie une alerte, au lieu de t'inonder d'images de vent dans les arbres.",
+    "Lourd : l'analyse d'image se fait sur le processeur du Pi (pas d'accélérateur Coral). Compte 2 caméras environ, en basse résolution pour la détection.",
+    "Le mot de passe de l'administrateur est affiché dans les journaux de l'app au premier démarrage : lis-le puis change-le.",
+    "L'interface est en HTTPS avec un certificat auto-signé : ton navigateur affichera un avertissement, accepte-le.",
+    "Ajoute tes caméras (adresses RTSP) dans le fichier config.yml du dossier de données."
+  ]
+}

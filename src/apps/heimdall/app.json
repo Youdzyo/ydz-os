@@ -1,0 +1,30 @@
+{
+  "id": "heimdall",
+  "nom": "Heimdall",
+  "description": "Un tableau de raccourcis visuel pour lancer tes applis web en un clic.",
+  "categorie": "Tableaux de bord",
+  "icone": "layout-grid",
+  "image": "lscr.io/linuxserver/heimdall",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8104,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8104,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Heimdall affiche tes applis web comme des grosses tuiles colorées sur une seule page. On clique, on ouvre. Idéal comme page d'accueil du navigateur de la famille.",
+    "Ajoute tes applis avec le bouton « + » : Heimdall connaît l'icône de beaucoup d'entre elles."
+  ]
+}

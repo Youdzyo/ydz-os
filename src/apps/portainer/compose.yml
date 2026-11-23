@@ -1,0 +1,12 @@
+# YDZ OS : Portainer. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  portainer:
+    image: portainer/portainer-ce:lts
+    restart: unless-stopped
+    command: --http-enabled
+    ports:
+      - "9000:9000/tcp"
+      - "9443:9443/tcp"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${YDZ_DATA}/data:/data

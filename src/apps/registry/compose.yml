@@ -1,0 +1,11 @@
+# YDZ OS : Registre Docker. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  registry:
+    image: registry:2
+    restart: unless-stopped
+    ports:
+      - "5100:5000/tcp"
+    environment:
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+    volumes:
+      - ${YDZ_DATA}/data:/var/lib/registry

@@ -1,0 +1,77 @@
+{
+  "id": "kopia",
+  "nom": "Kopia",
+  "description": "Sauvegardes rapides, chiffrées et dédupliquées avec interface web.",
+  "categorie": "Sauvegarde",
+  "icone": "archive",
+  "image": "kopia/kopia",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 51515,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 51515,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "cache",
+    "logs"
+  ],
+  "reglages": [
+    {
+      "cle": "SOURCE",
+      "nom": "Dossier à sauvegarder",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz. Il est lu en lecture seule."
+    },
+    {
+      "cle": "DESTINATION",
+      "nom": "Dossier du dépôt de sauvegardes",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, de préférence sur un autre disque que la source."
+    },
+    {
+      "cle": "UTILISATEUR",
+      "nom": "Nom d'utilisateur de l'interface",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe de l'interface",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "MDP_DEPOT",
+      "nom": "Mot de passe de chiffrement du dépôt",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un. NOTE-LE ailleurs : sans lui, les sauvegardes sont illisibles."
+    }
+  ],
+  "notes": [
+    "Kopia sauvegarde tes dossiers de façon très rapide et économe : il ne stocke qu'une fois les fichiers identiques et chiffre tout. L'historique te permet de revenir à n'importe quelle date.",
+    "À la première ouverture, crée un dépôt « Système de fichiers » avec le dossier /repository et le mot de passe de chiffrement réglé ici.",
+    "Ajoute ensuite /data comme dossier à sauvegarder et choisis la fréquence.",
+    "Garde une copie du mot de passe de chiffrement hors de ce serveur."
+  ]
+}

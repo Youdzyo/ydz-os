@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "openWakeWord reste à l'écoute d'une phrase d'activation. Dès qu'il l'entend, il réveille l'assistant vocal, comme « Dis Siri » mais en local.",
+  "pour_qui": "Pour compléter un assistant vocal Home Assistant.",
+  "difficulte": "avancé",
+  "ram_mo": 256,
+  "alternative_a": "« Ok Google » / « Alexa »",
+  "site": "https://github.com/rhasspy/wyoming-openwakeword"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "backrest",
+  "nom": "Backrest",
+  "description": "Une interface web pour restic : sauvegardes chiffrées vers un disque ou le cloud.",
+  "categorie": "Sauvegarde",
+  "icone": "archive",
+  "image": "garethgeorge/backrest",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 9898,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 9898,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "config",
+    "cache"
+  ],
+  "reglages": [
+    {
+      "cle": "SOURCE",
+      "nom": "Dossier à sauvegarder",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz. Il est lu en lecture seule."
+    },
+    {
+      "cle": "DESTINATION",
+      "nom": "Dossier des dépôts de sauvegarde",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, de préférence sur un autre disque."
+    }
+  ],
+  "notes": [
+    "Backrest est un tableau de bord pour restic, un outil de sauvegarde réputé : tu planifies, tu vois l'historique et tu restaures un fichier en quelques clics.",
+    "À la première ouverture, crée un utilisateur pour protéger l'interface.",
+    "Ajoute un dépôt avec l'adresse /repos/ton-depot puis un plan de sauvegarde sur /userdata. Backrest gère aussi les serveurs distants (SFTP, S3, rclone).",
+    "Conserve le mot de passe du dépôt ailleurs : sans lui, les sauvegardes sont illisibles."
+  ]
+}

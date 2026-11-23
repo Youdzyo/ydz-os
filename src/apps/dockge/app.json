@@ -1,0 +1,34 @@
+{
+  "id": "dockge",
+  "nom": "Dockge",
+  "description": "Gère tes piles Docker Compose depuis une jolie interface web.",
+  "categorie": "Outils",
+  "icone": "boxes",
+  "image": "louislam/dockge",
+  "noeud_conseille": "forge",
+  "ram_mo": 192,
+  "ports": [
+    {
+      "port": 5002,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5002,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "stacks"
+  ],
+  "privilegie": true,
+  "reglages": [],
+  "notes": [
+    "Dockge te laisse écrire, démarrer et arrêter des projets Docker Compose depuis une page web, avec les journaux en direct. C'est plus simple que Portainer quand on aime les fichiers compose.",
+    "Droits étendus : cette app contrôle Docker (le socket Docker est monté). Réserve-la à ton réseau local.",
+    "Crée le compte administrateur à la première ouverture.",
+    "Les applis installées par YDZ ne sont pas gérées ici : Dockge sert à tes propres fichiers compose."
+  ]
+}

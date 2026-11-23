@@ -1,0 +1,19 @@
+# YDZ OS : Rclone. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  rclone:
+    image: rclone/rclone:latest
+    restart: unless-stopped
+    command:
+      - rcd
+      - --rc-web-gui
+      - --rc-web-gui-no-open-browser
+      - --rc-addr=:5572
+      - --rc-user=${UTILISATEUR}
+      - --rc-pass=${MDP_WEB}
+    ports:
+      - "5572:5572/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config/rclone
+      - ${DOSSIER}:/data

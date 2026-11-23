@@ -1,0 +1,3 @@
+# YDZ OS : quand une carte Espressif (LilyGO T-Display-S3, USB natif 303a:1001) est branchée,
+# vérifier qu'elle porte le firmware du badge YDZ et la flasher sinon (au plus 3 essais par jour).
+ACTION=="add", SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="303a", TAG+="systemd", ENV{SYSTEMD_WANTS}+="ydz-badge-flash@%k.service"

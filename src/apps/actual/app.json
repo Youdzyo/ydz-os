@@ -1,0 +1,31 @@
+{
+  "id": "actual",
+  "nom": "Actual Budget",
+  "description": "Tes comptes et ton budget, enveloppe par enveloppe.",
+  "categorie": "Finances",
+  "icone": "piggy-bank",
+  "image": "actualbudget/actual-server",
+  "noeud_conseille": "vault",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 5007,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5007,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Actual Budget t'aide à planifier ton argent : tu donnes un rôle à chaque euro (loyer, sorties, épargne) et tu vois où tu en es en fin de mois. Rapide, privé et sans abonnement.",
+    "À la première ouverture, tu choisis un mot de passe pour protéger ton budget.",
+    "Tu peux saisir tes dépenses à la main ou importer les fichiers de ta banque."
+  ]
+}

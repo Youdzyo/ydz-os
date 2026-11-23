@@ -1,0 +1,28 @@
+{
+  "id": "it-tools",
+  "nom": "IT-Tools",
+  "description": "Des dizaines de petits outils pratiques : mots de passe, convertisseurs, QR codes.",
+  "categorie": "Outils",
+  "icone": "wrench",
+  "image": "corentinth/it-tools",
+  "noeud_conseille": "pulse",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8108,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8108,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "IT-Tools est une boîte à outils de poche : générateur de mots de passe, convertisseur de couleurs, QR codes, calcul de sous-réseaux, encodage, dates et bien d'autres.",
+    "Tout s'exécute dans ton navigateur : rien n'est envoyé ailleurs."
+  ]
+}

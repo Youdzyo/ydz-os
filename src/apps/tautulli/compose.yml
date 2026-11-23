@@ -1,0 +1,13 @@
+# YDZ OS : Tautulli. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:latest
+    restart: unless-stopped
+    ports:
+      - "8181:8181/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config

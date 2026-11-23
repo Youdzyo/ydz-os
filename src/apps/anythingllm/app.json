@@ -1,0 +1,41 @@
+{
+  "id": "anythingllm",
+  "nom": "AnythingLLM",
+  "description": "Discute avec tes propres documents grâce à une IA, en local.",
+  "categorie": "IA",
+  "icone": "file-search",
+  "image": "mintplexlabs/anythingllm",
+  "noeud_conseille": "forge",
+  "ram_mo": 1536,
+  "ports": [
+    {
+      "port": 3024,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3024,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "storage"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_JWT",
+      "nom": "Clé de session",
+      "type": "secret",
+      "genere": true,
+      "min": 12,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "AnythingLLM te laisse poser des questions à tes documents (cours, PDF, notes) : l'IA lit tes fichiers et répond en s'appuyant dessus. Tout peut rester chez toi si tu l'associes à Ollama.",
+    "Choisis le moteur d'IA dans l'assistant de départ : Ollama (adresse http://adresse-du-nœud:11434) pour rester 100 % local.",
+    "Ajoute des PDF et pages web dans un « espace de travail » : l'IA répond en citant ces documents.",
+    "Prévois de la mémoire : 1,5 Go environ, sans compter le modèle d'IA."
+  ]
+}

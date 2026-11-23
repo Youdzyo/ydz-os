@@ -1,0 +1,13 @@
+# YDZ OS : Grocy. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    restart: unless-stopped
+    ports:
+      - "9283:80/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config

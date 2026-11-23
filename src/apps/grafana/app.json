@@ -1,0 +1,48 @@
+{
+  "id": "grafana",
+  "nom": "Grafana",
+  "description": "Des tableaux de bord graphiques pour visualiser tes mesures et tes serveurs.",
+  "categorie": "Supervision",
+  "icone": "chart-bar",
+  "image": "grafana/grafana-oss",
+  "noeud_conseille": "pulse",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 3100,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3100,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Grafana transforme des chiffres (température du Pi, charge, consommation, trafic) en graphiques et jauges faciles à lire. C'est l'outil de référence pour surveiller un serveur.",
+    "Connexion avec le compte réglé ici. Ajoute ensuite une source de données (Prometheus, InfluxDB…) dans Connexions.",
+    "Des milliers de tableaux de bord prêts à l'emploi se téléchargent depuis grafana.com/dashboards (par exemple « Node Exporter Full »)."
+  ]
+}

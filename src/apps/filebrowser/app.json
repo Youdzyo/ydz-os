@@ -1,0 +1,41 @@
+{
+  "id": "filebrowser",
+  "nom": "File Browser",
+  "description": "Un explorateur de fichiers dans le navigateur pour tes dossiers du serveur.",
+  "categorie": "Fichiers",
+  "icone": "folder",
+  "image": "filebrowser/filebrowser",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8082,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8082,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "database"
+  ],
+  "reglages": [
+    {
+      "cle": "DOSSIER",
+      "nom": "Dossier à parcourir",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, par exemple /srv/ydz/donnees/partages."
+    }
+  ],
+  "notes": [
+    "File Browser donne accès aux fichiers d'un dossier du serveur depuis n'importe quel navigateur : parcourir, envoyer, télécharger, renommer, partager un lien. C'est un mini « Explorateur de fichiers » en ligne.",
+    "Au premier démarrage, File Browser crée un mot de passe temporaire pour l'utilisateur « admin » : lis-le dans les journaux de l'app, sinon essaie admin / admin. Change-le tout de suite dans Paramètres.",
+    "Le dossier choisi apparaît à la racine de l'interface, avec droits d'écriture."
+  ]
+}

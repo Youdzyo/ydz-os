@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Lidarr surveille les nouvelles sorties de tes artistes, fait télécharger les albums et les range avec les bons noms et pochettes pour Navidrome ou Jellyfin.",
+  "pour_qui": "Pour ceux qui ont déjà un serveur multimédia et veulent automatiser la gestion de la collection.",
+  "difficulte": "avancé",
+  "ram_mo": 512,
+  "alternative_a": "Abonnements de musique",
+  "site": "https://lidarr.audio"
+}

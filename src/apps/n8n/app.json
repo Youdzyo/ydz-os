@@ -1,0 +1,40 @@
+{
+  "id": "n8n",
+  "nom": "n8n",
+  "description": "Automatise des tâches entre tes applis par blocs, sans programmer.",
+  "categorie": "Productivité",
+  "icone": "workflow",
+  "image": "n8nio/n8n",
+  "noeud_conseille": "forge",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 5678,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5678,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_CHIFFREMENT",
+      "nom": "Clé de chiffrement des identifiants",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite : tes connexions enregistrées deviendraient illisibles."
+    }
+  ],
+  "notes": [
+    "n8n relie tes applications entre elles : « quand il se passe ceci, fais cela ». Tu construis des automatisations en reliant des blocs sur un schéma, sans écrire de code.",
+    "Crée le compte propriétaire à la première ouverture.",
+    "Exemples : envoyer une notification quand un fichier arrive, copier des données d'un site vers un tableur, résumer des e-mails.",
+    "Les liens de réception (webhooks) ne sont joignables que depuis le réseau local, sauf si tu exposes l'app."
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "nginx-proxy-manager",
+  "nom": "Nginx Proxy Manager",
+  "description": "Donne des adresses propres et du HTTPS à tes applis, avec une interface simple.",
+  "categorie": "Réseau",
+  "icone": "globe-lock",
+  "image": "jc21/nginx-proxy-manager",
+  "noeud_conseille": "pulse",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 8182,
+      "proto": "tcp",
+      "nom": "Administration"
+    },
+    {
+      "port": 8880,
+      "proto": "tcp",
+      "nom": "Web (HTTP)"
+    },
+    {
+      "port": 8443,
+      "proto": "tcp",
+      "nom": "Web (HTTPS)"
+    }
+  ],
+  "web": {
+    "port": 8182,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "letsencrypt"
+  ],
+  "reglages": [],
+  "notes": [
+    "Nginx Proxy Manager te permet d'accéder à tes applis avec un vrai nom (jellyfin.mondomaine.fr) et un cadenas HTTPS gratuit (Let's Encrypt), en cliquant dans une interface au lieu d'écrire des fichiers de configuration.",
+    "Les ports 80 et 443 sont pris par l'interface YDZ : NPM écoute donc sur 8880 (HTTP) et 8443 (HTTPS). Sur ta box, redirige le port externe 80 vers 8880 et le 443 vers 8443.",
+    "Première connexion : l'assistant te fait créer le compte administrateur. Sur les anciennes versions : admin@example.com / changeme, à changer tout de suite.",
+    "Réserve l'interface d'administration au réseau local : n'ouvre JAMAIS le port 8182 sur Internet."
+  ]
+}

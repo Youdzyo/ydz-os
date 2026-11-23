@@ -1,0 +1,41 @@
+{
+  "id": "sabnzbd",
+  "nom": "SABnzbd",
+  "description": "Client de téléchargement Usenet, rapide et automatique.",
+  "categorie": "Téléchargements",
+  "icone": "download",
+  "image": "lscr.io/linuxserver/sabnzbd",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8084,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8084,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "TELECHARGEMENTS",
+      "nom": "Dossier des téléchargements",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz accessible en écriture à l'utilisateur 1000."
+    }
+  ],
+  "notes": [
+    "SABnzbd télécharge depuis Usenet : il récupère, vérifie, répare et décompresse les fichiers tout seul. Il s'associe à Sonarr et Radarr.",
+    "Il faut un abonnement à un fournisseur Usenet pour s'en servir ; l'assistant de première ouverture te demande ses identifiants.",
+    "Si une erreur de « nom d'hôte » apparaît au premier lancement, ajoute l'adresse du nœud dans les noms d'hôte autorisés."
+  ]
+}

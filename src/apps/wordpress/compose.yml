@@ -1,0 +1,27 @@
+# YDZ OS : WordPress. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MDP_BASE}
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${MDP_BASE}
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/mysql
+  wordpress:
+    image: wordpress:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8138:80/tcp"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${MDP_BASE}
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ${YDZ_DATA}/html:/var/www/html

@@ -1,0 +1,14 @@
+# YDZ OS : Audiobookshelf. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    restart: unless-stopped
+    ports:
+      - "13378:80/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${YDZ_DATA}/metadata:/metadata
+      - ${LIVRES_AUDIO}:/audiobooks
+      - ${PODCASTS}:/podcasts

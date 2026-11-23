@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Beszel Agent est la sonde qui remonte l'état d'un Raspberry Pi vers le tableau de bord Beszel. À installer sur chaque nœud que tu veux surveiller.",
+  "pour_qui": "Pour compléter l'app Beszel.",
+  "difficulte": "moyen",
+  "ram_mo": 64,
+  "alternative_a": "Agents de supervision",
+  "site": "https://beszel.dev/guide/agent-installation"
+}

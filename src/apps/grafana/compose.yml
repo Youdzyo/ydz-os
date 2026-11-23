@@ -1,0 +1,16 @@
+# YDZ OS : Grafana. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    restart: unless-stopped
+    user: "0:0"
+    ports:
+      - "3100:3000/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      GF_SECURITY_ADMIN_USER: ${ADMIN}
+      GF_SECURITY_ADMIN_PASSWORD: ${MDP_ADMIN}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_SERVER_ROOT_URL: http://${YDZ_IP}:3100/
+    volumes:
+      - ${YDZ_DATA}/data:/var/lib/grafana

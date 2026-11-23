@@ -1,0 +1,10 @@
+# YDZ OS : FlareSolverr. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    restart: unless-stopped
+    ports:
+      - "8191:8191/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      LOG_LEVEL: info

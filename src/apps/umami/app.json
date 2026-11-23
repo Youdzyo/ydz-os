@@ -1,0 +1,47 @@
+{
+  "id": "umami",
+  "nom": "Umami",
+  "description": "Les statistiques de fréquentation de ton site, simples et respectueuses de la vie privée.",
+  "categorie": "Sites web",
+  "icone": "chart-line",
+  "image": "ghcr.io/umami-software/umami + postgres",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 3026,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3026,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Umami compte les visites de ton site (pages vues, pays, appareils, sources) sans cookies ni traçage des personnes. C'est une alternative simple à Google Analytics.",
+    "Première connexion : admin avec le mot de passe « umami ». Change-le immédiatement (Paramètres > Profil).",
+    "Ajoute ton site, puis copie le petit script de suivi dans ses pages.",
+    "Pas de cookies ni de données personnelles : pas besoin de bandeau de consentement."
+  ]
+}

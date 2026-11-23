@@ -1,0 +1,63 @@
+{
+  "id": "planka",
+  "nom": "Planka",
+  "description": "Des tableaux kanban collaboratifs, comme Trello.",
+  "categorie": "Productivité",
+  "icone": "kanban",
+  "image": "ghcr.io/plankanban/planka + postgres",
+  "noeud_conseille": "forge",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 1337,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 1337,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "EMAIL_ADMIN",
+      "nom": "E-mail du compte administrateur",
+      "type": "texte",
+      "defaut": "admin@exemple.fr",
+      "requis": true,
+      "motif": "^[A-Za-z0-9._+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    },
+    {
+      "cle": "MDP_BASE",
+      "nom": "Mot de passe de la base de données",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée un."
+    },
+    {
+      "cle": "CLE_SECRETE",
+      "nom": "Clé secrète de l'application",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Planka est un tableau de cartes à déplacer entre colonnes (À faire, En cours, Terminé). Idéal pour suivre un projet, des idées ou l'avancement d'un travail de groupe.",
+    "Connexion avec l'e-mail et le mot de passe réglés ici (nom d'utilisateur : admin).",
+    "Crée ensuite des tableaux, des listes et des cartes, et invite d'autres personnes."
+  ]
+}

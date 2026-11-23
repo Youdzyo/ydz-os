@@ -1,0 +1,29 @@
+# YDZ OS : Ghost. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MDP_BASE}
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ${MDP_BASE}
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/mysql
+  ghost:
+    image: ghost:6-alpine
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "2368:2368/tcp"
+    environment:
+      NODE_ENV: production
+      url: http://${YDZ_IP}:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ghost
+      database__connection__password: ${MDP_BASE}
+      database__connection__database: ghost
+    volumes:
+      - ${YDZ_DATA}/content:/var/lib/ghost/content

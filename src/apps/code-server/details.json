@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "code-server fait tourner l'éditeur Visual Studio Code sur ton serveur et l'affiche dans le navigateur. Tu peux coder depuis une tablette ou un PC de prêt avec toute ta configuration.",
+  "pour_qui": "Pour apprendre à programmer ou coder depuis n'importe quel appareil.",
+  "difficulte": "moyen",
+  "ram_mo": 1024,
+  "alternative_a": "GitHub Codespaces",
+  "site": "https://coder.com/docs/code-server"
+}

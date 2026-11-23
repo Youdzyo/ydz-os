@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Prometheus interroge régulièrement tes machines et applis pour noter leur état (processeur, mémoire, disque, température) et garde l'historique. Grafana s'en sert pour dessiner les courbes.",
+  "pour_qui": "Pour ceux qui veulent un historique de l'état de leur serveur.",
+  "difficulte": "avancé",
+  "ram_mo": 384,
+  "alternative_a": "Services de monitoring cloud",
+  "site": "https://prometheus.io"
+}

@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Gokapi te permet d'envoyer un fichier à quelqu'un avec un lien qui s'arrête de marcher après un certain nombre de téléchargements ou de jours. C'est ta propre version de WeTransfer.",
+  "pour_qui": "Pour envoyer de gros fichiers à des amis sans passer par un service externe.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "WeTransfer / Firefox Send",
+  "site": "https://github.com/Forceu/Gokapi"
+}

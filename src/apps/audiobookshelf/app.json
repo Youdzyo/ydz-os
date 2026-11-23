@@ -1,0 +1,51 @@
+{
+  "id": "audiobookshelf",
+  "nom": "Audiobookshelf",
+  "description": "Tes livres audio et podcasts, avec reprise de lecture sur tous tes appareils.",
+  "categorie": "Médias",
+  "icone": "headphones",
+  "image": "ghcr.io/advplyr/audiobookshelf",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 13378,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 13378,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config",
+    "metadata"
+  ],
+  "reglages": [
+    {
+      "cle": "LIVRES_AUDIO",
+      "nom": "Dossier des livres audio",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz avec un sous-dossier par livre."
+    },
+    {
+      "cle": "PODCASTS",
+      "nom": "Dossier des podcasts",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz où les épisodes téléchargés seront rangés."
+    }
+  ],
+  "notes": [
+    "Audiobookshelf range tes livres audio et tes podcasts, se souvient de l'endroit où tu t'es arrêté et te permet de reprendre sur ton téléphone ou ton ordinateur. Il suit aussi ta progression et gère les chapitres.",
+    "Le compte administrateur se crée à la première ouverture.",
+    "Les applis Android et iOS officielles se connectent à l'adresse du nœud."
+  ]
+}

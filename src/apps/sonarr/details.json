@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Sonarr surveille la sortie des épisodes de tes séries, les fait télécharger par ton client (qBittorrent, Transmission…) puis les renomme et les range proprement pour Jellyfin ou Plex.",
+  "pour_qui": "Pour ceux qui ont déjà un serveur multimédia et veulent automatiser la gestion de la collection.",
+  "difficulte": "avancé",
+  "ram_mo": 512,
+  "alternative_a": "TV Time / abonnements de streaming",
+  "site": "https://sonarr.tv"
+}

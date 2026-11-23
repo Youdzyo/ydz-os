@@ -1,0 +1,32 @@
+{
+  "id": "prometheus",
+  "nom": "Prometheus",
+  "description": "Collecte et garde en mémoire les mesures de tes serveurs.",
+  "categorie": "Supervision",
+  "icone": "activity",
+  "image": "prom/prometheus",
+  "noeud_conseille": "pulse",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 9092,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 9092,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Prometheus interroge régulièrement tes machines et applis pour noter leur état (processeur, mémoire, disque, température) et garde l'historique. Grafana s'en sert pour dessiner les courbes.",
+    "Il surveille déjà lui-même et le « Node Exporter » de ce nœud (port 9100) : installe l'app Node Exporter pour avoir les mesures du Pi.",
+    "Pour ajouter d'autres cibles, passe par Grafana ou modifie le fichier de configuration dans l'app.",
+    "Les mesures sont gardées 30 jours."
+  ]
+}

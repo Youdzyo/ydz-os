@@ -1,0 +1,14 @@
+# YDZ OS : MeTube. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  metube:
+    image: ghcr.io/alexta69/metube:latest
+    restart: unless-stopped
+    ports:
+      - "8089:8081/tcp"
+    environment:
+      UID: "1000"
+      GID: "1000"
+      TZ: ${YDZ_TZ}
+      DOWNLOAD_DIR: /downloads
+    volumes:
+      - ${TELECHARGEMENTS}:/downloads

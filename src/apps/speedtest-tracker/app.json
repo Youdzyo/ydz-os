@@ -1,0 +1,47 @@
+{
+  "id": "speedtest-tracker",
+  "nom": "Speedtest Tracker",
+  "description": "Mesure la vitesse de ta connexion Internet toutes les heures et garde l'historique.",
+  "categorie": "Supervision",
+  "icone": "gauge",
+  "image": "lscr.io/linuxserver/speedtest-tracker",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8119,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8119,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_APP",
+      "nom": "Clé de chiffrement (1/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    },
+    {
+      "cle": "CLE_APP2",
+      "nom": "Clé de chiffrement (2/2)",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une. Ne la change pas ensuite."
+    }
+  ],
+  "notes": [
+    "Speedtest Tracker fait régulièrement un test de débit de ta connexion Internet et trace l'historique : tu vois si ta box tient ses promesses et à quelles heures ça rame.",
+    "Première connexion : admin@example.com avec le mot de passe « password ». Change-les immédiatement dans le profil.",
+    "Un test est lancé toutes les 6 heures ; tu peux en déclencher un à la main depuis le tableau de bord.",
+    "Chaque test consomme de la bande passante : adapte la fréquence si ta connexion est limitée."
+  ]
+}

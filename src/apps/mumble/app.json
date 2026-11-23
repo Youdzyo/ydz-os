@@ -1,0 +1,47 @@
+{
+  "id": "mumble",
+  "nom": "Mumble",
+  "description": "Un serveur vocal léger pour parler avec tes amis en jouant.",
+  "categorie": "Communication",
+  "icone": "mic",
+  "image": "mumblevoip/mumble-server",
+  "noeud_conseille": "forge",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 64738,
+      "proto": "tcp",
+      "nom": "Voix"
+    },
+    {
+      "port": 64738,
+      "proto": "udp",
+      "nom": "Voix"
+    }
+  ],
+  "web": null,
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_SUPER",
+      "nom": "Mot de passe du super-utilisateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un. Sert à administrer le serveur (utilisateur SuperUser)."
+    },
+    {
+      "cle": "MDP_SERVEUR",
+      "nom": "Mot de passe pour rejoindre le serveur (facultatif)",
+      "type": "secret",
+      "aide": "Laisse vide pour un accès libre sur le réseau."
+    }
+  ],
+  "notes": [
+    "Mumble est un serveur de discussion vocale à très faible délai, idéal pour parler pendant une partie. Il est léger, gratuit et sans abonnement, une alternative à Discord pour la voix.",
+    "Dans le client Mumble, ajoute un serveur avec l'adresse du nœud et le port 64738.",
+    "Pour jouer avec des amis hors de chez toi, ouvre le port 64738 (TCP et UDP) sur ta box."
+  ]
+}

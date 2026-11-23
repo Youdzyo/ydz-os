@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Transmission est un client BitTorrent très léger : peu de mémoire, une interface simple, parfait pour un petit Raspberry Pi.",
+  "pour_qui": "Pour ceux qui veulent le plus simple et le plus léger des clients BitTorrent.",
+  "difficulte": "facile",
+  "ram_mo": 256,
+  "alternative_a": "µTorrent",
+  "site": "https://transmissionbt.com"
+}

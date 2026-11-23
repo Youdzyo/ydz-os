@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Frigate enregistre tes caméras IP et ne garde que ce qui compte : il repère les personnes, voitures et animaux et envoie une alerte, au lieu de t'inonder d'images de vent dans les arbres.",
+  "pour_qui": "Pour surveiller la maison ou le jardin avec quelques caméras IP.",
+  "difficulte": "avancé",
+  "ram_mo": 2048,
+  "alternative_a": "Caméras cloud (Ring, Nest Cam)",
+  "site": "https://frigate.video"
+}

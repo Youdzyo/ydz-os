@@ -1,0 +1,49 @@
+{
+  "id": "esphome",
+  "nom": "ESPHome",
+  "description": "Programme tes propres capteurs et modules ESP32 sans écrire de code compliqué.",
+  "categorie": "Maison",
+  "icone": "cpu",
+  "image": "ghcr.io/esphome/esphome",
+  "noeud_conseille": "forge",
+  "ram_mo": 768,
+  "ports": [
+    {
+      "port": 6052,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 6052,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "UTILISATEUR",
+      "nom": "Nom d'utilisateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "ESPHome te permet de transformer un petit module ESP32 à quelques euros en capteur ou interrupteur connecté, en décrivant ce que tu veux dans un fichier simple. Il s'intègre à Home Assistant.",
+    "Les modules se flashent par USB depuis le navigateur du PC (via esphome.io) ou en WiFi (OTA) ensuite.",
+    "Sans réseau « hôte », la détection automatique des modules ne marche pas : indique leur adresse IP.",
+    "La compilation est lente sur Raspberry Pi (quelques minutes)."
+  ]
+}

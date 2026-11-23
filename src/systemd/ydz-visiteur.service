@@ -1,0 +1,54 @@
+[Unit]
+Description=YDZ OS : espace visiteurs (serveur public isolé, lecture seule)
+Documentation=file:/opt/ydz/TECHNIQUE.md
+# Démarré/arrêté par ydzd quand Justin ouvre ou ferme l'espace visiteurs. Laissé désactivé par défaut.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -I -u /opt/ydz/bin/ydz-visiteur
+Restart=on-failure
+RestartSec=3
+Environment=PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+
+# Identité jetable, sans aucun privilège : ce processus n'est jamais root et ne peut rien demander à ydzd.
+DynamicUser=yes
+# Il écrit ses compteurs agrégés (entiers seulement) dans /run/ydz-visiteur ; il lit /run/ydz/public en seule lecture.
+RuntimeDirectory=ydz-visiteur
+RuntimeDirectoryMode=0755
+ReadOnlyPaths=/run/ydz/public
+
+# Durcissement (audit §5.1) : surface d'attaque réduite au strict minimum.
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictAddressFamilies=AF_INET AF_UNIX
+IPAddressDeny=any
+IPAddressAllow=localhost
+MemoryMax=64M
+TasksMax=32
+
+# Verrous supplémentaires (sûrs pour un simple serveur de fichiers)
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources @mount @debug @obsolete
+
+[Install]
+WantedBy=multi-user.target

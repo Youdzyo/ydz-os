@@ -1,0 +1,58 @@
+{
+  "id": "zigbee2mqtt",
+  "nom": "Zigbee2MQTT",
+  "description": "Pilote tes capteurs et ampoules Zigbee sans passer par les box des marques.",
+  "categorie": "Maison",
+  "icone": "antenna",
+  "image": "koenkk/zigbee2mqtt",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 8128,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8128,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "PERIPH",
+      "nom": "Clé Zigbee USB (périphérique)",
+      "type": "texte",
+      "defaut": "/dev/ttyUSB0",
+      "requis": true,
+      "motif": "^/dev/[A-Za-z0-9_./-]+$",
+      "aide": "Repère-le avec « ls /dev/serial/by-id » sur le nœud. /dev/ttyACM0 est pris par le badge YDZ."
+    },
+    {
+      "cle": "MQTT_USER",
+      "nom": "Utilisateur MQTT",
+      "type": "texte",
+      "defaut": "ydz",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$",
+      "aide": "Celui réglé dans l'app Mosquitto."
+    },
+    {
+      "cle": "MQTT_PASSWORD",
+      "nom": "Mot de passe MQTT",
+      "type": "secret",
+      "requis": true,
+      "aide": "Le même que dans l'app Mosquitto (copie-le depuis ses réglages)."
+    }
+  ],
+  "notes": [
+    "Zigbee2MQTT fait le lien entre ta clé Zigbee USB et le reste de la maison : ampoules, prises, capteurs de température ou d'ouverture de marques différentes se retrouvent dans une même interface.",
+    "Il faut une clé USB Zigbee (Sonoff ZBDongle-E ou -P, SkyConnect…) branchée sur le nœud, et l'app Mosquitto installée sur ce même nœud.",
+    "Le fichier de configuration complet est dans le dossier de données (configuration.yaml).",
+    "Dans Home Assistant, ajoute l'intégration MQTT pour voir tes appareils apparaître."
+  ]
+}

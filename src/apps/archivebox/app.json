@@ -1,0 +1,48 @@
+{
+  "id": "archivebox",
+  "nom": "ArchiveBox",
+  "description": "Archive des pages web pour les garder pour toujours.",
+  "categorie": "Lecture et veille",
+  "icone": "archive",
+  "image": "archivebox/archivebox",
+  "noeud_conseille": "vault",
+  "ram_mo": 1024,
+  "ports": [
+    {
+      "port": 8098,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8098,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Nom du compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "ArchiveBox garde une copie complète des pages web que tu lui donnes, pour qu'elles restent lisibles même si le site disparaît ou change.",
+    "Ajoute des liens dans l'interface : chacun est sauvegardé (page complète, PDF, capture, texte).",
+    "Prévois de la place disque : les archives grossissent vite. L'archivage lance un navigateur, donc compte 1 Go de mémoire."
+  ]
+}

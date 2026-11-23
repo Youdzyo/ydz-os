@@ -1,0 +1,40 @@
+{
+  "id": "librespeed",
+  "nom": "LibreSpeed",
+  "description": "Un test de débit du réseau local, à lancer depuis n'importe quel appareil.",
+  "categorie": "Supervision",
+  "icone": "wifi",
+  "image": "lscr.io/linuxserver/librespeed",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8122,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8122,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "MDP_STATS",
+      "nom": "Mot de passe de la page de statistiques",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "LibreSpeed teste la vitesse de ton réseau maison : débit montant et descendant entre ton appareil et le serveur. Idéal pour trouver les coins de la maison où le Wi-Fi est faible.",
+    "Ouvre la page depuis ton téléphone ou ton PC : le test mesure la vitesse entre cet appareil et le nœud (ton Wi-Fi ou ton câble), pas ta connexion Internet.",
+    "Les résultats sont enregistrés ; la page /results/stats.php (protégée par le mot de passe réglé ici) les affiche."
+  ]
+}

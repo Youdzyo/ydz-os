@@ -1,0 +1,36 @@
+{
+  "id": "portainer",
+  "nom": "Portainer",
+  "description": "Interface avancée pour voir et gérer tous les conteneurs Docker du nœud.",
+  "categorie": "Outils",
+  "icone": "container",
+  "image": "portainer/portainer-ce",
+  "noeud_conseille": "forge",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 9000,
+      "proto": "tcp",
+      "nom": "Interface"
+    },
+    {
+      "port": 9443,
+      "proto": "tcp",
+      "nom": "Interface HTTPS"
+    }
+  ],
+  "web": {
+    "port": 9000,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "privilegie": true,
+  "reglages": [],
+  "notes": [
+    "Crée le compte administrateur dans les 5 minutes qui suivent l'installation, sinon Portainer se verrouille (il suffit alors de le redémarrer).",
+    "Portainer a tous les droits sur Docker : réserve-le à ton réseau local."
+  ]
+}

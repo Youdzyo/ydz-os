@@ -1,0 +1,25 @@
+{
+  "id": "flaresolverr",
+  "nom": "FlareSolverr",
+  "description": "Aide Prowlarr à passer les protections anti-robots de certains sites.",
+  "categorie": "Téléchargements",
+  "icone": "wrench",
+  "image": "ghcr.io/flaresolverr/flaresolverr",
+  "noeud_conseille": "vault",
+  "ram_mo": 512,
+  "ports": [
+    {
+      "port": 8191,
+      "proto": "tcp",
+      "nom": "API"
+    }
+  ],
+  "web": null,
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "FlareSolverr est un petit assistant invisible : il ouvre un vrai navigateur pour passer les vérifications « êtes-vous un robot ? » de certains sites, afin que Prowlarr puisse les interroger.",
+    "Pas d'interface : indique son adresse (http://adresse-du-nœud:8191) dans Prowlarr, rubrique Indexeurs > Proxys.",
+    "Il lance un navigateur Chromium en arrière-plan : compte environ 500 Mo de mémoire."
+  ]
+}

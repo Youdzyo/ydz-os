@@ -1,0 +1,31 @@
+{
+  "id": "homepage",
+  "nom": "Homepage",
+  "description": "Ta page d'accueil avec des raccourcis vers toutes tes applis du serveur.",
+  "categorie": "Tableaux de bord",
+  "icone": "layout-dashboard",
+  "image": "ghcr.io/gethomepage/homepage",
+  "noeud_conseille": "pulse",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 3018,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3018,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [],
+  "notes": [
+    "Homepage est la page d'accueil de ton réseau : une page propre avec des boutons vers tous tes services, la météo, l'état des serveurs et des statistiques, réglée par de simples fichiers texte.",
+    "Les fichiers de réglage (services.yaml, widgets.yaml…) sont dans le dossier de données « config » ; modifie-les pour ajouter tes applis.",
+    "Il n'y a pas de mot de passe : réserve-le à ton réseau local."
+  ]
+}

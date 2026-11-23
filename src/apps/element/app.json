@@ -1,0 +1,29 @@
+{
+  "id": "element",
+  "nom": "Element Web",
+  "description": "Le client web pour discuter sur un serveur Matrix comme Synapse.",
+  "categorie": "Communication",
+  "icone": "message-square",
+  "image": "ghcr.io/element-hq/element-web",
+  "noeud_conseille": "forge",
+  "ram_mo": 64,
+  "ports": [
+    {
+      "port": 8127,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8127,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [],
+  "reglages": [],
+  "notes": [
+    "Element Web est la fenêtre de discussion : tu t'y connectes avec ton compte Matrix pour écrire, envoyer des photos et passer des appels, depuis un navigateur.",
+    "Il est déjà réglé pour se connecter au serveur Synapse installé sur le port 8008 de ce nœud.",
+    "Sans HTTPS, le chiffrement de bout en bout et les appels peuvent être limités par le navigateur : il faut une adresse HTTPS ou localhost pour en profiter pleinement."
+  ]
+}

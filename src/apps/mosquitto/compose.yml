@@ -1,0 +1,27 @@
+# YDZ OS : Mosquitto (MQTT). Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    command:
+      - sh
+      - -c
+      - mosquitto_passwd -b -c /mosquitto/data/passwd "$$MQTT_USER" "$$MQTT_PASSWORD" && chown mosquitto:mosquitto /mosquitto/data/passwd && exec /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf
+    ports:
+      - "1883:1883/tcp"
+    environment:
+      MQTT_USER: ${MQTT_USER}
+      MQTT_PASSWORD: ${MQTT_PASSWORD}
+    configs:
+      - source: mosquitto_conf
+        target: /mosquitto/config/mosquitto.conf
+    volumes:
+      - ${YDZ_DATA}/data:/mosquitto/data
+configs:
+  mosquitto_conf:
+    content: |
+      listener 1883
+      allow_anonymous false
+      password_file /mosquitto/data/passwd
+      persistence true
+      persistence_location /mosquitto/data/

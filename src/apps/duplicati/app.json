@@ -1,0 +1,65 @@
+{
+  "id": "duplicati",
+  "nom": "Duplicati",
+  "description": "Sauvegarde automatique et chiffrée de tes dossiers, en local ou dans le cloud.",
+  "categorie": "Sauvegarde",
+  "icone": "history",
+  "image": "lscr.io/linuxserver/duplicati",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 8200,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 8200,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "config"
+  ],
+  "reglages": [
+    {
+      "cle": "SOURCE",
+      "nom": "Dossier à sauvegarder",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz. Il est lu en lecture seule."
+    },
+    {
+      "cle": "DESTINATION",
+      "nom": "Dossier où ranger les sauvegardes",
+      "type": "texte",
+      "defaut": "/srv/ydz",
+      "requis": true,
+      "motif": "^/srv/ydz(/[A-Za-z0-9_][A-Za-z0-9_.-]*)*$",
+      "aide": "Un dossier sous /srv/ydz, de préférence sur un autre disque que la source."
+    },
+    {
+      "cle": "CLE_CONFIG",
+      "nom": "Clé de chiffrement des réglages",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    },
+    {
+      "cle": "MDP_WEB",
+      "nom": "Mot de passe de l'interface",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "Duplicati copie régulièrement tes dossiers importants vers un autre disque ou dans le cloud, en les chiffrant et en ne gardant que les changements. En cas de panne, tu restaures tout.",
+    "Dans l'interface, tes dossiers sont /source (à sauvegarder) et /backups (destination). Duplicati sait aussi sauvegarder vers Google Drive, OneDrive, un serveur SFTP…",
+    "Fais un test de restauration de temps en temps : une sauvegarde jamais testée n'est pas une vraie sauvegarde."
+  ]
+}

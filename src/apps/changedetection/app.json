@@ -1,0 +1,31 @@
+{
+  "id": "changedetection",
+  "nom": "Changedetection.io",
+  "description": "Te prévient quand une page web change (prix, stock, annonce).",
+  "categorie": "Lecture et veille",
+  "icone": "eye",
+  "image": "ghcr.io/dgtlmoon/changedetection.io",
+  "noeud_conseille": "pulse",
+  "ram_mo": 256,
+  "ports": [
+    {
+      "port": 5006,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 5006,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "datastore"
+  ],
+  "reglages": [],
+  "notes": [
+    "Changedetection.io surveille des pages web à ta place et t'envoie une alerte quand quelque chose change : un prix qui baisse, un produit à nouveau en stock, une annonce publiée.",
+    "Colle l'adresse d'une page à surveiller, choisis la fréquence, et configure une notification (ntfy, Gotify, e-mail…) dans Paramètres.",
+    "Réserve-le à ton réseau local : il n'a pas de mot de passe au départ ; définis-en un dans Paramètres."
+  ]
+}

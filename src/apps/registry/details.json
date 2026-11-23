@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "Le registre Docker stocke les images de conteneurs que tu construis toi-même, pour les réutiliser sur plusieurs de tes Raspberry Pi sans passer par Docker Hub.",
+  "pour_qui": "Pour ceux qui construisent leurs propres images Docker.",
+  "difficulte": "avancé",
+  "ram_mo": 128,
+  "alternative_a": "Docker Hub (privé)",
+  "site": "https://distribution.github.io/distribution/"
+}

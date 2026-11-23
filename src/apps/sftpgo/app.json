@@ -1,0 +1,54 @@
+{
+  "id": "sftpgo",
+  "nom": "SFTPGo",
+  "description": "Un serveur SFTP et WebDAV avec gestion des utilisateurs dans une page web.",
+  "categorie": "Fichiers",
+  "icone": "hard-drive-upload",
+  "image": "drakkan/sftpgo",
+  "noeud_conseille": "vault",
+  "ram_mo": 128,
+  "ports": [
+    {
+      "port": 8090,
+      "proto": "tcp",
+      "nom": "Administration"
+    },
+    {
+      "port": 2022,
+      "proto": "tcp",
+      "nom": "SFTP"
+    }
+  ],
+  "web": {
+    "port": 8090,
+    "chemin": "/web/admin",
+    "schema": "http"
+  },
+  "donnees": [
+    "data",
+    "home"
+  ],
+  "reglages": [
+    {
+      "cle": "ADMIN",
+      "nom": "Compte administrateur",
+      "type": "texte",
+      "defaut": "admin",
+      "requis": true,
+      "motif": "^[A-Za-z0-9_.-]{3,32}$"
+    },
+    {
+      "cle": "MDP_ADMIN",
+      "nom": "Mot de passe administrateur",
+      "type": "secret",
+      "genere": true,
+      "min": 8,
+      "aide": "Laisse vide : YDZ en crée un, visible ensuite dans les réglages."
+    }
+  ],
+  "notes": [
+    "SFTPGo permet à des personnes d'envoyer et récupérer des fichiers de façon sécurisée (SFTP, WebDAV, web) avec un compte et un dossier propres à chacune.",
+    "Le compte administrateur est créé au premier démarrage avec les valeurs réglées ici.",
+    "Crée ensuite des utilisateurs avec leur propre dossier dans l'interface ; ils se connectent en SFTP sur le port 2022 (par exemple avec FileZilla)."
+  ]
+}

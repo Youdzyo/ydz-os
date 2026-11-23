@@ -1,0 +1,40 @@
+{
+  "id": "vikunja",
+  "nom": "Vikunja",
+  "description": "Tes listes de tâches et projets, en liste, tableau kanban ou calendrier.",
+  "categorie": "Productivité",
+  "icone": "list-todo",
+  "image": "vikunja/vikunja",
+  "noeud_conseille": "forge",
+  "ram_mo": 192,
+  "ports": [
+    {
+      "port": 3456,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 3456,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "db",
+    "files"
+  ],
+  "reglages": [
+    {
+      "cle": "CLE_JWT",
+      "nom": "Clé de session",
+      "type": "secret",
+      "genere": true,
+      "aide": "Laisse vide : YDZ en crée une."
+    }
+  ],
+  "notes": [
+    "Vikunja est ton gestionnaire de tâches : listes, tableaux façon Trello, diagramme de Gantt et calendrier. Tu peux partager des projets avec ta famille ou tes camarades.",
+    "Crée ton compte à la première ouverture. Désactive ensuite l'inscription si tu ne veux pas d'autres comptes.",
+    "Une application mobile et des synchronisations de calendrier (CalDAV) sont disponibles."
+  ]
+}

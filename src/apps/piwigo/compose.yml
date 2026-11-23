@@ -1,0 +1,27 @@
+# YDZ OS : Piwigo. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MDP_BASE}
+      MARIADB_DATABASE: piwigo
+      MARIADB_USER: piwigo
+      MARIADB_PASSWORD: ${MDP_BASE}
+      MARIADB_AUTO_UPGRADE: "1"
+    volumes:
+      - ${YDZ_DATA}/db:/var/lib/mysql
+  piwigo:
+    image: lscr.io/linuxserver/piwigo:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8130:80/tcp"
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: ${YDZ_TZ}
+    volumes:
+      - ${YDZ_DATA}/config:/config
+      - ${YDZ_DATA}/galleries:/gallery

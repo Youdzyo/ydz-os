@@ -1,0 +1,20 @@
+# YDZ OS : Open WebUI. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    restart: unless-stopped
+    ports:
+      - "3023:8080/tcp"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      TZ: ${YDZ_TZ}
+      OLLAMA_BASE_URL: ${URL_OLLAMA}
+      WEBUI_SECRET_KEY: ${CLE_SECRETE}
+      WEBUI_AUTH: "True"
+      ENABLE_SIGNUP: "false"
+      SCARF_NO_ANALYTICS: "true"
+      DO_NOT_TRACK: "true"
+      ANONYMIZED_TELEMETRY: "false"
+    volumes:
+      - ${YDZ_DATA}/data:/app/backend/data

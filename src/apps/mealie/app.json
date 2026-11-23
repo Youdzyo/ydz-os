@@ -1,0 +1,31 @@
+{
+  "id": "mealie",
+  "nom": "Mealie",
+  "description": "Ton carnet de recettes : import depuis un site, planning de repas, liste de courses.",
+  "categorie": "Cuisine et maison",
+  "icone": "chef-hat",
+  "image": "ghcr.io/mealie-recipes/mealie",
+  "noeud_conseille": "vault",
+  "ram_mo": 384,
+  "ports": [
+    {
+      "port": 9925,
+      "proto": "tcp",
+      "nom": "Interface"
+    }
+  ],
+  "web": {
+    "port": 9925,
+    "chemin": "/",
+    "schema": "http"
+  },
+  "donnees": [
+    "data"
+  ],
+  "reglages": [],
+  "notes": [
+    "Mealie range tes recettes : tu colles l'adresse d'une recette d'un site, il en extrait les ingrédients, planifie la semaine et prépare la liste de courses.",
+    "Première connexion : changeme@example.com avec le mot de passe « MyPassword ». Change-les tout de suite dans le profil.",
+    "Colle l'adresse d'une recette trouvée en ligne : Mealie en récupère les ingrédients et les étapes."
+  ]
+}

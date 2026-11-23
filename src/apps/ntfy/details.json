@@ -1,0 +1,8 @@
+{
+  "a_quoi_ca_sert": "ntfy t'envoie une notification sur ton téléphone dès qu'un script ou une appli lui envoie un message web. Très simple : une ligne de commande suffit pour t'avertir de la fin d'une sauvegarde.",
+  "pour_qui": "Pour être prévenu des événements de son serveur.",
+  "difficulte": "facile",
+  "ram_mo": 64,
+  "alternative_a": "Pushover / notifications Telegram",
+  "site": "https://ntfy.sh"
+}

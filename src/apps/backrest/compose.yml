@@ -1,0 +1,18 @@
+# YDZ OS : Backrest. Les variables ${...} viennent du fichier .env écrit par l'agent.
+services:
+  backrest:
+    image: garethgeorge/backrest:latest
+    restart: unless-stopped
+    ports:
+      - "9898:9898/tcp"
+    environment:
+      TZ: ${YDZ_TZ}
+      BACKREST_DATA: /data
+      BACKREST_CONFIG: /config/config.json
+      XDG_CACHE_HOME: /cache
+    volumes:
+      - ${YDZ_DATA}/data:/data
+      - ${YDZ_DATA}/config:/config
+      - ${YDZ_DATA}/cache:/cache
+      - ${SOURCE}:/userdata:ro
+      - ${DESTINATION}:/repos
